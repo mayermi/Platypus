@@ -14,7 +14,7 @@ import { Hero } from './hero';
   providers: [HeroSearchService]
 })
 
-export class HeroSearchComponent impoements OnInit {
+export class HeroSearchComponent implements OnInit {
   heroes: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
@@ -38,12 +38,12 @@ export class HeroSearchComponent impoements OnInit {
       : Observable.of<Hero[]>([])).catch(error => {
         // TODO: real error handling
         console.log(error);
-        return Observable.of>Hero[]>([]);
+        return Observable.of<Hero[]>([]);
       });
   }
 
   gotoDetail(hero: Hero): void {
-    let link = ['/detail', hero.ik];
+    let link = ['/detail', hero.id];
     this.router.navigate(link);
   }
 }
