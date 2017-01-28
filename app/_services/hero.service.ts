@@ -5,7 +5,8 @@ import { Hero } from '../_models/index';
 @Injectable()
 export class HeroService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'http://platypus-api.herokuapp.com/heroes';  // URL to web api
+
   constructor(private http: Http) { }
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)

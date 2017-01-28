@@ -10,7 +10,7 @@ import { AuthGuard } from './_guards/index';
 const appRoutes: Routes = [
     {
       path: '',
-      component: HomeComponent,
+      component: HomeComponent, canActivate: [AuthGuard],
       pathMatch: 'full'
     },
     {
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     },
     {
       path: 'detail/:id',
-      component: HeroDetailComponent, canActivate: [AuthGuard]
+      component: HeroDetailComponent
     },
     {
       path: 'heroes',
@@ -42,6 +42,7 @@ const appRoutes: Routes = [
 //   imports: [ RouterModule.forRoot(appRoutes) ],
 //   exports: [ RouterModule]
 // })
+
 export const routing = RouterModule.forRoot(appRoutes);
 
 export class AppRoutingModule {}
