@@ -38,11 +38,6 @@ const appRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-// @NgModule({
-//   imports: [ RouterModule.forRoot(appRoutes) ],
-//   exports: [ RouterModule]
-// })
-
 export const routing = RouterModule.forRoot(appRoutes);
 
 export class AppRoutingModule {}
