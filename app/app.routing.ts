@@ -8,11 +8,6 @@ import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
-    // {
-    //   path: '',
-    //   component: HomeComponent,
-    //   pathMatch: 'full'
-    // },
     {
       path: 'dashboard',
       component: DashboardComponent, canActivate: [AuthGuard],
