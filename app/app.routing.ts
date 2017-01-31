@@ -17,7 +17,7 @@ const appRoutes: Routes = [
       component: IdeaDetailComponent
     },
     {
-      path: 'idea-edit',
+      path: 'idea-edit/:id',
       component: IdeaEditComponent
     },
     {
