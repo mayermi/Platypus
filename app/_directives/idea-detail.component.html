@@ -2,10 +2,10 @@
   <h2>{{idea.name}} details!</h2>
   <!-- <div> -->
     <!-- <label>id: </label>{{idea.id}}</div> -->
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="idea.name" placeholder="name" />
-  </div>
+  <dl>
+    <dt>Name: </dt>
+    <dd>{{idea.name}}</dd>
+  </dl>
   <button (click)="goBack()">Back</button>
   <button (click)="gotoEdit()">Add something</button>
 </div>
