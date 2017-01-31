@@ -1,4 +1,5 @@
 export class Idea {
-  id: number;
+  id: string;
+  // id: number;
   name: string;
 }

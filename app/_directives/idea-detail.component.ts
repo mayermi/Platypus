@@ -19,7 +19,8 @@ export class IdeaDetailComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
+      .switchMap((params: Params) => this.ideaService.getIdea(params['id']))
+      // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
       .subscribe(idea => this.idea = idea);
   }
   save(): void {
