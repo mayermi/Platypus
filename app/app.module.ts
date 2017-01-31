@@ -13,7 +13,7 @@ import { BaseRequestOptions } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent, DashboardComponent, HeroesComponent, HeroDetailComponent, HeroSearchComponent } from './_directives/index';
+import { AlertComponent, DashboardComponent, HeroesComponent, HeroDetailComponent, HeroEditComponent, HeroSearchComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, HeroService } from './_services/index';
 import { HomeComponent } from './home/index';
@@ -30,11 +30,12 @@ import { RegisterComponent } from './register/index';
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,
+        // HomeComponent,
         LoginComponent,
         RegisterComponent,
         DashboardComponent,
         HeroDetailComponent,
+        HeroEditComponent,
         HeroesComponent,
         HeroSearchComponent
     ],

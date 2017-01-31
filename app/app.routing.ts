@@ -1,25 +1,30 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 import { NgModule }             from '@angular/core';
 
-import { DashboardComponent, HeroesComponent, HeroDetailComponent }   from './_directives/index';
-import { HomeComponent } from './home/index';
+import { DashboardComponent, HeroesComponent, HeroDetailComponent, HeroEditComponent }   from './_directives/index';
+// import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
-    {
-      path: '',
-      component: HomeComponent, canActivate: [AuthGuard],
-      pathMatch: 'full'
-    },
+    // {
+    //   path: '',
+    //   component: HomeComponent,
+    //   pathMatch: 'full'
+    // },
     {
       path: 'dashboard',
-      component: DashboardComponent
+      component: DashboardComponent, canActivate: [AuthGuard],
+      pathMatch: 'full'
     },
     {
       path: 'detail/:id',
       component: HeroDetailComponent
+    },
+    {
+      path: 'hero-edit',
+      component: HeroEditComponent
     },
     {
       path: 'heroes',
@@ -35,7 +40,7 @@ const appRoutes: Routes = [
     },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'dashboard' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
