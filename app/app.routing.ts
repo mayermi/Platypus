@@ -9,7 +9,7 @@ import { AuthGuard } from './_guards/index';
 const appRoutes: Routes = [
     {
       path: 'dashboard',
-      component: DashboardComponent, canActivate: [AuthGuard],
+      component: DashboardComponent,
       pathMatch: 'full'
     },
     {
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
     },
     {
       path: 'idea-edit/:id',
-      component: IdeaEditComponent
+      component: IdeaEditComponent, canActivate: [AuthGuard]
     },
     {
       path: 'ideas',
