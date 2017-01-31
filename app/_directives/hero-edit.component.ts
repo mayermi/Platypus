@@ -8,7 +8,7 @@ import { HeroService } from '../_services/index';
   moduleId: module.id,
   selector: 'my-hero-edit',
   templateUrl: 'hero-edit.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [ 'hero-edit.component.css' ]
 })
 export class HeroEditComponent implements OnInit {
   hero: Hero;
