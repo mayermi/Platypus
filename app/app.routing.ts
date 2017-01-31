@@ -1,7 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 import { NgModule }             from '@angular/core';
 
-import { DashboardComponent, HeroesComponent, HeroDetailComponent, HeroEditComponent }   from './_directives/index';
+import { DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent }   from './_directives/index';
 // import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -20,15 +20,15 @@ const appRoutes: Routes = [
     },
     {
       path: 'detail/:id',
-      component: HeroDetailComponent
+      component: IdeaDetailComponent
     },
     {
-      path: 'hero-edit',
-      component: HeroEditComponent
+      path: 'idea-edit',
+      component: IdeaEditComponent
     },
     {
-      path: 'heroes',
-      component: HeroesComponent
+      path: 'ideas',
+      component: IdeasComponent
     },
     {
       path: 'login',

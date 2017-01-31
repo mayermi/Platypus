@@ -3,23 +3,23 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { HeroSearchService} from '../_services/index';
-import { Hero } from '../_models/index';
+import { IdeaSearchService} from '../_services/index';
+import { Idea } from '../_models/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'hero-search',
-  templateUrl: 'hero-search.component.html',
-  styleUrls: [ 'hero-search.component.css' ],
-  providers: [HeroSearchService]
+  selector: 'idea-search',
+  templateUrl: 'idea-search.component.html',
+  styleUrls: [ 'idea-search.component.css' ],
+  providers: [IdeaSearchService]
 })
 
-export class HeroSearchComponent implements OnInit {
-  heroes: Observable<Hero[]>;
+export class IdeaSearchComponent implements OnInit {
+  ideas: Observable<Idea[]>;
   private searchTerms = new Subject<string>();
 
   constructor(
-    private heroSearchService: HeroSearchService,
+    private ideaSearchService: IdeaSearchService,
     private router: Router
   ) {}
 
@@ -29,21 +29,21 @@ export class HeroSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroes = this.searchTerms.debounceTime(300) //wait for 300ms pause in events
+    this.ideas = this.searchTerms.debounceTime(300) //wait for 300ms pause in events
     .distinctUntilChanged() // ignore if next search term is same as previous
     .switchMap(term => term // switch to new observable eacht time
       //return the http search observable
-      ? this.heroSearchService.search(term)
+      ? this.ideaSearchService.search(term)
       // or the observable of empty heroes if no search term
-      : Observable.of<Hero[]>([])).catch(error => {
+      : Observable.of<Idea[]>([])).catch(error => {
         // TODO: real error handling
         console.log(error);
-        return Observable.of<Hero[]>([]);
+        return Observable.of<Idea[]>([]);
       });
   }
 
-  gotoDetail(hero: Hero): void {
-    let link = ['/detail', hero.id];
+  gotoDetail(idea: Idea): void {
+    let link = ['/detail', idea.id];
     this.router.navigate(link);
   }
 }

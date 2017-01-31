@@ -13,9 +13,9 @@ import { BaseRequestOptions } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent, DashboardComponent, HeroesComponent, HeroDetailComponent, HeroEditComponent, HeroSearchComponent } from './_directives/index';
+import { AlertComponent, DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaSearchComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, HeroService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -34,17 +34,17 @@ import { RegisterComponent } from './register/index';
         LoginComponent,
         RegisterComponent,
         DashboardComponent,
-        HeroDetailComponent,
-        HeroEditComponent,
-        HeroesComponent,
-        HeroSearchComponent
+        IdeaDetailComponent,
+        IdeaEditComponent,
+        IdeasComponent,
+        IdeaSearchComponent
     ],
     providers: [
         AuthGuard,
         AlertService,
         AuthenticationService,
         UserService,
-        HeroService,
+        IdeaService,
 
         // providers used to create fake backend
         fakeBackendProvider,

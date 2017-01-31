@@ -1,0 +1,11 @@
+<div *ngIf="idea">
+  <h2>{{idea.name}} details!</h2>
+  <!-- <div> -->
+    <!-- <label>id: </label>{{idea.id}}</div> -->
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="idea.name" placeholder="name" />
+  </div>
+  <button (click)="goBack()">Back</button>
+  <a routerLink="/idea-edit" routerLinkActive="active">Add something</a>
+</div>
