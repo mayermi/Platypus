@@ -2,7 +2,6 @@
 import { NgModule }             from '@angular/core';
 
 import { DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent }   from './_directives/index';
-// import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
