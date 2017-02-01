@@ -4,6 +4,9 @@
         <div class="col-sm-8 col-sm-offset-2">
             <alert></alert>
             <router-outlet></router-outlet>
+            <p><a [routerLink]="['/login']">{{loginbutton}}</a></p>
+            <p><a ng-if="!loggedin" [routerLink]="['/login']">Login</a></p>
+            <p><a ng-if="loggedin" [routerLink]="['/login']">Logout</a></p>
         </div>
     </div>
 </div>
