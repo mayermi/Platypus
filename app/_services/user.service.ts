@@ -27,6 +27,10 @@ export class UserService {
         return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
+    isLoggedIn() {
+      return !!localStorage.getItem('currentUser');
+    }
+
     // private helper methods
 
     private jwt() {

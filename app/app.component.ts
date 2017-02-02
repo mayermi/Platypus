@@ -9,21 +9,11 @@ import { UserService } from './_services/index';
 })
 
 export class AppComponent {
-  loggedin : boolean;
-  loginbutton: string;
-  currentUser: User;
+  isLoggedIn : boolean;
 
-  constructor(private userService: UserService) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  }
+  constructor(private userService: UserService) { }
 
   ngDoCheck() {
-    if(this.currentUser) {
-      this.loggedin = true;
-      this.loginbutton = "Logout";
-    } else {
-      this.loggedin = false;
-      this.loginbutton = "Login";
-    }
+    this.isLoggedIn = this.userService.isLoggedIn();
   }
 }
