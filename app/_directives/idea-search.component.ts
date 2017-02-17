@@ -10,7 +10,7 @@ import { Idea } from '../_models/index';
   moduleId: module.id,
   selector: 'idea-search',
   templateUrl: 'idea-search.component.html',
-  styleUrls: [ 'idea-search.component.css' ],
+  // styleUrls: [ 'idea-search.component.css' ],
   providers: [IdeaSearchService]
 })
 

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   moduleId: module.id,
   selector: 'my-ideas',
   templateUrl: 'ideas.component.html',
-  styleUrls: [ 'ideas.component.css' ]
+  // styleUrls: [ 'ideas.component.css' ]
 })
 
 export class IdeasComponent implements OnInit {

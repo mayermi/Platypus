@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   moduleId: module.id,
   selector: 'my-idea-detail',
   templateUrl: 'idea-detail.component.html',
-  styleUrls: [ 'idea-detail.component.css' ]
+  // styleUrls: [ 'idea-detail.component.css' ]
 })
 export class IdeaDetailComponent implements OnInit {
   idea: Idea;

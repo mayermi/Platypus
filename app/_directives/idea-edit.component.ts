@@ -8,7 +8,7 @@ import { IdeaService } from '../_services/index';
   moduleId: module.id,
   selector: 'my-idea-edit',
   templateUrl: 'idea-edit.component.html',
-  styleUrls: [ 'idea-edit.component.css' ]
+  // styleUrls: [ 'idea-edit.component.css' ]
 })
 export class IdeaEditComponent implements OnInit {
   idea: Idea;
