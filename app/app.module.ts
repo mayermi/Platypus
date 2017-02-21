@@ -20,6 +20,7 @@ import { AlertService, AuthenticationService, UserService, IdeaService } from '.
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 
+// import 'hammerjs';
 
 @NgModule({
     imports: [

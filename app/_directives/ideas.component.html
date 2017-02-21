@@ -1,7 +1,7 @@
 <h2>My Ideas</h2>
 <div>
   <label>Idea name:</label> <input #ideaName />
-  <button (click)="add(ideaName.value); ideaName.value=''">
+  <button md-raised-button (click)="add(ideaName.value); ideaName.value=''">
     Add
   </button>
 </div>
@@ -10,7 +10,7 @@
       [class.selected]="idea === selectedIdea">
     <!-- <span class="badge">{{idea.id}}</span> -->
     <span>{{idea.name}}</span>
-    <button class="delete"
+    <button md-button class="delete"
       (click)="delete(idea); $event.stopPropagation()">x</button>
   </li>
 </ul>
@@ -18,5 +18,5 @@
   <h2>
     {{selectedIdea.name | uppercase}} is my idea
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button md-raised-button (click)="gotoDetail()">View Details</button>
 </div>

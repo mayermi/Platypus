@@ -5,8 +5,8 @@
   <dl>
     <dt>Name: </dt>
     <dd>{{idea.name}}</dd>
-    <input [(ngModel)]="idea.name" placeholder="name" />
+    <input [(ngModel)]="idea.name"/>
   </dl>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+  <button md-button (click)="goBack()">Back</button>
+  <button md-raised-button (click)="save()">Save</button>
 </div>
