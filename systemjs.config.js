@@ -25,7 +25,11 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
             // other libraries
-            'rxjs': 'npm:rxjs'
+            'rxjs': 'npm:rxjs',
+
+            // module loading material
+            '@angular/material': 'npm:@angular/material/bundles/material.umd.js'
+
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

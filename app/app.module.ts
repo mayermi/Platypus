@@ -4,6 +4,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
@@ -19,12 +20,14 @@ import { AlertService, AuthenticationService, UserService, IdeaService } from '.
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 
+
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         routing,
+        MaterialModule
     ],
     declarations: [
         AppComponent,
