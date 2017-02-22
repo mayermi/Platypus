@@ -1,9 +1,9 @@
 <md-card>
-<md-card-title>My grid ideas</md-card-title>
+<md-card-title>Ideas</md-card-title>
 <!-- <h2>My Ideas</h2> -->
 <div>
   <label>Idea name:</label> <input #ideaName />
-  <button md-raised-button (click)="add(ideaName.value); ideaName.value=''">
+  <button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.value=''">
     Add
   </button>
 </div>
@@ -12,24 +12,25 @@
 <md-grid-list class="ideas" cols="2" rowHeight="100px">
 
 
-  <md-grid-tile *ngFor="let idea of ideas" (click)="onSelect(idea)"
-      [class.selected]="idea === selectedIdea">
+  <md-grid-tile *ngFor="let idea of ideas" ><!-- (click)="onSelect(idea)"
+      [class.selected]="idea === selectedIdea"> -->
     <!-- <span class="badge">{{idea.id}}</span> -->
 
-    <span>{{idea.name}}</span>
+    <span></span>
+    <a (click)="gotoDetail(idea)">{{idea.name}}</a>
     <button md-button class="delete"
       (click)="delete(idea); $event.stopPropagation()">x</button>
-    </md-grid-tile>
+  </md-grid-tile>
 
 </md-grid-list>
 </md-card-content>
 
-<div *ngIf="selectedIdea">
+<!-- <div *ngIf="selectedIdea">
   <h2>
     {{selectedIdea.name | uppercase}} is my idea
   </h2>
   <button md-raised-button (click)="gotoDetail()">View Details</button>
-</div>
+</div> -->
 
 
   </md-card>

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class IdeaDetailComponent implements OnInit {
   idea: Idea;
+
   constructor(
     private ideaService: IdeaService,
     private route: ActivatedRoute,

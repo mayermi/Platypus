@@ -23,16 +23,16 @@ export class IdeasComponent implements OnInit {
     if (!name) { return; }
     this.ideaService.create(name).then(idea => {
       this.ideas.push(idea);
-      this.selectedIdea = null;
+      // this.selectedIdea = null;
     });
   }
 
   delete(idea: Idea): void {
     this.ideaService.delete(idea.id).then(() => {
      this.ideas = this.ideas.filter(h => h !== idea);
-     if (this.selectedIdea === idea) {
-      this.selectedIdea = null;
-      }
+     // if (this.selectedIdea === idea) {
+     //  this.selectedIdea = null;
+     //  }
      });
   }
 
@@ -44,11 +44,11 @@ export class IdeasComponent implements OnInit {
     this.getIdeas();
   }
 
-  onSelect(idea: Idea): void {
-    this.selectedIdea = idea;
-  }
+  // onSelect(idea: Idea): void {
+  //   this.selectedIdea = idea;
+  // }
 
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedIdea.id]);
+  gotoDetail(idea: Idea): void {
+    this.router.navigate(['/detail', idea.id]);
   }
 }
