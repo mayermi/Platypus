@@ -15,7 +15,7 @@ import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
 import { AlertComponent, DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, IdeaSearchComponent } from './_directives/index';
-import { AuthGuard } from './_guards/index';
+import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -44,6 +44,7 @@ import { RegisterComponent } from './register/index';
     ],
     providers: [
         AuthGuard,
+        IdeaOwnerAuthGuard,
         AlertService,
         AuthenticationService,
         UserService,

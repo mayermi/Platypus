@@ -4,7 +4,7 @@ import { NgModule }             from '@angular/core';
 import { DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent }   from './_directives/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
-import { AuthGuard } from './_guards/index';
+import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
     {
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
     },
     {
       path: 'idea-edit/:id',
-      component: IdeaEditComponent, canActivate: [AuthGuard]
+      component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]
     },
     {
       path: 'idea-add/:id',

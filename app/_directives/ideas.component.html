@@ -1,35 +1,20 @@
-<md-card>
-  <md-card-title>Ideas</md-card-title>
-<!-- <h2>My Ideas</h2> -->
-  <div>
-    <label>Idea name:</label> <input #ideaName />
-    <button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.  value=''">
-      Add
-    </button>
-  </div>
+<h2>Ideas</h2>
 
-  <md-card-content class="demo-basic-list">
-    <md-grid-list class="ideas" cols="2" rowHeight="100px">
+<idea-search></idea-search>
+<md-input-container class="example-full-width">
+  <textarea mdInput placeholder="Idea name:"></textarea>
+</md-input-container>
+<button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.  value=''">
+  Add
+</button>
 
-
-      <md-grid-tile *ngFor="let idea of ideas" ><!-- (click)="onSelect(idea)"
-      [class.selected]="idea === selectedIdea"> -->
-    <!-- <span class="badge">{{idea.id}}</span> -->
-
-        <span></span>
-        <a (click)="gotoDetail(idea)">{{idea.name}}</a>
+<md-grid-list class="ideas" cols="2" rowHeight="10em">
+  <md-grid-tile *ngFor="let idea of ideas" >
+    <md-card (click)="gotoDetail(idea)">
+      <md-card-title>{{idea.name}}</md-card-title>
+      <md-card-actions>
         <button md-button class="delete" (click)="delete(idea); $event.stopPropagation()">x</button>
-      </md-grid-tile>
-
-    </md-grid-list>
-  </md-card-content>
-
-<!-- <div *ngIf="selectedIdea">
-  <h2>
-    {{selectedIdea.name | uppercase}} is my idea
-  </h2>
-  <button md-raised-button (click)="gotoDetail()">View Details</button>
-</div> -->
-
-
-</md-card>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>

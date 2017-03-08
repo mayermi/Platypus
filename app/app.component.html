@@ -8,14 +8,18 @@
     </div>
 </div>
 
-<nav>
-    <md-toolbar>
-    <md-toolbar-row>
-    <a routerLink="/dashboard" routerLinkActive="active">Dashboard_</a>
-    <a routerLink="/ideas" routerLinkActive="active">Ideas_</a>
-    <a *ngIf="!isLoggedIn" [routerLink]="['/login']">Login</a>
-    <a *ngIf="isLoggedIn" [routerLink]="['/login']">Logout</a>
-    </md-toolbar-row>
-    </md-toolbar>
-</nav>
+<md-nav-list>
+    <md-list-item>
+    <a routerLink="/dashboard" routerLinkActive="active">Platypus</a>
+    </md-list-item>
+    <md-list-item>
+    <a routerLink="/ideas" routerLinkActive="active">Ideas</a>
+    </md-list-item>
+    <md-list-item *ngIf="!isLoggedIn" >
+    <a [routerLink]="['/login']">Login</a>
+    </md-list-item>
+    <md-list-item *ngIf="isLoggedIn">
+    <a [routerLink]="['/login']">Logout</a>
+    </md-list-item>
+</md-nav-list>
 <router-outlet></router-outlet>

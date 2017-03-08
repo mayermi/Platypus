@@ -5,7 +5,7 @@ import { Idea } from '../_models/index';
 @Injectable()
 export class IdeaService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private ideasUrl = 'http://platypus-api.herokuapp.com/heroes';  // URL to web api
+  private ideasUrl = 'http://platypus-api.herokuapp.com/ideas';  // URL to web api
 
   constructor(private http: Http) { }
   getIdeas(): Promise<Idea[]> {

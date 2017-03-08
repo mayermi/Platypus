@@ -12,6 +12,7 @@ import { IdeaService } from '../_services/index';
 })
 export class IdeaAddComponent implements OnInit {
   idea: Idea;
+  // $scope.telephone = [];
   constructor(
     private ideaService: IdeaService,
     private route: ActivatedRoute,
@@ -24,6 +25,11 @@ export class IdeaAddComponent implements OnInit {
       .subscribe(idea => this.idea = idea);
   }
   save(): void {
+    // Create input element
+    // var input = angular.element('<div><input type="text" ng-model="telephone[' + $scope.inputCounter + ']"></div>');
+    // Compile the HTML and assign to scope
+    // var compile = $compile(input)($scope);
+
     this.ideaService.update(this.idea)
       .then(() => this.goBack());
   }
