@@ -1,14 +1,28 @@
 <div *ngIf="idea">
   <h2>{{idea.name}} details!</h2>
-  <!-- <div> -->
-    <!-- <label>id: </label>{{idea.id}}</div> -->
-  <dl>
-    <dt>Name: </dt>
-    <dd>{{idea.name}}</dd>
 
-    <dd>{{idea.content}}ll</dd>
-  </dl>
-  <button md-raised-button (click)="goBack()">Back</button>
-  <button md-raised-button color="primary" (click)="gotoAdd()">Add something</button>
-  <button md-button (click)="gotoEdit()">Phase over</button>
+  <!-- <button md-raised-button (click)="goBack()">Back</button> -->
+  <button md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="gotoAdd()">Modification</button>
+    <button md-menu-item (click)="gotoAdd()">Position</button>
+  </md-menu>
+
+  <!-- <button md-raised-button color="primary" (click)="gotoAdd()">Add something</button> -->
+  <!-- <button md-button (click)="gotoEdit()">Phase over</button> -->
+
+<md-tab-group>
+  <md-tab *ngFor="let phase of phases" label="{{phase}}">
+    <div *ngFor="let ideaPart of ideaParts">
+    <h3 md-subheader>{{ideaPart}}</h3>
+    <button md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item (click)="gotoAdd()">Modification</button>
+      <button md-menu-item (click)="gotoAdd()">Position</button>
+    </md-menu>
+    <p>...</p>
+    </div>
+  </md-tab>
+</md-tab-group>
+
 </div>

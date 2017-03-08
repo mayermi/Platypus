@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class IdeaDetailComponent implements OnInit {
   idea: Idea;
+  ideaParts = ['Awareness', 'Internalization', 'Twist, Defend and Persuade', 'Commitment'];
+  phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
 
   constructor(
     private ideaService: IdeaService,
@@ -20,6 +22,7 @@ export class IdeaDetailComponent implements OnInit {
     private location: Location,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.ideaService.getIdea(params['id']))
