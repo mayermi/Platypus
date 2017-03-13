@@ -1,7 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 import { NgModule }             from '@angular/core';
 
-import { DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent }   from './_directives/index';
+import { DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, IdeaAddContributionComponent }   from './_directives/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
@@ -21,8 +21,12 @@ const appRoutes: Routes = [
       component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]
     },
     {
-      path: 'idea-add/:id',
+      path: 'idea-add',
       component: IdeaAddComponent, canActivate: [AuthGuard]
+    },
+    {
+      path: 'idea-add-contribution/:id',
+      component: IdeaAddContributionComponent, canActivate: [AuthGuard]
     },
     {
       path: 'ideas',

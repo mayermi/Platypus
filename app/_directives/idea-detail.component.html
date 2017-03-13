@@ -7,39 +7,28 @@
   <h2>{{idea.name}}</h2>
 
   <!-- <button md-raised-button (click)="goBack()">Back</button> -->
-  <button md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
+  <button *ngIf="currentPhase==phase" md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
   <md-menu #menu="mdMenu">
-    <button md-menu-item (click)="gotoAdd()">Modification</button>
-    <button md-menu-item (click)="gotoAdd()">Position</button>
+    <button md-menu-item (click)="activateModification">Modification</button>
+    <button md-menu-item (click)="activatePosition">Position</button>
   </md-menu>
-  <!-- <button md-button (click)="gotoEdit()">Phase over</button> -->
+  <button *ngIf="currentPhase==phase" md-button (click)="gotoEdit()">Phase over</button>
 
   <md-tab-group>
     <md-tab *ngFor="let phase of phases" label="{{phase}}">
-      <!-- <md-grid-list cols="2">
-        <md-grid-tile> -->
-          <div *ngFor="let ideaPart of ideaParts">
-          <h3 md-subheader>{{ideaPart}} of {{phase}}</h3>
-          <button md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
-          <md-menu #menu="mdMenu">
-            <button md-menu-item (click)="gotoAdd()">Modification</button>
-            <button md-menu-item (click)="gotoAdd()">Position</button>
-          </md-menu>
-          <p>...</p>
-          <button md-raised-button>Show Backgroundinformation</button>
-          </div>
-        <!-- </md-grid-tile>
-
-        <md-grid-tile>
-          <md-card>
-            <md-list>
-              <md-list-item md-virtual-repeat="idea in ideas" md-on-demand class="repeated-item" flex>{{idea.name}}</md-list-item>
-            </md-list>
-            <button md-raised-button color="primary">Hide</button>
-          </md-card>
-        </md-grid-tile>
-      </md-grid-list> -->
+      <div *ngFor="let ideaPart of ideaParts">
+      <h3 md-subheader>{{ideaPart}} of {{phase}}</h3>
+      <button *ngIf="currentPhase==phase" md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item (click)="gotoAdd()">Modification</button>
+        <button md-menu-item (click)="gotoAdd()">Position</button>
+      </md-menu>
+      <p>...</p>
+      <button *ngIf="currentPhase==phase" md-raised-button>Show Backgroundinformation</button>
+      </div>
+      <idea-add-contribution *ngIf="currentPhase==phase&&modificationActive"></idea-add-contribution>
     </md-tab>
   </md-tab-group>
+
 
 </div>

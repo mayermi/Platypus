@@ -1,12 +1,19 @@
 <div *ngIf="idea">
   <h2>{{idea.name}} details!</h2>
+  <h3>The phase ended. Please adjust the idea with the received input.</h3>
   <!-- <div> -->
     <!-- <label>id: </label>{{idea.id}}</div> -->
-  <dl>
-    <dt>Name: </dt>
-    <dd>{{idea.name}}</dd>
-    <input [(ngModel)]="idea.name"/>
-  </dl>
+
+  <div *ngFor="let ideaPart of ideaParts">
+    <h3 md-subheader>{{ideaPart}}</h3>
+    <md-input-container class="example-full-width">
+      <textarea mdInput placeholder="Idea name:"></textarea>
+    </md-input-container>
+    <h3 md-subheader>Information {{ideaPart}} is based on</h3>
+    <md-input-container class="example-full-width">
+      <textarea mdInput placeholder="Idea name:"></textarea>
+    </md-input-container>
+  </div>
   <button md-button (click)="goBack()">Back</button>
   <button md-raised-button (click)="save()">Save</button>
 </div>

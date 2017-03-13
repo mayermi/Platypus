@@ -7,6 +7,8 @@
 <button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.  value=''">
   Add
 </button>
+<a routerLink="/idea-add" routerLinkActive="active">
+  Addform </a>
 
 <md-grid-list class="ideas" cols="2" rowHeight="10em">
   <md-grid-tile *ngFor="let idea of ideas" >
