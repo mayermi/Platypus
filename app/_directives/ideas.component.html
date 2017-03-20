@@ -13,7 +13,7 @@
 <md-grid-list class="ideas" cols="2" rowHeight="10em">
   <md-grid-tile *ngFor="let idea of ideas" >
     <md-card (click)="gotoDetail(idea)">
-      <md-card-title>{{idea._id}}</md-card-title>
+      <md-card-title>{{idea.title}}</md-card-title>
       <md-card-actions>
         <button md-button class="delete" (click)="delete(idea); $event.stopPropagation()">x</button>
       </md-card-actions>

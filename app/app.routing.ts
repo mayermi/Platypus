@@ -17,7 +17,7 @@ const appRoutes: Routes = [
       component: IdeaDetailComponent
     },
     {
-      path: 'idea-edit/:id',
+      path: 'idea-edit/:_id',
       component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]
     },
     {
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
       component: IdeaAddComponent, canActivate: [AuthGuard]
     },
     {
-      path: 'idea-add-contribution/:id',
+      path: 'idea-add-contribution/:_id',
       component: IdeaAddContributionComponent, canActivate: [AuthGuard]
     },
     {

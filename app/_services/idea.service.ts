@@ -15,14 +15,14 @@ export class IdeaService {
                .catch(this.handleError);
   }
   getIdea(id: String): Promise<Idea> {
-    const url = `${this.ideasUrl}/${id}`;
+    const url = `${this.ideasUrl}?_id=${id}`;
     return this.http.get(url)
       .toPromise()
       .then(response => response.json().response as Idea)
       .catch(this.handleError);
   }
   delete(id: String): Promise<void> {
-    const url = `${this.ideasUrl}/${id}`;
+    const url = `${this.ideasUrl}?_id=${id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
@@ -50,7 +50,7 @@ export class IdeaService {
       .catch(this.handleError);
   }
   update(idea: Idea): Promise<Idea> {
-    const url = `${this.ideasUrl}/${idea.id}`;
+    const url = `${this.ideasUrl}?_id=${id}`;
     return this.http
       .put(url, JSON.stringify(idea), {headers: this.headers})
       .toPromise()
