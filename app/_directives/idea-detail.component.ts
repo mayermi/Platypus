@@ -28,7 +28,7 @@ export class IdeaDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.ideaService.getIdea(params['id']))
+      .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
       .subscribe(idea => this.idea = idea);
   }
@@ -52,9 +52,9 @@ export class IdeaDetailComponent implements OnInit {
     this.location.back();
   }
   gotoAdd(): void {
-    this.router.navigate(['/idea-add-contribution', this.idea.id]);
+    this.router.navigate(['/idea-add-contribution', this.idea._id]);
   }
   gotoEdit(): void {
-    this.router.navigate(['/idea-edit', this.idea.id]);
+    this.router.navigate(['/idea-edit', this.idea._id]);
   }
 }

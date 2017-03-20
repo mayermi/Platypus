@@ -13,7 +13,7 @@ const appRoutes: Routes = [
       pathMatch: 'full'
     },
     {
-      path: 'detail/:id',
+      path: 'detail/:_id',
       component: IdeaDetailComponent
     },
     {

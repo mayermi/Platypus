@@ -18,17 +18,17 @@ export class IdeasComponent implements OnInit {
     private router: Router,
     private ideaService: IdeaService) { }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.ideaService.create(name).then(idea => {
+  add(title: string): void {
+    title = title.trim();
+    if (!title) { return; }
+    this.ideaService.create(title).then(idea => {
       this.ideas.push(idea);
       // this.selectedIdea = null;
     });
   }
 
   delete(idea: Idea): void {
-    this.ideaService.delete(idea.id).then(() => {
+    this.ideaService.delete(idea._id).then(() => {
      this.ideas = this.ideas.filter(h => h !== idea);
      // if (this.selectedIdea === idea) {
      //  this.selectedIdea = null;
@@ -49,6 +49,6 @@ export class IdeasComponent implements OnInit {
   // }
 
   gotoDetail(idea: Idea): void {
-    this.router.navigate(['/detail', idea.id]);
+    this.router.navigate(['/detail', idea._id]);
   }
 }

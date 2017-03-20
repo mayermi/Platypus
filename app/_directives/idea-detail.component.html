@@ -1,10 +1,10 @@
 <div *ngIf="idea">
 
   <div>
-    <a routerLink="/ideas" routerLinkActive="active">Ideas</a> >> {{idea.name}}
+    <a routerLink="/ideas" routerLinkActive="active">Ideas</a> >> {{idea.title}}
   </div>
 
-  <h2>{{idea.name}}</h2>
+  <h2>{{idea.title}}</h2>
 
   <!-- <button md-raised-button (click)="goBack()">Back</button> -->
   <button *ngIf="currentPhase==phase" md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>

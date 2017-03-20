@@ -5,20 +5,20 @@ import { Idea } from '../_models/index';
 @Injectable()
 export class IdeaService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private ideasUrl = 'http://platypus-api.herokuapp.com/ideas';  // URL to web api
+  private ideasUrl = 'https://cityidea.herokuapp.com/app/api/ideas';  // URL to web api
 
   constructor(private http: Http) { }
   getIdeas(): Promise<Idea[]> {
     return this.http.get(this.ideasUrl)
                .toPromise()
-               .then(response => response.json().data as Idea[])
+               .then(response => response.json().response as Idea[])
                .catch(this.handleError);
   }
   getIdea(id: String): Promise<Idea> {
     const url = `${this.ideasUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Idea)
+      .then(response => response.json().response as Idea)
       .catch(this.handleError);
   }
   delete(id: String): Promise<void> {
@@ -42,11 +42,11 @@ export class IdeaService {
   //     .then(() => null)
   //     .catch(this.handleError);
   // }
-  create(name: string): Promise<Idea> {
+  create(title: string): Promise<Idea> {
     return this.http
-      .post(this.ideasUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.ideasUrl, JSON.stringify({title: title}), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data)
+      .then(res => res.json().response)
       .catch(this.handleError);
   }
   update(idea: Idea): Promise<Idea> {

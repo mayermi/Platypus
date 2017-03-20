@@ -1,7 +1,14 @@
 ﻿export class User {
-    id: number;
-    username: string;
+    id: string;
+    email: string;
     password: string;
-    firstName: string;
-    lastName: string;
+    created: number;
+    modified: number;
+    _v: number;
+    information: string[];
+    likes: string[];
+    positions: string[];
+    modifications: string[];
+    ideas: string[];
+    type: string;
 }

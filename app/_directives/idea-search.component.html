@@ -2,6 +2,6 @@
   <h4> Idea Search</h4>
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
   <div>
-    <div *ngFor="let idea of ideas | async" (click)="gotoDetail(idea)" class="search-result">{{idea.name}}</div>
+    <div *ngFor="let idea of ideas | async" (click)="gotoDetail(idea)" class="search-result">{{idea.title}}</div>
   </div>
 </div>
