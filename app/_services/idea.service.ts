@@ -18,7 +18,7 @@ export class IdeaService {
     const url = `${this.ideasUrl}?_id=${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().response as Idea)
+      .then(response => response.json().response[0] as Idea)
       .catch(this.handleError);
   }
   delete(id: String): Promise<void> {
