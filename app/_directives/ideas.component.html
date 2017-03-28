@@ -1,19 +1,25 @@
 <h2>Ideas</h2>
 
 <idea-search></idea-search>
-<md-input-container class="example-full-width">
+<!-- <md-input-container class="example-full-width">
   <textarea mdInput placeholder="Idea name:"></textarea>
 </md-input-container>
-<button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.  value=''">
+<button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.value=''">
   Add
-</button>
-<a routerLink="/idea-add" routerLinkActive="active">
-  Addform </a>
+</button> -->
+<button md-raised-button color="primary" routerLink="/idea-add" routerLinkActive="active">Addform</button>
 
 <md-grid-list class="ideas" cols="2" rowHeight="10em">
   <md-grid-tile *ngFor="let idea of ideas" >
     <md-card (click)="gotoDetail(idea)">
-      <md-card-title>{{idea.title}}</md-card-title>
+      <md-card-title>
+        <h4>{{idea.title}}</h4>
+        <div>Location: {{idea.locatoin}}</div>
+        <div>Phase: {{idea.phase}}</div>
+        <div *ngFor="let tag of idea.tags">
+          <md-chip>tag</md-chip>
+        </div>
+      </md-card-title>
       <md-card-actions>
         <button md-button class="delete" (click)="delete(idea); $event.stopPropagation()">x</button>
       </md-card-actions>

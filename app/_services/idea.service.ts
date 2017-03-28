@@ -50,7 +50,7 @@ export class IdeaService {
       .catch(this.handleError);
   }
   update(idea: Idea): Promise<Idea> {
-    const url = `${this.ideasUrl}?_id=${id}`;
+    const url = `${this.ideasUrl}?_id=${idea._id}`;
     return this.http
       .put(url, JSON.stringify(idea), {headers: this.headers})
       .toPromise()

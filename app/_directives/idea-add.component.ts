@@ -22,14 +22,14 @@ export class IdeaAddComponent implements OnInit {
     private location: Location
   ) {}
 
-  add(title: string): void {
-    title = title.trim();
-    if (!title) { return; }
-    this.ideaService.create(title).then(idea => {
-      this.ideas.push(idea);
-      // this.selectedIdea = null;
-    });
-  }
+  // add(title: string): void {
+  //   title = title.trim();
+  //   if (!title) { return; }
+  //   this.ideaService.create(title).then(idea => {
+  //     this.ideas.push(idea);
+  //     // this.selectedIdea = null;
+  //   });
+  // }
   ngOnInit(): void {
 
     // this.route.params

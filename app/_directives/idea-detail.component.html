@@ -14,11 +14,17 @@
   </md-menu>
   <button *ngIf="currentPhase==phase" md-button (click)="gotoEdit()">Phase over</button>
 
-  <md-tab-group>
+  <div>End of current phase: 22.4.17 10:00am</div>
+  <p>{{idea.location}}</p>
+  <div *ngFor="let tag of idea.tags">
+    <md-chip>tag</md-chip>
+  </div>
+
+  <md-tab-group [selectedIndex]="idea.phase">
     <md-tab *ngFor="let phase of phases" label="{{phase}}">
       <div *ngFor="let ideaPart of ideaParts">
-      <h3 md-subheader>{{ideaPart}} of {{phase}}</h3>
-      <button *ngIf="currentPhase==phase" md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
+      <h3 md-subheader>{{ideaPart}}</h3>
+      <button *ngIf="selectedIndex===idea.phase" md-raised-button color="primary" [mdMenuTriggerFor]="menu">Add</button>
       <md-menu #menu="mdMenu">
         <button md-menu-item (click)="gotoAdd()">Modification</button>
         <button md-menu-item (click)="gotoAdd()">Position</button>

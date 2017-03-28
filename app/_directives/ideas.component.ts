@@ -18,14 +18,14 @@ export class IdeasComponent implements OnInit {
     private router: Router,
     private ideaService: IdeaService) { }
 
-  add(title: string): void {
-    title = title.trim();
-    if (!title) { return; }
-    this.ideaService.create(title).then(idea => {
-      this.ideas.push(idea);
-      // this.selectedIdea = null;
-    });
-  }
+  // add(title: string): void {
+  //   title = title.trim();
+  //   if (!title) { return; }
+  //   this.ideaService.create(title).then(idea => {
+  //     this.ideas.push(idea);
+  //     // this.selectedIdea = null;
+  //   });
+  // }
 
   delete(idea: Idea): void {
     this.ideaService.delete(idea._id).then(() => {
