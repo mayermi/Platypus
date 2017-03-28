@@ -1,5 +1,5 @@
 export class Idea {
-  id: string;
+  _id: string;
   title: string;
   user: string;
   created: number;

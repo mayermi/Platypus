@@ -43,7 +43,7 @@ export class IdeaSearchComponent implements OnInit {
   }
 
   gotoDetail(idea: Idea): void {
-    let link = ['/detail', idea.id];
+    let link = ['/detail', idea._id];
     this.router.navigate(link);
   }
 }

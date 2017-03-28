@@ -10,8 +10,10 @@ import { IdeaService } from '../_services/index';
   templateUrl: 'idea-add.component.html',
 })
 export class IdeaAddComponent implements OnInit {
+  ideas: Idea[];
   idea: Idea;
   ideaParts = ['Awareness', 'Internalization', 'Twist, Defend and Persuade', 'Commitment'];
+  ideaService = IdeaService;
 
   // $scope.telephone = [];
   constructor(
@@ -19,15 +21,21 @@ export class IdeaAddComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) {}
+
+  add(title: string): void {
+    title = title.trim();
+    if (!title) { return; }
+    this.ideaService.create(title).then(idea => {
+      this.ideas.push(idea);
+      // this.selectedIdea = null;
+    });
+  }
   ngOnInit(): void {
+
     // this.route.params
     //   // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
     //   .switchMap((params: Params) => this.ideaService.getIdea(params['id']))
     //   .subscribe(idea => this.idea = idea);
-  }
-  save(): void {
-    // this.ideaService.update(this.idea)
-    //   .then(() => this.goBack());
   }
 
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
