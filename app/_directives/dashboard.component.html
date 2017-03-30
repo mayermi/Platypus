@@ -12,9 +12,9 @@ Down here we see our heros! Users that have collaboration and empathy for each o
   <md-grid-tile>
     <md-list class="grid grid-pad">
       <h2 md-subheader>Most included modifications</h2>
-       <md-list-item *ngFor="let idea of ideas" >
+       <md-list-item *ngFor="let user of users" >
          <div class="module idea">
-           <h4>{{idea.title}}</h4>
+           <h4>{{user.email}}</h4>
          </div>
       </md-list-item>
     </md-list>
@@ -25,7 +25,7 @@ Down here we see our heros! Users that have collaboration and empathy for each o
     <h2 md-subheader>Most modifications on idea</h2>
       <md-list-item *ngFor="let idea of ideas" >
         <div class="module idea">
-          <h4>{{idea.title}}</h4>
+          <h4>{{user.email}}</h4>
         </div>
       </md-list-item>
     </md-list>
