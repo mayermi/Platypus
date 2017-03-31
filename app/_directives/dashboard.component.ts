@@ -15,7 +15,10 @@ export class DashboardComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(
+    private router: Router,
+    private userService: UserService
+    ) { }
 
   getUsers(): void {
     this.userService.getUsers().then(users => this.users = users);

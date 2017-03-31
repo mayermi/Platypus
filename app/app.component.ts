@@ -14,6 +14,6 @@ export class AppComponent {
   constructor(private userService: UserService) { }
 
   ngDoCheck() {
-    this.isLoggedIn = this.userService.isLoggedIn();
+    //this.isLoggedIn = this.userService.isLoggedIn();
   }
 }
