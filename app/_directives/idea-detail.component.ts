@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 })
 export class IdeaDetailComponent implements OnInit {
   idea: Idea;
-  ideaParts = ['Awareness', 'Internalization', 'Twist, Defend and Persuade', 'Commitment'];
+  currentPhase: String;
+  selectedPhase: String;
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
-  currentPhase = "Phase II";
   modificationActive = false;
   positionActive = false;
 
@@ -33,7 +33,10 @@ export class IdeaDetailComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-      .subscribe(idea => this.idea = idea);
+      .subscribe(idea => {
+        this.idea = idea;
+        this.currentPhase = this.phases[idea.phase];
+      });
   }
 
   activateModification(): void {
@@ -42,6 +45,18 @@ export class IdeaDetailComponent implements OnInit {
 
   activatePosition(): void {
     this.positionActive = true;
+  }
+
+  addAddition(): void {
+
+  }
+
+  addArgument(): void {
+
+  }
+
+  addModification(): void {
+
   }
 
   save(): void {
