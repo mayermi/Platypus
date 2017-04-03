@@ -1,17 +1,19 @@
 <h1>Welcome to Platypus!</h1>
 
 <p>
-Here is some motivating description text to make you interested, because this is some super cool platform designed expecially for your needs.
+Here we create new projects for our city of the future. Everyone can join and productively contribute.
 </p>
 
 <p>
-Down here we see our heros! Users that have collaboration and empathy for each other worked out and are super awesome.
+Why decide between a duck and a biever, if we can create a platypus? We want to find the best ideas citizens have for their city and elaborate them together to create a better and brighter future for our city!
 </p>
+
+<h2>Our collaboration heroes:</h2>
 
 <md-grid-list cols="2" rowHeight="10em">
   <md-grid-tile>
     <md-list class="grid grid-pad">
-      <h2 md-subheader>Most included modifications</h2>
+      <h2 md-subheader>Idea creators with most included modifications</h2>
        <md-list-item *ngFor="let user of users" >
          <div class="module idea">
            <h4>{{user.email}}</h4>
@@ -22,7 +24,7 @@ Down here we see our heros! Users that have collaboration and empathy for each o
 
   <md-grid-tile>
   <md-list class="grid grid-pad">
-    <h2 md-subheader>Most modifications on idea</h2>
+    <h2 md-subheader>Users with most included modifications and additions</h2>
       <md-list-item *ngFor="let user of users" >
         <div class="module idea">
           <h4>{{user.email}}</h4>
