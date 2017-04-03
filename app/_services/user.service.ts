@@ -16,10 +16,6 @@ export class UserService {
                .catch(this.handleError);
   }
 
-    getAll() {
-        return this.http.get('app/api/users', this.jwt()).map((response: Response) => response.json());
-    }
-
     getById(id: number) {
         return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }

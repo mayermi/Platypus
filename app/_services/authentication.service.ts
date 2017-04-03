@@ -7,8 +7,8 @@ import 'rxjs/add/operator/map'
 export class AuthenticationService {
     constructor(private http: Http) { }
 
-    login(username: string, password: string) {
-        return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
+    login(email: string, pw: string) {
+        return this.http.post('https://cityidea.herokuapp.com/app/api/login', JSON.stringify({ email: email, pw: pw }))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
@@ -19,8 +19,17 @@ export class AuthenticationService {
             });
     }
 
-    logout() {
+    logout(email: string) {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        // localStorage.removeItem('currentUser');
+        return this.http.post('https://cityidea.herokuapp.com/app/api/logout', JSON.stringify({ email: email}))
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                let user = response.json();
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+            });
     }
 }
