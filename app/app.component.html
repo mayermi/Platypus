@@ -10,16 +10,19 @@
 
 <md-nav-list>
     <md-list-item>
-    <a routerLink="/dashboard" routerLinkActive="active">Platypus</a>
+        <a routerLink="/ideas" routerLinkActive="active">Platypus</a>
     </md-list-item>
     <md-list-item>
-    <a routerLink="/ideas" routerLinkActive="active">Ideas</a>
+        <a routerLink="/dashboard" routerLinkActive="active">Ranking</a>
+    </md-list-item>
+    <md-list-item>
+        <a routerLink="/dashboard" routerLinkActive="active">Rules & Etiquette</a>
     </md-list-item>
     <md-list-item *ngIf="!isLoggedIn" >
-    <a [routerLink]="['/login']">Login</a>
+        <a [routerLink]="['/login']">Login</a>
     </md-list-item>
     <md-list-item *ngIf="isLoggedIn">
-    <a [routerLink]="['/login']">Logout</a>
+        <a (ngSubmit)="logout()">Logout</a>
     </md-list-item>
 </md-nav-list>
 <router-outlet></router-outlet>

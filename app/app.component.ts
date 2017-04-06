@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from './_models/index';
 import { UserService } from './_services/index';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AlertService, AuthenticationService } from './_services/index';
 
 @Component({
     moduleId: module.id,
@@ -10,10 +12,30 @@ import { UserService } from './_services/index';
 
 export class AppComponent {
   isLoggedIn : boolean;
+  model: any = {};
+  returnUrl: string;
 
-  constructor(private userService: UserService) { }
+  constructor(
+        private userService: UserService,
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService) { }
 
   ngDoCheck() {
-    //this.isLoggedIn = this.userService.isLoggedIn();
+    this.isLoggedIn = this.userService.isLoggedIn();
+  }
+
+  logout() {
+    // this.loading = true;
+    this.authenticationService.logout(this.model.username)
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.alertService.error(error);
+          // this.loading = false;
+        });
   }
 }

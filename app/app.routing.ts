@@ -10,7 +10,6 @@ const appRoutes: Routes = [
     {
       path: 'dashboard',
       component: DashboardComponent,
-      pathMatch: 'full'
     },
     {
       path: 'detail/:_id',
@@ -18,19 +17,20 @@ const appRoutes: Routes = [
     },
     {
       path: 'idea-edit/:_id',
-      component: IdeaEditComponent, //canActivate: [IdeaOwnerAuthGuard]
+      component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]
     },
     {
       path: 'idea-add',
-      component: IdeaAddComponent, //canActivate: [AuthGuard]
+      component: IdeaAddComponent, canActivate: [AuthGuard]
     },
     {
       path: 'idea-add-contribution/:_id',
-      component: IdeaAddContributionComponent, //canActivate: [AuthGuard]
+      component: IdeaAddContributionComponent, canActivate: [AuthGuard]
     },
     {
       path: 'ideas',
-      component: IdeasComponent
+      component: IdeasComponent,
+      pathMatch: 'full'
     },
     {
       path: 'login',
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: 'dashboard' }
+    { path: '**', redirectTo: 'ideas' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

@@ -1,13 +1,32 @@
-<h2>Ideas</h2>
+<h1>Welcome to Platypus!</h1>
 
+<p>
+Here we create new projects for our city of the future. Everyone can join and productively contribute.
+</p>
+
+<p>
+Why decide between a duck and a biever, if we can create a platypus? We want to find the best ideas citizens have for their city and elaborate them together to create a better and brighter future for our city!
+</p>
+
+<h2>These are our Ideas!</h2>
+
+<md-select placeholder="Tag">
+  <md-option>Social</md-option>
+  <md-option>Technological</md-option>
+  <md-option>Economic</md-option>
+  <md-option>Environmental</md-option>
+  <md-option>Political</md-option>
+</md-select>
 <idea-search></idea-search>
+
+
 <!-- <md-input-container class="example-full-width">
   <textarea mdInput placeholder="Idea name:"></textarea>
 </md-input-container>
 <button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.value=''">
   Add
 </button> -->
-<button md-raised-button color="primary" routerLink="/idea-add" routerLinkActive="active">Addform</button>
+<button md-raised-button color="primary" routerLink="/idea-add" routerLinkActive="active">Create new Idea</button>
 
 <md-grid-list class="ideas" cols="2" rowHeight="10em">
   <md-grid-tile *ngFor="let idea of ideas" >
