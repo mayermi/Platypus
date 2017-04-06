@@ -28,20 +28,6 @@ export class IdeaService {
       .then(() => null)
       .catch(this.handleError);
   }
-  // getIdea(id: number): Promise<Idea> {
-  //   const url = `${this.ideasUrl}/${id}`;
-  //   return this.http.get(url)
-  //     .toPromise()
-  //     .then(response => response.json().data as Idea)
-  //     .catch(this.handleError);
-  // }
-  // delete(id: number): Promise<void> {
-  //   const url = `${this.ideasUrl}/${id}`;
-  //   return this.http.delete(url, {headers: this.headers})
-  //     .toPromise()
-  //     .then(() => null)
-  //     .catch(this.handleError);
-  // }
   create(title: string): Promise<Idea> {
     return this.http
       .post(this.ideasUrl, JSON.stringify({title: title}), {headers: this.headers})

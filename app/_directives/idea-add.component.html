@@ -4,11 +4,9 @@
 <md-input-container class="example-full-width">
   <textarea mdInput placeholder="Idea name:"></textarea>
 </md-input-container>
-<div *ngFor="let ideaPart of ideaParts">
   <md-input-container class="example-full-width"><!-- [(ngModel)]="idea.{{ideaPart}}" -->
-    <textarea mdInput placeholder="{{ideaPart}}:"></textarea>
+    <textarea mdInput placeholder="Idea description"></textarea>
   </md-input-container>
-</div>
 
 <button md-button (click)="goBack()">Back</button>
 <!-- <button md-raised-button color="primary" (click)="save()">Save</button>

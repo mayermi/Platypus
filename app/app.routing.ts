@@ -18,15 +18,15 @@ const appRoutes: Routes = [
     },
     {
       path: 'idea-edit/:_id',
-      component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]
+      component: IdeaEditComponent, //canActivate: [IdeaOwnerAuthGuard]
     },
     {
       path: 'idea-add',
-      component: IdeaAddComponent, canActivate: [AuthGuard]
+      component: IdeaAddComponent, //canActivate: [AuthGuard]
     },
     {
       path: 'idea-add-contribution/:_id',
-      component: IdeaAddContributionComponent, canActivate: [AuthGuard]
+      component: IdeaAddContributionComponent, //canActivate: [AuthGuard]
     },
     {
       path: 'ideas',
