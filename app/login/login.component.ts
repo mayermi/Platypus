@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
+    username: string;
+    pw: string;
 
     constructor(
         private route: ActivatedRoute,
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.username, this.ps)
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
