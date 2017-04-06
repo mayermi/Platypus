@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers/index';
+// import { fakeBackendProvider } from './_helpers/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
@@ -52,7 +52,7 @@ import { RegisterComponent } from './register/index';
         IdeaService,
 
         // providers used to create fake backend
-        fakeBackendProvider,
+        // fakeBackendProvider,
         MockBackend,
         BaseRequestOptions
     ],
