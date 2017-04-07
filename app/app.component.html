@@ -22,7 +22,7 @@
         <a [routerLink]="['/login']">Login</a>
     </md-list-item>
     <md-list-item *ngIf="isLoggedIn">
-        <a (ngSubmit)="logout()">Logout</a>
+        <a (click)="logout()">Logout</a>
     </md-list-item>
 </md-nav-list>
 <router-outlet></router-outlet>

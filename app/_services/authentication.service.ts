@@ -1,10 +1,12 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { User } from '../_models/index';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
+    user: User;
     constructor(private http: Http) { }
 
     login(email: string, pw: string) {
@@ -17,17 +19,14 @@ export class AuthenticationService {
         );
     }
 
-    logout(email: string) {
-        // remove user from local storage to log user out
-        // localStorage.removeItem('currentUser');
-        return this.http.post('https://cityidea.herokuapp.com/app/api/logout', { email: email})
+    logout() {
+        if(!!JSON.parse(localStorage.getItem('currentUser'))) {
+            this.user = JSON.parse(localStorage.getItem('currentUser'));
+        return this.http.post('https://cityidea.herokuapp.com/app/api/logout', {email: this.user.email})
             .map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let user = response.json();
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', null);
-                }
+                localStorage.removeItem('currentUser');
             });
+        }
+
     }
 }
