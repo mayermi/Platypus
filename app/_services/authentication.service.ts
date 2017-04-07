@@ -12,7 +12,6 @@ export class AuthenticationService {
     login(email: string, pw: string) {
         return this.http.post('https://cityidea.herokuapp.com/app/api/login', {email: email, pw: pw })
             .map((response: Response) => {
-                // login successful if there's a jwt token in the response
                 let user = response.json().response;
                 localStorage.setItem('currentUser', JSON.stringify(user));
             }

@@ -6,7 +6,7 @@ import { User } from '../_models/index';
 @Injectable()
 export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private usersUrl = 'https://cityidea.herokuapp.com/app/api/user';  // URL to web api
+  private usersUrl = 'https://cityidea.herokuapp.com/app/api/user';
 
   constructor(private http: Http) { }
   getUsers(): Promise<User[]> {

@@ -27,16 +27,6 @@ export class AppComponent {
   }
 
   logout() {
-    // this.loading = true;
     this.authenticationService.logout().subscribe((data) => console.log(data));
-      // .subscribe(
-      //   data => {
-      //     this.router.navigate([this.returnUrl]);
-      //   },
-      //   error => {
-      //     this.alertService.error(error);
-      //     // this.loading = false;
-      //   })
-      ;
   }
 }
