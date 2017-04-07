@@ -8,21 +8,37 @@
     </div>
 </div>
 
-<md-nav-list>
-    <md-list-item>
-        <a routerLink="/dashboard" routerLinkActive="active">Platypus</a>
-    </md-list-item>
-    <md-list-item>
-        <a routerLink="/ideas" routerLinkActive="active">Ideas</a>
-    </md-list-item>
-    <md-list-item>
-        <a routerLink="/dashboard" routerLinkActive="active">Rules & Etiquette</a>
-    </md-list-item>
-    <md-list-item *ngIf="!isLoggedIn" >
-        <a [routerLink]="['/login']">Login</a>
-    </md-list-item>
-    <md-list-item *ngIf="isLoggedIn">
-        <a (click)="logout()">Logout</a>
-    </md-list-item>
-</md-nav-list>
+<div class="layout__navigation">
+    <nav class="navigation">
+        <ul class="navigation__list">
+        <li class="navigation__item">
+            <a class="navigation__link" href="#" routerLink="/dashboard" routerLinkActive="active">
+                Platypus
+            </a>
+        </li>
+
+        <li class="navigation__item">
+            <a class="navigation__link" href="#" routerLink="/ideas" routerLinkActive="active">
+                Ideas
+            </a>
+        </li>
+
+        <li class="navigation__item">
+            <a class="navigation__link" href="#" routerLink="/dashboard" routerLinkActive="active">
+                Rules & Etiquette
+            </a>
+        </li>
+        <li class="navigation__item" *ngIf="!isLoggedIn">
+            <a class="navigation__link" href="#" [routerLink]="['/login']">
+                Login
+            </a>
+        </li>
+        <li class="navigation__item" *ngIf="isLoggedIn">
+            <a class="navigation__link" href="#" (click)="logout()">
+                Logout
+            </a>
+        </li>
+        </ul>
+    </nav>
+</div>
 <router-outlet></router-outlet>
