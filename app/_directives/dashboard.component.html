@@ -1,13 +1,44 @@
-<h1></h1>
+<h1>Welcome to Platypus!</h1>
 
-<p>When you register you are assigned a random name. This keeps the discussions anonymous, but still shows you the community members.</p>
+<p>
+Here we create new projects for our city of the future. Everyone can join and productively contribute.
+</p>
+
+<p>
+Why decide between a duck and a biever, if we can create a platypus? We want to find the best ideas citizens have for their city and elaborate them together to create a better and brighter future for our city!
+</p>
+
+<h2>Some of our ideas</h2>
+
+<md-grid-list class="ideas" cols="2" rowHeight="10em">
+  <md-grid-tile *ngFor="let idea of ideas | slice:0:3" >
+    <md-card (click)="gotoDetail(idea)">
+      <md-card-title>
+        <h4>{{idea.title}}</h4>
+        <div>Location: {{idea.locatoin}}</div>
+        <div>Phase: {{idea.phase}}</div>
+        <div *ngFor="let tag of idea.tags">
+          <md-chip>tag</md-chip>
+        </div>
+      </md-card-title>
+      <md-card-actions>
+        <button md-button class="delete" (click)="delete(idea); $event.stopPropagation()">x</button>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>
+
+<button md-raised-button routerLink="/idead" >View all ideas</button>
 
 <h2>Here are our collaboration heroes:</h2>
+
+<p>If you get a lot of modificatoins and additions to your own idea, or contribute a lot you will appear here in our user ranking! Only restriction: They have to be added in the end. So we are looking for quality contributions instead of the highest quantity ;)</p>
+<p>When you register you are assigned a random name. This keeps the discussions anonymous, but still shows you the community members.</p>
 
 <md-grid-list cols="2" rowHeight="10em">
   <md-grid-tile>
     <md-list class="grid grid-pad">
-      <h2 md-subheader>Idea creators with most included modifications</h2>
+      <h3>Idea creators</h3>
        <md-list-item *ngFor="let user of users" >
          <div class="module idea">
            <h4>{{user.email}}</h4>
@@ -18,7 +49,7 @@
 
   <md-grid-tile>
   <md-list class="grid grid-pad">
-    <h2 md-subheader>Users with most included modifications and additions</h2>
+    <h3>Contributers</h3>
       <md-list-item *ngFor="let user of users" >
         <div class="module idea">
           <h4>{{user.email}}</h4>

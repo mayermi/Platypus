@@ -10,6 +10,7 @@ const appRoutes: Routes = [
     {
       path: 'dashboard',
       component: DashboardComponent,
+      pathMatch: 'full'
     },
     {
       path: 'detail/:_id',
@@ -29,8 +30,7 @@ const appRoutes: Routes = [
     },
     {
       path: 'ideas',
-      component: IdeasComponent,
-      pathMatch: 'full'
+      component: IdeasComponent
     },
     {
       path: 'login',
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: 'ideas' }
+    { path: '**', redirectTo: 'dashboard' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

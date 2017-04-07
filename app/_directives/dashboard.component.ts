@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../_models/index';
-import { UserService } from '../_services/index';
+import { User, Idea } from '../_models/index';
+import { UserService, IdeaService } from '../_services/index';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,13 +12,18 @@ import { Router } from '@angular/router';
 })
 
 export class DashboardComponent implements OnInit {
-
+  ideas: Idea[];
   users: User[] = [];
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private ideaService: IdeaService
     ) { }
+
+  getIdeas(): void {
+    this.ideaService.getIdeas().then(ideas => this.ideas = ideas);
+  }
 
   getUsers(): void {
     this.userService.getUsers().then(users => this.users = users);
@@ -26,6 +31,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.getIdeas();
   }
 }
 
