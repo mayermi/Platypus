@@ -18,7 +18,7 @@ export class IdeaDetailComponent implements OnInit {
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
   modificationActive = false;
   positionActive = false;
-  showArguments = false;
+  showArguments = true;
 
   constructor(
     private ideaService: IdeaService,

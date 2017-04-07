@@ -11,6 +11,7 @@
 
 body {
   margin: 0;
+  font-family: 'Tahoma', 'Arial', sans-serif;
 }
 
 html {
@@ -51,6 +52,7 @@ p {
 .idea-detail__arguments {
   flex-basis: 25%;
   padding: 0 1%;
+  background: #e2f2f2;
 }
 
 .idea-detail__breadcrumbs {}
@@ -68,6 +70,7 @@ p {
   flex-basis: 25%;
   flex-grow: 0;
   padding: 0 1%;
+  background: #e6f6f6;
 }
 
 .idea-detail__location {
@@ -103,9 +106,10 @@ p {
 
 .idea-detail__modifications__add {
   align-self: flex-end;
-  background: #2ecc40;
+  background: #6699ff;
   border: 0;
   border-radius: 0.5em;
+  color: #ffffff;
   font-size: 1.2rem;
   line-height: 1.5;
   margin: 0 0 0.5em; /* 0 0 6px */
