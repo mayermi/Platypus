@@ -24,10 +24,10 @@ const appRoutes: Routes = [
       path: 'idea-add',
       component: IdeaAddComponent, canActivate: [AuthGuard]
     },
-    {
-      path: 'idea-add-modification/:_id',
-      component: IdeaAddModificationComponent, canActivate: [AuthGuard]
-    },
+    // {
+    //   path: 'idea-add-modification/:_id',
+    //   component: IdeaAddModificationComponent, canActivate: [AuthGuard]
+    // },
     {
       path: 'ideas',
       component: IdeasComponent

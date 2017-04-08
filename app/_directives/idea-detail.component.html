@@ -40,16 +40,17 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
 1914 translation by H. Rackham
 
 "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
+          <button type="button" (click)="showArguments()">Show arguments the idea is based on</button>
         </section>
       </aside>
       <main class="idea-detail__modifications">
-        <idea-add-modification></idea-add-modification>
+        <h2>Modifications</h2>
+        <idea-add-modification *ngIf="addModificationVisible"></idea-add-modification>
         <div class="idea-detail__modification">
-          <h2>Modifications</h2>
           <button class="idea-detail__modifications__add" type="button" (click)="gotoAddModification()">Add Modification</button>
           <p>Suggested modifications for part II:</p>
           <p>Select modification for details.</p>
-          <p *ngIf="idea.parts.length === 0">Be the first one to add a modification!</p>
+          <!-- <p *ngIf="idea.parts.length === 0">Be the first one to add a modification!</p> -->
           <div>
             <h4>How it works</h4>
             <ol>
@@ -67,7 +68,8 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
           </div>
         </div>
         </main>
-    <aside class="idea-detail__arguments" *ngIf="showArguments">
+        <!-- <arguments></arguments> -->
+    <aside class="idea-detail__arguments" *ngIf="argumentsIsVisible">
       <h2>Arguments</h2>
       <button class="idea-detail__modifications__add" type="button" (click)="addArgument()">Add Argument</button>
       <p *ngIf="idea.information.length === 0">Be the first one to add an argument!</p>

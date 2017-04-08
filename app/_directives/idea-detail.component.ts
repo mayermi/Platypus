@@ -5,6 +5,7 @@ import { Location }               from '@angular/common';
 import { Idea }        from '../_models/index';
 import { IdeaService } from '../_services/index';
 import { Router } from '@angular/router';
+
 @Component({
   moduleId: module.id,
   selector: 'my-idea-detail',
@@ -16,9 +17,8 @@ export class IdeaDetailComponent implements OnInit {
   currentPhase: String;
   selectedPhase: String;
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
-  modificationActive = false;
-  positionActive = false;
-  showArguments = true;
+  addModificationVisible = false;
+  argumentsIsVisible = false;
 
   constructor(
     private ideaService: IdeaService,
@@ -40,14 +40,6 @@ export class IdeaDetailComponent implements OnInit {
       });
   }
 
-  activateModification(): void {
-    this.modificationActive = true;
-  }
-
-  activatePosition(): void {
-    this.positionActive = true;
-  }
-
   addAddition(): void {
 
   }
@@ -60,20 +52,27 @@ export class IdeaDetailComponent implements OnInit {
 
   }
 
-  save(): void {
-    this.ideaService.update(this.idea)
-      .then(() => this.goBack());
-  this.modificationActive = false;
-  this.positionActive = false;
-  }
+
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
   goBack(): void {
     this.location.back();
   }
   gotoAddModification(): void {
-    this.router.navigate(['/idea-add-modification/', this.idea._id]);
+    // this.router.navigate(['/idea-add-modification/', this.idea._id]);
+    this.addModificationVisible = true;
   }
   gotoEdit(): void {
     this.router.navigate(['/idea-edit/', this.idea._id]);
+  }
+
+  // save(): void {
+  //   this.ideaService.update(this.idea)
+  //     .then(() => this.goBack());
+  // this.modificationActive = false;
+  // this.positionActive = false;
+  // }
+
+  showArguments(): void {
+    this.argumentsIsVisible = true;
   }
 }

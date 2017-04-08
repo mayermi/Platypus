@@ -14,7 +14,7 @@ import { BaseRequestOptions } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent, DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, IdeaAddModificationComponent, IdeaSearchComponent } from './_directives/index';
+import { AlertComponent, DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, IdeaAddModificationComponent, IdeaSearchComponent, ArgumetnsComponent } from './_directives/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
 import { LoginComponent } from './login/index';
@@ -41,7 +41,8 @@ import { RegisterComponent } from './register/index';
         IdeaAddComponent,
         IdeaAddModificationComponent,
         IdeasComponent,
-        IdeaSearchComponent
+        IdeaSearchComponent,
+        ArgumetnsComponent
     ],
     providers: [
         AuthGuard,

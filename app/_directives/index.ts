@@ -6,3 +6,4 @@ export * from './idea-add.component';
 export * from './idea-add-modification.component';
 export * from './idea-search.component';
 export * from './ideas.component';
+export * from './arguments.component';

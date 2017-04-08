@@ -37,6 +37,15 @@ export class IdeaService {
       .then(res => res.json().response)
       .catch(this.handleError);
   }
+  addModification(idea: Idea, modification: String): Promise<Idea> {
+    const url = `https://cityidea.herokuapp.com/app/api/modification/new`;
+    return this.http
+      .put(url, {content:modification,phases:[idea.phase],idea:idea._id}, {headers: this.headers})
+      .toPromise()
+      .then(() => idea)
+      .catch(this.handleError);
+  }
+
   update(idea: Idea): Promise<Idea> {
     const url = `${this.ideasUrl}?_id=${idea._id}`;
     return this.http

@@ -16,6 +16,7 @@ export class IdeaAddModificationComponent implements OnInit {
   ideaParts = ['Awareness', 'Internalization', 'Twist, Defend and Persuade', 'Commitment'];
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
   currentPhase = 'Phase II';
+  modification: String;
 
   constructor(
     private ideaService: IdeaService,
@@ -28,10 +29,11 @@ export class IdeaAddModificationComponent implements OnInit {
       .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
       .subscribe(idea => this.idea = idea);
   }
-  save(): void {
-    this.ideaService.update(this.idea)
-      .then(() => this.goBack());
-  }
+  // save(): void {
+  //   this.ideaService.addModification(this.idea, this.modification)
+  //     .then(() => this.goBack());
+  // }
+
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
   goBack(): void {
     this.location.back();
