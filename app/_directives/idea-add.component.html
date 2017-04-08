@@ -2,12 +2,12 @@
 <h2>Create your idea</h2>
 
 <md-input-container class="example-full-width">
-  <textarea mdInput placeholder="Idea name:"></textarea>
+  <textarea mdInput placeholder="Idea name:" ng-model="title"></textarea>
 </md-input-container>
   <md-input-container class="example-full-width"><!-- [(ngModel)]="idea.{{ideaPart}}" -->
     <textarea mdInput placeholder="Idea description"></textarea>
   </md-input-container>
 
 <button md-button (click)="goBack()">Back</button>
-<!-- <button md-raised-button color="primary" (click)="save()">Save</button>
-<button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.  value=''">Save</button> -->
+<!-- <button md-raised-button color="primary" (click)="save()">Save</button> -->
+<button md-raised-button color="primary" (click)="add(title)">Save</button>

@@ -12,6 +12,7 @@
 body {
   margin: 0;
   font-family: 'Tahoma', 'Arial', sans-serif;
+  font-size: 1.3rem;
 }
 
 html {
@@ -21,7 +22,7 @@ html {
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   margin: 0 0 0.75em;
 }
 
@@ -53,6 +54,8 @@ p {
   flex-basis: 25%;
   padding: 0 1%;
   background: #e2f2f2;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .idea-detail__breadcrumbs {}
@@ -71,6 +74,8 @@ p {
   flex-grow: 0;
   padding: 0 1%;
   background: #e6f6f6;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .idea-detail__location {
@@ -120,7 +125,9 @@ p {
   margin-bottom: 0.6em;
 }
 
-.idea-detail__title {}
+.idea-detail__title {
+  font-size: 1.9em;
+}
 
 .layout {
   display: flex;

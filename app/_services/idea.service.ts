@@ -2,6 +2,7 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Idea } from '../_models/index';
+
 @Injectable()
 export class IdeaService {
   private headers = new Headers({'Content-Type': 'application/json'});
@@ -29,8 +30,9 @@ export class IdeaService {
       .catch(this.handleError);
   }
   create(title: string): Promise<Idea> {
+    const url = `${this.ideasUrl}/new`;
     return this.http
-      .post(this.ideasUrl, JSON.stringify({title: title}), {headers: this.headers})
+      .put(url, JSON.stringify({title: title}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().response)
       .catch(this.handleError);

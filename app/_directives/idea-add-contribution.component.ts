@@ -7,7 +7,7 @@ import { Idea }        from '../_models/index';
 import { IdeaService } from '../_services/index';
 @Component({
   moduleId: module.id,
-  selector: 'idea-add-contribution',
+  selector: 'idea-add-modification',
   templateUrl: 'idea-add-contribution.component.html',
   // styleUrls: [ 'idea-edit.component.css' ]
 })

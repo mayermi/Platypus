@@ -70,8 +70,8 @@ export class IdeaDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  gotoAdd(): void {
-    this.router.navigate(['/idea-add-contribution/', this.idea._id]);
+  gotoAddModification(): void {
+    this.router.navigate(['/idea-add-modification/', this.idea._id]);
   }
   gotoEdit(): void {
     this.router.navigate(['/idea-edit/', this.idea._id]);
