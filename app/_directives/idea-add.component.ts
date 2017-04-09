@@ -13,6 +13,7 @@ import { IdeaService } from '../_services/index';
 export class IdeaAddComponent implements OnInit {
   ideas: Idea[];
   idea: Idea;
+  title: String;
   // ideaService = IdeaService;
 
   constructor(
@@ -21,10 +22,10 @@ export class IdeaAddComponent implements OnInit {
     private location: Location
   ) {}
 
-  add(title: string): void {
+  add(): void {
     // title = title.trim();
     // if (!title) { return; }
-    this.ideaService.create(title).then(idea => {
+    this.ideaService.create(this.title).then(idea => {
       this.ideas.push(idea);
       // this.selectedIdea = null;
     });

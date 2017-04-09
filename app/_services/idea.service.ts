@@ -32,10 +32,10 @@ export class IdeaService {
   create(title: string): Promise<Idea> {
     const url = `${this.ideasUrl}/new`;
     return this.http
-      .put(url, JSON.stringify({title: title}), {headers: this.headers})
+      .put(url, {title: title}, {headers: this.headers})
       .toPromise()
-      .then(res => res.json().response)
-      .catch(this.handleError);
+      .then(res => res.json().response);
+      // .catch(this.handleError);
   }
   addModification(idea: Idea, modification: String): Promise<Idea> {
     const url = `https://cityidea.herokuapp.com/app/api/modification/new`;
