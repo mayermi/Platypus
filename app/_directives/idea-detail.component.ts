@@ -19,8 +19,12 @@ export class IdeaDetailComponent implements OnInit {
   currentPhase: String;
   selectedPhase: String;
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
-  addModificationVisible = false;
   argumentsIsVisible = false;
+
+  isAddAdditionVisible = false;
+  isAddArgumentVisible = false;
+  isAddModificationVisible = false;
+  isHowItWorksVisible = false;
 
   constructor(
     private ideaService: IdeaService,
@@ -30,11 +34,11 @@ export class IdeaDetailComponent implements OnInit {
   ) {}
 
   public onModificationSaved(){
-    this.addModificationVisible = false;
+    this.isAddModificationVisible = false;
   }
 
   public goToModificationOverview(){
-    this.addModificationVisible = false;
+    this.isAddModificationVisible = false;
   }
 
   ngOnInit(): void {
@@ -49,27 +53,18 @@ export class IdeaDetailComponent implements OnInit {
         this.currentPhase = this.phases[idea.phase];
       });
   }
-
   addAddition(): void {
 
   }
-
   addArgument(): void {
 
   }
-
   addModification(): void {
 
   }
-
-
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
   goBack(): void {
     this.location.back();
-  }
-  gotoAddModification(): void {
-    // this.router.navigate(['/idea-add-modification/', this.idea._id]);
-    this.addModificationVisible = true;
   }
   gotoEdit(): void {
     this.router.navigate(['/idea-edit/', this.idea._id]);
@@ -84,5 +79,20 @@ export class IdeaDetailComponent implements OnInit {
 
   showArguments(): void {
     this.argumentsIsVisible = true;
+  }
+  showInMiddleColumn(view: String): void {
+    this.isAddAdditionVisible = false;
+    this.isAddArgumentVisible = false;
+    this.isAddModificationVisible = false;
+    this.isHowItWorksVisible = false;
+    if(view === "addAddition") {
+      this.isAddAdditionVisible = true;
+    } else if (view === "addArgument"){
+      this.isAddArgumentVisible = true;
+    } else if (view === "addModification"){
+      this.isAddModificationVisible = true;
+    } else if (view === "howItWorks"){
+      this.isHowItWorksVisible = true;
+    }
   }
 }

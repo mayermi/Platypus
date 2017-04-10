@@ -37,11 +37,12 @@
       </aside>
       <main class="idea-detail__modifications">
         <h2>Modifications</h2>
-        <div *ngIf="addModificationVisible">
+        <div *ngIf="isAddModificationVisible">
           <idea-add-modification [idea]="idea" (onSave)="onModificationSaved()" (onGoBack)="goToModificationOverview()"></idea-add-modification>
         </div>
-        <button class="idea-detail__modifications__add" type="button" (click)="gotoAddModification()" *ngIf="!addModificationVisible">Add Modification</button>
-        <how-it-works *ngIf="!addModificationVisible"></how-it-works>
+        <button class="idea-detail__modifications__add" type="button" (click)="showInMiddleColumn('addModification')" *ngIf="!isAddModificationVisible">Add Modification</button>
+        <how-it-works *ngIf="isHowItWorksVisible"></how-it-works>
+        <button class="idea-detail__modifications__add" type="button" (click)="showInMiddleColumn('howItWorks')" *ngIf="!isHowItWorksVisible">Show how it works</button>
       </main>
         <!-- <arguments></arguments> -->
     <aside class="idea-detail__arguments" *ngIf="argumentsIsVisible">
