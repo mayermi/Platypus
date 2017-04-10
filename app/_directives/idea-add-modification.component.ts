@@ -10,18 +10,15 @@ import { IdeaService } from '../_services/index';
 @Component({
   moduleId: module.id,
   selector: 'idea-add-modification',
-  templateUrl: 'idea-add-modification.component.html',
-  // outputs: ['childData : outgoingData'],
+  templateUrl: 'idea-add-modification.component.html'
   // styleUrls: [ 'idea-edit.component.css' ]
 })
 export class IdeaAddModificationComponent {
-  @Input('parentData') incomingData: string;
 
-  @Input('parentData') idea: Idea;
-  @Input('parentData') addModificationVisible: boolean;
+  @Input() idea: Idea;
+  @Input() addModificationVisible: boolean;
 
-  // outgoingData = new EventEmitter<boolean>();
-  @Output() outgoingData = new EventEmitter<boolean>();
+  @Output() onSave = new EventEmitter<boolean>();
 
 
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
@@ -38,20 +35,11 @@ export class IdeaAddModificationComponent {
       .subscribe(idea => this.idea = idea);
   }
 
-  // eventInChild(): void {
-  //   this.addModificationVisible = false;
-  //   this.outgoingData.emit(this.addModificationVisible);
-  //   console.log( this.addModificationVisible);
-  // }
-
   save(): void {
     // this.ideaService.addModification(this.idea, this.modification)
     //   .then(() => this.goBack());
 
-    console.log( this.addModificationVisible);
-    this.addModificationVisible = false;
-    this.outgoingData.emit(this.addModificationVisible);
-    console.log( this.addModificationVisible);
+    this.onSave.emit(true);
   }
 
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.

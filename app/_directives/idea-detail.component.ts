@@ -10,8 +10,7 @@ import { IdeaAddModificationComponent } from './index';
 @Component({
   moduleId: module.id,
   selector: 'my-idea-detail',
-  inputs: ['parentData : incomingData'],
-  templateUrl: 'idea-detail.component.html',
+  templateUrl: 'idea-detail.component.html'
   // styleUrls: [ 'idea-detail.component.css' ]
 })
 export class IdeaDetailComponent implements OnInit {
@@ -30,9 +29,8 @@ export class IdeaDetailComponent implements OnInit {
     private router: Router
   ) {}
 
-  public handleEvent(childData:boolean){
-    console.log('i get here');
-    this.addModificationVisible = childData;
+  public onModificationSaved(){
+    this.addModificationVisible = false;
   }
 
   ngOnInit(): void {

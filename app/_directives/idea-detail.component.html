@@ -31,14 +31,15 @@
           </footer>
         </section>
         <section>[DESCRIPTION (Part 1/Part 2)]
-          <p>"Lorem ipsum"</p>
-          <button type="button" (click)="showArguments()">Show arguments the idea is based on</button>
-          <p>{{addModificationVisible}}</p>
+          <button class="idea-detail__modifications__add" type="button" (click)="showArguments()">Show arguments the idea is based on</button>
+          <p>{{idea.parts[0]}}</p>
         </section>
       </aside>
       <main class="idea-detail__modifications">
         <h2>Modifications</h2>
-        <idea-add-modification [parentData]="sampleData" (outputEvent)= "onComponentChange()" *ngIf="addModificationVisible"></idea-add-modification>
+        <div *ngIf="addModificationVisible">
+          <idea-add-modification [idea]="idea" (onSave)="onModificationSaved()"></idea-add-modification>
+        </div>
         <button class="idea-detail__modifications__add" type="button" (click)="gotoAddModification()" *ngIf="!addModificationVisible">Add Modification</button>
         <how-it-works *ngIf="!addModificationVisible"></how-it-works>
       </main>
