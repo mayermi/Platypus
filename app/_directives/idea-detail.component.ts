@@ -5,14 +5,17 @@ import { Location }               from '@angular/common';
 import { Idea }        from '../_models/index';
 import { IdeaService } from '../_services/index';
 import { Router } from '@angular/router';
+import { IdeaAddModificationComponent } from './index';
 
 @Component({
   moduleId: module.id,
   selector: 'my-idea-detail',
+  inputs: ['parentData : incomingData'],
   templateUrl: 'idea-detail.component.html',
   // styleUrls: [ 'idea-detail.component.css' ]
 })
 export class IdeaDetailComponent implements OnInit {
+
   idea: Idea;
   currentPhase: String;
   selectedPhase: String;
@@ -26,6 +29,11 @@ export class IdeaDetailComponent implements OnInit {
     private location: Location,
     private router: Router
   ) {}
+
+  public handleEvent(childData:boolean){
+    console.log('i get here');
+    this.addModificationVisible = childData;
+  }
 
   ngOnInit(): void {
 

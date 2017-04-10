@@ -13,7 +13,7 @@ import { IdeaService } from '../_services/index';
 export class IdeaAddComponent implements OnInit {
   ideas: Idea[];
   idea: Idea;
-  title: String;
+  title: string;
   // ideaService = IdeaService;
 
   constructor(
