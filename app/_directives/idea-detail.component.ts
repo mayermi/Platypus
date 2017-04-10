@@ -20,11 +20,13 @@ export class IdeaDetailComponent implements OnInit {
   selectedPhase: String;
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
   argumentsIsVisible = false;
+  modifications: ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
 
   isAddAdditionVisible = false;
   isAddArgumentVisible = false;
   isAddModificationVisible = false;
   isHowItWorksVisible = false;
+  isModificationDetailVisible = false;
 
   constructor(
     private ideaService: IdeaService,
@@ -32,6 +34,14 @@ export class IdeaDetailComponent implements OnInit {
     private location: Location,
     private router: Router
   ) {}
+
+  public onAdditionDetailSelected(){
+    console.log("addition selected");
+  }
+
+  public onModificationDetailSelected(){
+    console.log("modification selected");
+  }
 
   public onModificationSaved(){
     this.isAddModificationVisible = false;
@@ -85,6 +95,7 @@ export class IdeaDetailComponent implements OnInit {
     this.isAddArgumentVisible = false;
     this.isAddModificationVisible = false;
     this.isHowItWorksVisible = false;
+    this.isModificationDetailVisible = false;
     if(view === "addAddition") {
       this.isAddAdditionVisible = true;
     } else if (view === "addArgument"){
@@ -93,6 +104,11 @@ export class IdeaDetailComponent implements OnInit {
       this.isAddModificationVisible = true;
     } else if (view === "howItWorks"){
       this.isHowItWorksVisible = true;
+    } else if (view === "modificationDetail"){
+      this.isModificationDetailVisible = true;
     }
+  }
+  showModificationDetail(modification: String): void {
+    this.showInMiddleColumn('modificationDetail');
   }
 }

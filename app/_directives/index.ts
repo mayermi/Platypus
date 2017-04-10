@@ -8,3 +8,4 @@ export * from './idea-search.component';
 export * from './ideas.component';
 export * from './arguments.component';
 export * from './how-it-works.component';
+export * from './modification-detail.component';

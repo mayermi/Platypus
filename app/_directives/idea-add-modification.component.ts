@@ -5,7 +5,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { Idea }        from '../_models/index';
 import { IdeaService } from '../_services/index';
-// import { IdeaDetailComponent } from './index';
 
 @Component({
   moduleId: module.id,

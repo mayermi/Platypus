@@ -1,5 +1,4 @@
 <div *ngIf="idea">
-
   <main class="layout__main">
     <main class="idea-detail">
       <aside class="idea-detail__description">
@@ -37,6 +36,12 @@
       </aside>
       <main class="idea-detail__modifications">
         <h2>Modifications</h2>
+        <div *ngFor="let modification of idea.modifications">
+          <button class="idea-detail__modifications__add" (click)="showModificationDetail(modification)"></button>
+        </div>
+        <div>
+          <modification-detail (onModification)="onModificationDetailSelected()" (onAddition)="onAdditionDetailSelected()"></modification-detail>
+        </div>
         <div *ngIf="isAddModificationVisible">
           <idea-add-modification [idea]="idea" (onSave)="onModificationSaved()" (onGoBack)="goToModificationOverview()"></idea-add-modification>
         </div>
@@ -52,8 +57,6 @@
     </aside>
   </main>
 </main>
-
-
       <!-- <select value="selectedPhase" >
         <option [selected]="phases[idea.currentPhase]" *ngFor="let phase of phases">
           {{ phase }}
