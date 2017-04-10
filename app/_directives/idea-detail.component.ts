@@ -33,6 +33,10 @@ export class IdeaDetailComponent implements OnInit {
     this.addModificationVisible = false;
   }
 
+  public goToModificationOverview(){
+    this.addModificationVisible = false;
+  }
+
   ngOnInit(): void {
 
     // this.ideaService.getIdeas().then(ideas => this.ideas = ideas);

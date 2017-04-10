@@ -38,7 +38,7 @@
       <main class="idea-detail__modifications">
         <h2>Modifications</h2>
         <div *ngIf="addModificationVisible">
-          <idea-add-modification [idea]="idea" (onSave)="onModificationSaved()"></idea-add-modification>
+          <idea-add-modification [idea]="idea" (onSave)="onModificationSaved()" (onGoBack)="goToModificationOverview()"></idea-add-modification>
         </div>
         <button class="idea-detail__modifications__add" type="button" (click)="gotoAddModification()" *ngIf="!addModificationVisible">Add Modification</button>
         <how-it-works *ngIf="!addModificationVisible"></how-it-works>

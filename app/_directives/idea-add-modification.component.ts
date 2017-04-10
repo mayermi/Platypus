@@ -16,9 +16,8 @@ import { IdeaService } from '../_services/index';
 export class IdeaAddModificationComponent {
 
   @Input() idea: Idea;
-  @Input() addModificationVisible: boolean;
-
   @Output() onSave = new EventEmitter<boolean>();
+  @Output() onGoBack = new EventEmitter<boolean>();
 
 
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
@@ -44,6 +43,7 @@ export class IdeaAddModificationComponent {
 
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
   goBack(): void {
-    this.location.back();
+    this.onGoBack.emit(true);
+    // this.location.back();
   }
 }
