@@ -29,6 +29,7 @@
 
             // other libraries
             'rxjs': 'npm:rxjs',
+            "reflect-metadata": "npm:reflect-metadata@0.1.10",
 
             // module loading material
             '@angular/material': 'npm:@angular/material/bundles/material.umd.js'

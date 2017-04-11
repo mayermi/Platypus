@@ -27,6 +27,7 @@
     "@angular/material": "2.0.0-beta.3",
     "systemjs": "0.19.40",
     "rxjs": "5.0.1",
+    "reflect-metadata": "0.1.10",
     "zone.js": "0.8.4",
     "hammerjs": "2.0.6"
   },
