@@ -19,7 +19,7 @@ import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
-import {APIService} from "./_services/service";
+import {APIService} from "./_services/apiservice";
 
 // import 'hammerjs';
 
