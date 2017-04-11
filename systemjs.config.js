@@ -23,6 +23,8 @@
             '@angular/http/testing': 'npm:@angular/http/bundles/http-testing.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+            '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
+            '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
 
             // other libraries
             'rxjs': 'npm:rxjs',

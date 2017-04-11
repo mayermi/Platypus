@@ -14,11 +14,12 @@ import { BaseRequestOptions } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent, DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, HowItWorksComponent, IdeaAddModificationComponent, IdeaSearchComponent, ArgumetnsComponent, ModificationDetailComponent } from './_directives/index';
+import { AlertComponent, DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, HowItWorksComponent, IdeaAddModificationComponent, IdeaSearchComponent, ArgumentsComponent, ModificationDetailComponent } from './_directives/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import {APIService} from "./_services/service";
 
 // import 'hammerjs';
 
@@ -42,7 +43,7 @@ import { RegisterComponent } from './register/index';
         IdeaAddModificationComponent,
         IdeasComponent,
         IdeaSearchComponent,
-        ArgumetnsComponent,
+        ArgumentsComponent,
         HowItWorksComponent,
         ModificationDetailComponent
     ],
@@ -53,6 +54,7 @@ import { RegisterComponent } from './register/index';
         AuthenticationService,
         UserService,
         IdeaService,
+        APIService,
 
         // providers used to create fake backend
         // fakeBackendProvider,

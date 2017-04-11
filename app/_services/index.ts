@@ -1,4 +1,5 @@
-﻿export * from './alert.service';
+﻿export * from './service';
+export * from './alert.service';
 export * from './authentication.service';
 export * from './idea-search.service';
 export * from './idea.service';
