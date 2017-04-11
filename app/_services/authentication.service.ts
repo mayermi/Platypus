@@ -1,31 +1,48 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import { User } from '../_models/index';
+import {APIService} from './index';
+import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
-    user: User;
-    constructor(private http: Http) { }
+  private user: User;
+  constructor(private service: APIService) {}
 
-    login(email: string, pw: string) {
-        return this.http.post('https://cityidea.herokuapp.com/app/api/login', {email: email, pw: pw })
-            .map((response: Response) => {
-                let user = response.json().response;
-                localStorage.setItem('currentUser', JSON.stringify(user));
+  login(email: string, pw: string) {
+      return this.service.post('/login', '', {email: email, pw: pw })
+          .then((responseJson: any) => {
+              this.startSession(responseJson.user, responseJson.token);
+              return responseJson;
             }
-        );
-    }
+          ).catch((e: any) => {
+              this.deleteSession();
+              return e;
+          });
+  }
 
     logout() {
-        if(!!JSON.parse(localStorage.getItem('currentUser'))) {
-            this.user = JSON.parse(localStorage.getItem('currentUser'));
-        return this.http.post('https://cityidea.herokuapp.com/app/api/logout', {email: this.user.email})
-            .map((response: Response) => {
-                localStorage.removeItem('currentUser');
-            });
+        let user = JSON.parse(localStorage.getItem('currentUser'));
+        if(!!user) {
+            this.user = user;
+            return this.service.post('/logout', '', {email: this.user.email})
+                .then((responseJson: any) => {
+                    this.deleteSession();
+                    return responseJson;
+                })
+                .catch((e) => {
+                    return e;
+                });
         }
+    }
 
+    private startSession(user: User, token: String) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        window.sessionStorage.token = token;
+    }
+
+    private deleteSession() {
+        localStorage.removeItem('currentUser');
+        delete window.sessionStorage.token;
     }
 }

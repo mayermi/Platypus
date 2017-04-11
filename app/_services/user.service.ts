@@ -6,7 +6,8 @@ import { User } from '../_models/index';
 @Injectable()
 export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private usersUrl = 'https://cityidea.herokuapp.com/app/api/user';
+  //private usersUrl = 'https://cityidea.herokuapp.com/app/api/user';
+  private usersUrl = 'http://localhost:3100/app/api/user';
 
   constructor(private http: Http) { }
   getUsers(): Promise<User[]> {
@@ -17,19 +18,19 @@ export class UserService {
   }
 
     getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/api/user/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
-        return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/user', user, this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
+        return this.http.put('/api/user/' + user.id, user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete('/api/user/' + id + '/delete', this.jwt()).map((response: Response) => response.json());
     }
 
     isLoggedIn() {

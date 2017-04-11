@@ -27,6 +27,6 @@ export class AppComponent {
   }
 
   logout() {
-    this.authenticationService.logout().subscribe((data) => console.log(data));
+    this.authenticationService.logout().then((data: any) => console.log(data)).catch((e: any) => console.log(e));
   }
 }

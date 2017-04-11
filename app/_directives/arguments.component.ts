@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
   templateUrl: 'arguments.component.html',
   // styleUrls: [ 'idea-detail.component.css' ]
 })
-export class ArgumetnsComponent implements OnInit {
+export class ArgumentsComponent implements OnInit {
   idea: Idea;
+  ideas: Idea[];
   addModificationVisible = false;
   argumentsIsVisible = false;
 
@@ -35,5 +36,6 @@ export class ArgumetnsComponent implements OnInit {
 //         this.idea = idea;
 //         this.currentPhase = this.phases[idea.phase];
 //       });
+
   }
 }
