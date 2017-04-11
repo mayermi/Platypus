@@ -27,6 +27,11 @@ export class AppComponent {
   }
 
   logout() {
-    this.authenticationService.logout().then((data: any) => console.log(data)).catch((e: any) => console.log(e));
+    let currentUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.authenticationService.logout()
+    .then((data: any) => {
+        this.router.navigate([currentUrl]);
+    })
+.catch((e: any) => console.log(e));
   }
 }
