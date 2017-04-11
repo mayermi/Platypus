@@ -48,7 +48,7 @@ export class AuthenticationService {
         window.sessionStorage.token = token;
     }
 
-    deleteSession() {
+    private deleteSession() {
         localStorage.removeItem('currentUser');
         delete window.sessionStorage.token;
     }

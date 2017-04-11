@@ -13,7 +13,7 @@ export class APIService {
   constructor(private http: Http) { }
 
 
-  getUrl() {return this.url_local;}
+  getUrl() {return this.url;}
 
   put(urlAppend: String = '', params: String = '', body: any = '') {
     return this.http.put(this.getUrl() + urlAppend + params, body, this.jwt())
@@ -47,7 +47,9 @@ export class APIService {
     if (window.sessionStorage.token) {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.set('Authorization', 'Bearer ' + window.sessionStorage.token);
-      return new RequestOptions({ headers: headers });;
+      return new RequestOptions({ headers: headers });
+    } else {
+      return this.options;
     }
   }
 
