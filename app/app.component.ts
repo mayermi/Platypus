@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, NgZone} from '@angular/core';
 import { User } from './_models/index';
 import { UserService } from './_services/index';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -19,6 +19,7 @@ export class AppComponent {
         private userService: UserService,
         private route: ActivatedRoute,
         private router: Router,
+        private zone: NgZone,
         private authenticationService: AuthenticationService,
         private alertService: AlertService) { }
 
@@ -29,9 +30,7 @@ export class AppComponent {
   logout() {
     let currentUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     this.authenticationService.logout()
-    .then((data: any) => {
-        this.router.navigate([currentUrl]);
-    })
+    .then((data: any) => { })
 .catch((e: any) => console.log(e));
   }
 }

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .then((data: any) => {
                 this.zone.run(() => {
-                    this.router.navigate(['/bobbele']);//([this.returnUrl]);
+                    this.router.navigate([this.returnUrl]);
                 });
             })
              .catch((error: any) => {
