@@ -1,61 +1,45 @@
-<h1>These are our Ideas!</h1>
-
-<md-select placeholder="Tag">
-  <md-option>Social</md-option>
-  <md-option>Technological</md-option>
-  <md-option>Economic</md-option>
-  <md-option>Environmental</md-option>
-  <md-option>Political</md-option>
-</md-select>
-<md-select placeholder="Location">
-  <md-option>Bowen Hills</md-option>
-  <md-option>Brisbane</md-option>
-  <md-option>East Brisbane</md-option>
-  <md-option>Fortitude Valley</md-option>
-  <md-option>Herston</md-option>
-  <md-option>Highgate Hill</md-option>
-  <md-option>Kangaroo Point</md-option>
-  <md-option>Kelvin Grove</md-option>
-  <md-option>New Farm</md-option>
-  <md-option>Newstead</md-option>
-  <md-option>Paddington</md-option>
-  <md-option>Petrie Terrace</md-option>
-  <md-option>Red Hill</md-option>
-  <md-option>South Brisbane</md-option>
-  <md-option>Spring Hill</md-option>
-  <md-option>Teneriffe</md-option>
-  <md-option>West End</md-option>
-  <md-option>Woolloongabba</md-option>
-</md-select>
-<md-chip-list>
-  <md-chip>Primary fish</md-chip>
-</md-chip-list>
-<idea-search></idea-search>
-
-
-<idea-search></idea-search>
-<!-- <md-input-container class="example-full-width">
-  <textarea mdInput placeholder="Idea name:"></textarea>
-</md-input-container>
-<button md-raised-button color="primary" (click)="add(ideaName.value); ideaName.value=''">
-  Add
-</button> -->
-<button md-raised-button color="primary" routerLink="/idea-add" routerLinkActive="active">Create new Idea</button>
-
-<md-grid-list class="ideas" cols="2" rowHeight="10em">
-  <md-grid-tile *ngFor="let idea of ideas" >
-    <md-card (click)="gotoDetail(idea)">
-      <md-card-title>
-        <h4>{{idea.title}}</h4>
-        <div>Location: {{idea.locatoin}}</div>
-        <div>Phase: {{idea.phase}}</div>
-        <div *ngFor="let tag of idea.tags">
-          <md-chip>tag</md-chip>
-        </div>
-      </md-card-title>
-      <md-card-actions>
-        <button md-button class="delete" (click)="delete(idea); $event.stopPropagation()">x</button>
-      </md-card-actions>
-    </md-card>
-  </md-grid-tile>
-</md-grid-list>
+<main class="ideas">
+  <h1 class="ideas__title">These are our Ideas!</h1>
+  <form class="ideas__filters">
+    <div class="ideas__filter">
+      <select>
+        <option>Tag</option>
+        <option>Social</option>
+        <option>Technological</option>
+        <option>Economic</option>
+        <option>Environmental</option>
+        <option>Political</option>
+      </select>
+    </div>
+    <div class="ideas__filter">
+      <select>
+        <option>Location</option>
+        <option>Bowen Hills</option>
+        <option>Brisbane</option>
+        <option>East Brisbane</option>
+        <option>Fortitude Valley</option>
+        <option>Herston</option>
+        <option>Highgate Hill</option>
+        <option>Kangaroo Point</option>
+        <option>Kelvin Grove</option>
+        <option>New Farm</option>
+        <option>Newstead</option>
+        <option>Paddington</option>
+        <option>Petrie Terrace</option>
+        <option>Red Hill</option>
+        <option>South Brisbane</option>
+        <option>Spring Hill</option>
+        <option>Teneriffe</option>
+        <option>West End</option>
+        <option>Woolloongabba</option>
+      </select>
+    </div>
+    <idea-search></idea-search>
+    <button class="ideas__create" routerLink="/idea-add" routerLinkActive="active">Create new idea</button>
+  </form>
+  <section class="ideas__list">
+    <div class="home__ideas__teasers">
+      <ideas-teaser (onDetailSelected)="ideaDetailSelected($event)" [idea]="idea" *ngFor="let idea of ideas"></ideas-teaser>
+    </div>
+   </section>
+</main>

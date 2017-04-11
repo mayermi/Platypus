@@ -23,7 +23,7 @@ export class IdeaEditComponent implements OnInit {
     this.route.params
       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
       .switchMap((params: Params) => this.ideaService.getIdea(params['id']))
-      .subscribe(idea => this.idea = idea);
+      .subscribe((idea: Idea) => this.idea = idea);
   }
   save(): void {
     this.ideaService.update(this.idea)

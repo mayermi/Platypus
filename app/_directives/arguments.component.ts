@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { Idea }        from '../_models/index';
@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
   moduleId: module.id,
   selector: 'arguments',
   templateUrl: 'arguments.component.html',
-  // styleUrls: [ 'idea-detail.component.css' ]
+  styleUrls: [ 'idea-detail.component.css' ]
 })
 export class ArgumentsComponent implements OnInit {
-  idea: Idea;
-  ideas: Idea[];
+  @Input() idea: Idea;
   addModificationVisible = false;
   argumentsIsVisible = false;
 

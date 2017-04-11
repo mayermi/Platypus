@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   moduleId: module.id,
   selector: 'my-ideas',
   templateUrl: 'ideas.component.html',
-  // styleUrls: [ 'ideas.component.css' ]
+  styleUrls: [ 'ideas.component.css' ]
 })
 
 export class IdeasComponent implements OnInit {
@@ -27,6 +27,10 @@ export class IdeasComponent implements OnInit {
   //   });
   // }
 
+  public ideaDetailSelected(idea: Idea): void {
+    this.router.navigate(['/detail', idea._id]);
+  }
+
   delete(idea: Idea): void {
     this.ideaService.delete(idea._id).then(() => {
      this.ideas = this.ideas.filter(h => h !== idea);
@@ -37,7 +41,7 @@ export class IdeasComponent implements OnInit {
   }
 
   getIdeas(): void {
-    this.ideaService.getIdeas().then(ideas => this.ideas = ideas);
+    this.ideaService.getIdeas().then((ideas: Idea[]) => this.ideas = ideas);
   }
 
   ngOnInit(): void {
@@ -47,8 +51,4 @@ export class IdeasComponent implements OnInit {
   // onSelect(idea: Idea): void {
   //   this.selectedIdea = idea;
   // }
-
-  gotoDetail(idea: Idea): void {
-    this.router.navigate(['/detail', idea._id]);
-  }
 }

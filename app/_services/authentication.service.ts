@@ -30,7 +30,7 @@ export class AuthenticationService {
                     this.service.deleteSession();
                     return responseJson;
                 })
-                .catch((e) => {
+                .catch((e: any) => {
                     return e;
                 });
         } else {

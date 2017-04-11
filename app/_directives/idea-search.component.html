@@ -1,7 +1,11 @@
-<div id="search-component">
-  <h4> Idea Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <div *ngFor="let idea of ideas | async" (click)="gotoDetail(idea)" class="search-result">{{idea.title}}</div>
+<div class="ideas__filter">
+  <div class="action-input" id="search-component">
+    <input class="action-input__input" type="text" value="this is my text" #searchBox id="search-box" (keyup)="search(searchBox.value)">
+      <div>
+        <div *ngFor="let idea of ideas | async" (click)="gotoDetail(idea)" class="search-result">{{idea.title}}</div>
+      </div>
+    <button class="action-input__action" type="button">
+      Search
+    </button>
   </div>
 </div>

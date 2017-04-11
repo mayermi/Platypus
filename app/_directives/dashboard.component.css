@@ -1,4 +1,146 @@
-[class*='col-'] {
+/*
+ * blue: #0074d9;
+ * gray: #aaa;
+ * green: #2ecc40;
+ * white: #fefefe;
+ */
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0 2%;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.6rem;
+  margin: 0 0 0.75em;
+}
+
+.home {}
+
+.home__description {
+  margin: 0 auto 1.5em;
+  text-align: center;
+  width: 49%;
+}
+
+.home__ideas {
+  margin-bottom: 2.4em;
+  overflow: hidden;
+}
+
+.home__ideas__teaser {
+  flex-basis: 32%;
+}
+
+.home__ideas__teasers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2em;
+  flex-wrap: wrap;
+}
+
+.home__ideas__title {
+  font-size: 2rem;
+  margin: 0 0 0.375em;
+}
+
+.home__ideas__view-all {
+  display: inline-block;
+  float: right;
+  font-size: 1.6rem;
+}
+
+.home__ranking {}
+
+.home__ranking__item {
+  flex-basis: 49%;
+}
+
+.home__ranking__items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__ranking__description {}
+
+.home__ranking__title {
+  font-size: 2rem;
+  margin: 0 0 0.375em;
+}
+
+.home__title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 0 0 0.5em;
+}
+
+.idea-teaser {
+  background: #fefefe;
+  border: 0.1em solid #aaa;
+  padding: 0.5em 0.9em;
+}
+
+.idea-teaser__countdown {
+  margin: 0;
+}
+
+.idea-teaser__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.idea-teaser__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.idea-teaser__location {
+  margin: 0;
+}
+
+.idea-teaser__phase {
+  margin: 0;
+}
+
+.idea-teaser__tag {
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.idea-teaser__tags {}
+
+.idea-teaser__title {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.ranking {}
+
+.ranking__item {
+  font-size: 1.6rem;
+}
+
+.ranking__list {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.ranking__title {
+  font-size: 1.6rem;
+  margin: 0 0 0.375em;
+}
+/*[class*='col-'] {
   float: left;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -59,3 +201,4 @@ h4 {
     min-width: 60px;
   }
 }
+*/

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   moduleId: module.id,
   selector: 'my-dashboard',
   templateUrl: 'dashboard.component.html',
-  // styleUrls: [ 'dashboard.component.css' ]
+  styleUrls: [ 'dashboard.component.css' ]
 })
 
 export class DashboardComponent implements OnInit {
@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private ideaService: IdeaService
     ) { }
+
+  public ideaDetailSelected(idea: Idea): void {
+    this.router.navigate(['/detail', idea._id]);
+  }
 
   getIdeas(): void {
     this.ideaService.getIdeas().then(ideas => this.ideas = ideas);

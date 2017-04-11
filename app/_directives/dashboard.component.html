@@ -1,60 +1,47 @@
-<h1>Welcome to Platypus!</h1>
+<main class="home">
+<h1 class="home__title">Welcome to Platypus!</h1>
 
-<p>
+<p class="home__description">
 Here we create new projects for our city of the future. Everyone can join and productively contribute.
 </p>
 
-<p>
+<p class="home__description">
 Why decide between a duck and a biever, if we can create a platypus? We want to find the best ideas citizens have for their city and elaborate them together to create a better and brighter future for our city!
 </p>
 
-<h2>Some of our ideas</h2>
+<section class="home__ideas">
+  <h3 class="home__ideas__title">Some of our ideas</h3>
+    <div class="home__ideas__teasers">
+      <ideas-teaser [idea]="idea" *ngFor="let idea of ideas" (onDetailSelected)="ideaDetailSelected($event)"></ideas-teaser>
+    </div>
+  <a class="home__ideas__view-all" href="#" routerLink="/idead" >View all</a>
+</section>
 
-<md-grid-list class="ideas" cols="2" rowHeight="10em">
-  <md-grid-tile *ngFor="let idea of ideas | slice:0:3" >
-    <md-card (click)="gotoDetail(idea)">
-      <md-card-title>
-        <h4>{{idea.title}}</h4>
-        <div>Location: {{idea.locatoin}}</div>
-        <div>Phase: {{idea.phase}}</div>
-        <div *ngFor="let tag of idea.tags">
-          <md-chip>tag</md-chip>
-        </div>
-      </md-card-title>
-      <md-card-actions>
-        <button md-button class="delete" (click)="delete(idea); $event.stopPropagation()">x</button>
-      </md-card-actions>
-    </md-card>
-  </md-grid-tile>
-</md-grid-list>
-
-<button md-raised-button routerLink="/idead" >View all ideas</button>
-
-<h2>Here are our collaboration heroes:</h2>
-
-<p>If you get a lot of modificatoins and additions to your own idea, or contribute a lot you will appear here in our user ranking! Only restriction: They have to be added in the end. So we are looking for quality contributions instead of the highest quantity ;)</p>
-<p>When you register you are assigned a random name. This keeps the discussions anonymous, but still shows you the community members.</p>
-
-<md-grid-list cols="2" rowHeight="10em">
-  <md-grid-tile>
-    <md-list class="grid grid-pad">
-      <h3>Idea creators</h3>
-       <md-list-item *ngFor="let user of users" >
-         <div class="module idea">
-           <h4>{{user.email}}</h4>
-         </div>
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
-
-  <md-grid-tile>
-  <md-list class="grid grid-pad">
-    <h3>Contributers</h3>
-      <md-list-item *ngFor="let user of users" >
-        <div class="module idea">
-          <h4>{{user.email}}</h4>
-        </div>
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
-</md-grid-list>
+<section class="home__ranking">
+  <h3 class="home__ranking__title">Here are our collaboration heroes:</h3>
+  <p class="home__ranking__description">
+    If you get a lot of modificatoins and additions to your own idea, or contribute a lot you will appear here in our user ranking! Only restriction: They have to be added in the end. So we are looking for quality contributions instead of the highest quantity ;)
+  </p>
+  <p class="home__ranking__description">
+    When you register you are assigned a random name. This keeps the discussions anonymous, but still shows you the community members.
+  </p>
+  <div class="home__ranking__items">
+    <div class="home__ranking__item">
+      <div class="ranking">
+        <h5 class="ranking__title">Idea creators</h5>
+        <ol class="ranking__list">
+          <li class="ranking__item" *ngFor="let user of users">{{user.email}}</li>
+        </ol>
+      </div>
+    </div>
+    <div class="home__ranking__item">
+      <div class="ranking">
+        <h5 class="ranking__title">Contributors</h5>
+        <ol class="ranking__list">
+          <li class="ranking__item" *ngFor="let user of users">{{user.email}}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+</main>

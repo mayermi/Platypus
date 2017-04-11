@@ -9,3 +9,4 @@ export * from './ideas.component';
 export * from './arguments.component';
 export * from './how-it-works.component';
 export * from './modification-detail.component';
+export * from './ideas-teaser.component';

@@ -10,8 +10,8 @@ import { IdeaAddModificationComponent } from './index';
 @Component({
   moduleId: module.id,
   selector: 'my-idea-detail',
-  templateUrl: 'idea-detail.component.html'
-  // styleUrls: [ 'idea-detail.component.css' ]
+  templateUrl: 'idea-detail.component.html',
+  styleUrls: [ 'idea-detail.component.css' ]
 })
 export class IdeaDetailComponent implements OnInit {
 
@@ -58,7 +58,7 @@ export class IdeaDetailComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-      .subscribe(idea => {
+      .subscribe((idea: Idea) => {
         this.idea = idea;
         this.currentPhase = this.phases[idea.phase];
       });
