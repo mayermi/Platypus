@@ -1,5 +1,4 @@
 ﻿import { Injectable } from '@angular/core';
-import {Response} from '@angular/http';
 import { User } from '../_models/index';
 import {APIService} from './index';
 import 'rxjs/add/operator/toPromise';
@@ -12,9 +11,7 @@ export class AuthenticationService {
 
   login(email: string, pw: string) {
       return this.service.post('/login', '', {email: email, pw: pw })
-          .then((response: Response) => {
-              let responseJson = response.json().response;
-
+          .then((responseJson: any) => {
               this.startSession(responseJson.user, responseJson.token);
               return responseJson;
             }
@@ -29,11 +26,7 @@ export class AuthenticationService {
         if(!!user) {
             this.user = user;
             return this.service.post('/logout', '', {email: this.user.email})
-                .then((response: Response) => {
-                    let responseJson = response.json().response;
-
-                    console.log(responseJson);
-
+                .then((responseJson: any) => {
                     this.deleteSession();
                     return responseJson;
                 })
