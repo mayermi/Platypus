@@ -51,9 +51,10 @@
       </main>
         <!-- <arguments></arguments> -->
     <aside class="idea-detail__arguments" *ngIf="argumentsIsVisible">
-      <h2>Arguments</h2>
+      <arguments [idea]="idea"></arguments>
+      <!-- <h2>Arguments</h2>
       <button class="idea-detail__modifications__add" type="button" (click)="addArgument()">Add Argument</button>
-      <p *ngIf="idea.information.length === 0">Be the first one to add an argument!</p>
+      <p *ngIf="idea.information.length === 0">Be the first one to add an argument!</p> -->
     </aside>
   </main>
 </main>

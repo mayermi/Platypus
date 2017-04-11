@@ -1,4 +1,4 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import {APIService} from './index';
 import 'rxjs/add/operator/toPromise';
 import { Idea } from '../_models/index';
@@ -10,12 +10,12 @@ export class IdeaService {
 
   getIdeas(): Promise<Idea[]> {
     return this.service.get('/api/idea')
-      .then(response => response as Idea[])
+      .then((response: any) => response as Idea[])
   }
 
   getIdea(id: String): Promise<Idea> {
     return this.service.get('/api/idea/'+ id)
-      .then(response => response[0] as Idea)
+      .then((response: any) => response[0] as Idea)
   }
 
   delete(id: String): Promise<any> {
@@ -25,7 +25,7 @@ export class IdeaService {
 
   create(title: String): Promise<Idea> {
     return this.service.put('/api/idea/new','', {title: title})
-      .then(res => res)
+      .then((res: any) => res)
   }
 
   update(idea: Idea): Promise<Idea> {

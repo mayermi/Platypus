@@ -10,7 +10,7 @@ import { Idea } from '../_models/index';
   moduleId: module.id,
   selector: 'idea-search',
   templateUrl: 'idea-search.component.html',
-  // styleUrls: [ 'idea-search.component.css' ],
+  styleUrls: [ 'idea-search.component.css' ],
   providers: [IdeaSearchService]
 })
 
@@ -31,11 +31,11 @@ export class IdeaSearchComponent implements OnInit {
   ngOnInit(): void {
     this.ideas = this.searchTerms.debounceTime(300) //wait for 300ms pause in events
     .distinctUntilChanged() // ignore if next search term is same as previous
-    .switchMap(term => term // switch to new observable eacht time
+    .switchMap((term: string) => term // switch to new observable eacht time
       //return the http search observable
       ? this.ideaSearchService.search(term)
       // or the observable of empty heroes if no search term
-      : Observable.of<Idea[]>([])).catch(error => {
+      : Observable.of<Idea[]>([])).catch((error: Error) => {
         // TODO: real error handling
         console.log(error);
         return Observable.of<Idea[]>([]);
