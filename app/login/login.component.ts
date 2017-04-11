@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import {Component, OnInit, NgZone} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService, AuthenticationService } from '../_services/index';
@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
+        private zone: NgZone,
         private authenticationService: AuthenticationService,
         private alertService: AlertService) { }
 
@@ -31,7 +32,9 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .then((data: any) => {
+                this.zone.run(() => {
                     this.router.navigate([this.returnUrl]);
+                });
             })
              .catch((error: any) => {
                 this.alertService.error(error);

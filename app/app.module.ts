@@ -8,6 +8,8 @@ import { MaterialModule } from '@angular/material';
 
 // used to create fake backend
 // import { fakeBackendProvider } from './_helpers/index';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
@@ -21,11 +23,12 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import {APIService} from "./_services/apiservice";
 
-// import 'hammerjs';
+//import 'hammerjs';
 
 @NgModule({
     imports: [
         BrowserModule,
+        NoopAnimationsModule,
         FormsModule,
         HttpModule,
         routing,

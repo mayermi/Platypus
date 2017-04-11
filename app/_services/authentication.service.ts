@@ -12,11 +12,11 @@ export class AuthenticationService {
   login(email: string, pw: string) {
       return this.service.post('/login', '', {email: email, pw: pw })
           .then((responseJson: any) => {
-              this.startSession(responseJson.user, responseJson.token);
+              this.service.startSession(responseJson.user, responseJson.token);
               return responseJson;
             }
           ).catch((e: any) => {
-              this.deleteSession();
+              this.service.deleteSession();
               return e;
           });
   }
@@ -27,22 +27,14 @@ export class AuthenticationService {
             this.user = user;
             return this.service.post('/logout', '', {email: this.user.email})
                 .then((responseJson: any) => {
-                    this.deleteSession();
+                    this.service.deleteSession();
                     return responseJson;
                 })
                 .catch((e) => {
                     return e;
                 });
+        } else {
+            return;
         }
-    }
-
-    private startSession(user: User, token: String) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        window.sessionStorage.token = token;
-    }
-
-    private deleteSession() {
-        localStorage.removeItem('currentUser');
-        delete window.sessionStorage.token;
     }
 }

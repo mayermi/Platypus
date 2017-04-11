@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map'
+import {User} from "../_models/user";
 
 @Injectable()
 export class APIService {
@@ -19,28 +20,28 @@ export class APIService {
     return this.http.put(this.getUrl() + urlAppend + params, body, this.jwt())
       .toPromise()
       .then(res => res.json().response)
-      .catch(this.handleError);
+        .catch( (e:any) => this.handleError(e));
   }
 
   post(urlAppend: String = '', params: String = '', body: any = '') {
     return this.http.post(this.getUrl() + urlAppend + params, body, this.jwt())
       .toPromise()
       .then(res => res.json().response)
-      .catch(this.handleError);
+        .catch( (e:any) => this.handleError(e));
   }
 
   delete(urlAppend: String = '', params: String = '') {
     return this.http.delete(this.getUrl() + urlAppend + params, this.jwt())
       .toPromise()
       .then(res => res.json().response)
-      .catch(this.handleError);
+        .catch( (e:any) => this.handleError(e));
   }
 
   get(urlAppend: String, params: String = '') {
     return this.http.get(this.getUrl() + urlAppend + params, this.jwt())
       .toPromise()
       .then(res => res.json().response)
-      .catch(this.handleError);
+      .catch( (e:any) => this.handleError(e));
   }
 
   private jwt() {
@@ -54,7 +55,19 @@ export class APIService {
   }
 
   private handleError(error: any): Promise<any> {
-    //console.error('An error occurred', error); // for demo purposes only
+    if(error.status === 401) {
+      this.deleteSession();
+    }
     return Promise.reject(error.message || error);
+  }
+
+  startSession(user: User, token: String) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    window.sessionStorage.token = token;
+  }
+
+  deleteSession() {
+    localStorage.removeItem('currentUser');
+    delete window.sessionStorage.token;
   }
 }
