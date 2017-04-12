@@ -3,14 +3,14 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, Input, Output, EventEmitter }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Idea }        from '../_models/index';
-import { IdeaService } from '../_services/index';
+import { Idea }        from '../../../_models/index';
+import { IdeaService } from '../../../_services/index';
 
 @Component({
   moduleId: module.id,
   selector: 'idea-add-modification',
   templateUrl: 'idea-add-modification.component.html',
-  styleUrls: [ 'idea-detail.component.css' ]
+  styleUrls: [ '../idea-detail.component.css' ]
 })
 export class IdeaAddModificationComponent {
 

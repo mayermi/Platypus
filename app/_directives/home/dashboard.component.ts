@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User, Idea } from '../_models/index';
-import { UserService, IdeaService } from '../_services/index';
+import { User, Idea } from '../../_models/index';
+import { UserService, IdeaService } from '../../_services/index';
 import { Router } from '@angular/router';
 
 @Component({

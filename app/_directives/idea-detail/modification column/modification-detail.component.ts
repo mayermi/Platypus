@@ -5,11 +5,10 @@ import { Component, OnInit, Input, Output, EventEmitter }      from '@angular/co
   moduleId: module.id,
   selector: 'modification-detail',
   templateUrl: 'modification-detail.component.html'
-  // styleUrls: [ 'idea-detail.component.css' ]
+  styleUrls: [ '../idea-detail.component.css' ]
 })
 export class ModificationDetailComponent {
 
-  // @Input() idea.modification: Idea;
   @Output() onModification = new EventEmitter<boolean>();
   @Output() onAddition = new EventEmitter<boolean>();
 

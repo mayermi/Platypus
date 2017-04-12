@@ -5,7 +5,7 @@ import { Component }      from '@angular/core';
   moduleId: module.id,
   selector: 'how-it-works',
   templateUrl: 'how-it-works.component.html',
-  styleUrls: [ 'idea-detail.component.css' ]
+  styleUrls: [ '../idea-detail.component.css' ]
 })
 export class HowItWorksComponent {
 

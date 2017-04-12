@@ -1,21 +1,18 @@
-
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { Idea }        from '../_models/index';
-import { IdeaService } from '../_services/index';
+import { Idea }        from '../../_models/index';
+import { IdeaService } from '../../_services/index';
 @Component({
   moduleId: module.id,
-  selector: 'idea-add-modification',
-  templateUrl: 'idea-add-contribution.component.html',
+  selector: 'my-idea-edit',
+  templateUrl: 'idea-edit.component.html',
   // styleUrls: [ 'idea-edit.component.css' ]
 })
-export class IdeaAddContributionComponent implements OnInit {
+export class IdeaEditComponent implements OnInit {
   idea: Idea;
   ideaParts = ['Awareness', 'Internalization', 'Twist, Defend and Persuade', 'Commitment'];
-  phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
-  currentPhase = 'Phase II';
 
   constructor(
     private ideaService: IdeaService,
@@ -25,7 +22,7 @@ export class IdeaAddContributionComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-      .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
+      .switchMap((params: Params) => this.ideaService.getIdea(params['id']))
       .subscribe((idea: Idea) => this.idea = idea);
   }
   save(): void {

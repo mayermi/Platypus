@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { IdeaSearchService} from '../_services/index';
-import { Idea } from '../_models/index';
+import { IdeaSearchService} from '../../_services/index';
+import { Idea } from '../../_models/index';
 
 @Component({
   moduleId: module.id,

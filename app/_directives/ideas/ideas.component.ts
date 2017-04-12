@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Idea } from '../_models/index';
-import { IdeaService } from '../_services/index';
+import { Idea } from '../../_models/index';
+import { IdeaService } from '../../_services/index';
 import { Router } from '@angular/router';
 
 @Component({
