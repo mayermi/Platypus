@@ -14,7 +14,7 @@ Why decide between a duck and a biever, if we can create a platypus? We want to 
     <div class="home__ideas__teasers">
       <ideas-teaser [idea]="idea" *ngFor="let idea of ideas" (onDetailSelected)="ideaDetailSelected($event)"></ideas-teaser>
     </div>
-  <a class="home__ideas__view-all" href="#" routerLink="/idead" >View all</a>
+  <a class="home__ideas__view-all" routerLink="/ideas" routerLinkActive="active">View all</a>
 </section>
 
 <section class="home__ranking">

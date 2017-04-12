@@ -14,7 +14,7 @@ export class IdeaService {
   }
 
   getIdea(id: String): Promise<Idea> {
-    return this.service.get('/api/idea/'+ id)
+    return this.service.get('/api/idea/?_id='+ id)
       .then((response: any) => response[0] as Idea)
   }
 
