@@ -40,7 +40,7 @@
           <button class="idea-detail__modifications__add" (click)="showModificationDetail(modification)"></button>
         </div>
         <div>
-          <modification-detail (onModification)="onModificationDetailSelected()" (onAddition)="onAdditionDetailSelected()"></modification-detail>
+          <modification-detail [idea]="idea" (onModification)="onModificationDetailSelected()" (onAddition)="onAdditionDetailSelected()"></modification-detail>
         </div>
         <div *ngIf="isAddModificationVisible">
           <idea-add-modification [idea]="idea" (onSave)="onModificationSaved()" (onGoBack)="goToModificationOverview()"></idea-add-modification>

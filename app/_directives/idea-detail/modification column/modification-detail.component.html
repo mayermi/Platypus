@@ -1,4 +1,7 @@
 <div>
+  <div *ngFor="let modification of idea.additions">
+    Modification:<p></p>
+  </div>
   <div (click)="modificationClicked()">
     <p>Modificationtext</p>
   </div>

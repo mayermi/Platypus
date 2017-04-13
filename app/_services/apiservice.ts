@@ -8,14 +8,14 @@ export class APIService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private options = new RequestOptions({ headers: this.headers});
-  private url_local = 'http://localhost:3100/app';
+  private url_local = 'http://localhost:3000/app';
   private url = 'https://cityidea.herokuapp.com/app';
   constructor(private http: Http) { }
-
 
   getUrl() {return this.url;}
 
   put(urlAppend: String = '', params: String = '', body: any = '') {
+    console.log(this.getUrl() + urlAppend + params, body, this.jwt());
     return this.http.put(this.getUrl() + urlAppend + params, body, this.jwt())
       .toPromise()
       .then(res => res.json().response)
@@ -46,8 +46,9 @@ export class APIService {
   private jwt() {
     if (window.sessionStorage.token) {
       let headers = new Headers({ 'Content-Type': 'application/json' });
-      headers.set('Authorization', 'Bearer ' + window.sessionStorage.token);
-      return new RequestOptions({ headers: headers });
+      headers.append('Authorization', window.sessionStorage.token);
+      // return {headers: headers};
+      return new RequestOptions({headers: headers});
     } else {
       return this.options;
     }

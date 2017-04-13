@@ -21,6 +21,9 @@ export class IdeaDetailComponent implements OnInit {
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
   argumentsIsVisible = false;
   modifications: ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
+  timeToNextPhase = 120;
+  dateNow = new Date();
+  modified = new Date("2013-02-20T12:01:04.753Z");
 
   isAddAdditionVisible = false;
   isAddArgumentVisible = false;
@@ -54,6 +57,7 @@ export class IdeaDetailComponent implements OnInit {
   ngOnInit(): void {
 
     // this.ideaService.getIdeas().then(ideas => this.ideas = ideas);
+    this.dateNow =  new Date();
 
     this.route.params
       .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
@@ -61,7 +65,11 @@ export class IdeaDetailComponent implements OnInit {
       .subscribe((idea: Idea) => {
         this.idea = idea;
         this.currentPhase = this.phases[idea.phase];
-      });
+    });
+
+    if(this.dateNow.valueOf() + this.timeToNextPhase >= this.modified.valueOf()) {
+      this.endPhase();
+    }
   }
   addAddition(): void {
 
@@ -71,6 +79,14 @@ export class IdeaDetailComponent implements OnInit {
   }
   addModification(): void {
 
+  }
+  endPhase(): void {
+    if(this.getToAddModifications) {
+
+    }
+  }
+  getToAddModifications(): String[] {
+    return ;
   }
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
   goBack(): void {

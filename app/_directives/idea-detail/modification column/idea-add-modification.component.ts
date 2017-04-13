@@ -32,10 +32,9 @@ export class IdeaAddModificationComponent {
       .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
       .subscribe((idea: Idea) => this.idea = idea);
   }
-  save(): void {
-    // this.ideaService.addModification(this.idea, this.modification)
-    //   .then(() => this.goBack());
-
+  save(modification: String): void {
+    this.ideaService.addModification(this.idea, modification)
+      .then(() => this.goBack());
     this.onSave.emit(true);
   }
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.

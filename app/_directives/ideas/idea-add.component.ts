@@ -25,10 +25,8 @@ export class IdeaAddComponent implements OnInit {
   add(): void {
     // title = title.trim();
     // if (!title) { return; }
-    this.ideaService.create(this.title).then((idea: Idea) => {
-      this.ideas.push(idea);
-      // this.selectedIdea = null;
-    });
+    this.ideaService.create(this.title)
+      .then((idea: Idea) => { this.ideas.push(idea) });
   }
 
   ngOnInit(): void {
