@@ -1,33 +1,27 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <base href="/" />
     <title>Platypus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- bootstrap css -->
-    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> -->
-
-    <!-- application css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" rel="stylesheet" />
     <link href="app.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="deeppurple-amber.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css" />
+  </head>
 
-    <!-- polyfill(s) for older browsers -->
-    <!-- <script src="node_modules/core-js/client/shim.min.js"></script>-->
+  <body>
+    <app>Loading&hellip;</app>
 
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-
     <script src="systemjs.config.js"></script>
 
     <script>
-        System.import('app').catch(function (err) { console.error(err); });
+      System.import('app').catch(function (error) {
+        console.error(error);
+      });
     </script>
-</head>
-<body>
-    <app>Loading...</app>
-</body>
+  </body>
 </html>

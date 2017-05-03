@@ -1,0 +1,76 @@
+.home {}
+
+.home__description {
+  margin: 0 auto 1.5em;
+  text-align: center;
+  width: 49%;
+}
+
+.home__ideas {
+  margin-bottom: 2.4em;
+  overflow: hidden;
+}
+
+.home__ideas__teaser {
+  flex-basis: 32%;
+}
+
+.home__ideas__teasers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2em;
+  flex-wrap: wrap;
+}
+
+.home__ideas__title {
+  font-size: 2rem;
+  margin: 0 0 0.375em;
+}
+
+.home__ideas__view-all {
+  display: inline-block;
+  float: right;
+  font-size: 1.6rem;
+}
+
+.home__ranking {}
+
+.home__ranking__item {
+  flex-basis: 49%;
+}
+
+.home__ranking__items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__ranking__description {}
+
+.home__ranking__title {
+  font-size: 2rem;
+  margin: 0 0 0.375em;
+}
+
+.home__title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 0 0 0.5em;
+}
+
+/* TODO make indepdent component */
+.ranking {}
+
+.ranking__item {
+  font-size: 1.6rem;
+}
+
+.ranking__list {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.ranking__title {
+  font-size: 1.6rem;
+  margin: 0 0 0.375em;
+}

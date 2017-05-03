@@ -1,15 +1,22 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import { DashboardComponent, IdeasComponent, IdeaDetailComponent, IdeaEditComponent, IdeaAddComponent, IdeaAddModificationComponent }   from './_directives/index';
+import {
+  HomeComponent,
+  IdeasComponent,
+  IdeaDetailComponent,
+  IdeaEditComponent,
+  IdeaAddComponent,
+  IdeaAddModificationComponent
+} from './_directives/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
     {
-      path: 'dashboard',
-      component: DashboardComponent,
+      path: '',
+      component: HomeComponent,
       pathMatch: 'full'
     },
     {
@@ -42,7 +49,7 @@ const appRoutes: Routes = [
     },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: 'dashboard' }
+    { path: '**', redirectTo: '' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

@@ -1,0 +1,27 @@
+<div class="idea-teaser" (click)="goToDetail()">
+  <header class="idea-teaser__header">
+    <div class="idea-teaser__tags" *ngFor="let tag of idea.tags">
+      <a class="idea-teaser__tag" href="#">
+        Tag
+      </a>
+    </div>
+
+    <p class="idea-teaser__location">
+      {{idea.location}}
+    </p>
+  </header>
+
+  <h4 class="idea-teaser__title">
+    {{idea.title}}
+  </h4>
+
+  <footer class="idea-teaser__footer">
+    <p class="idea-teaser__phase">
+      {{phase}}
+    </p>
+
+    <p class="idea-teaser__countdown">
+      Countdown
+    </p>
+  </footer>
+</div>

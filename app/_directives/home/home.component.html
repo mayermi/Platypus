@@ -1,0 +1,73 @@
+<main class="home">
+  <h1 class="home__title">
+    Welcome to Platypus!
+  </h1>
+
+  <p class="home__description">
+    Here we create new projects for our city of the future. Everyone can join and productively contribute.
+  </p>
+
+  <p class="home__description">
+    Why decide between a duck and a beaver, if we can create a platypus? We want to find the best ideas citizens have for their city and elaborate them together to create a better and brighter future for our city!
+  </p>
+
+  <section class="home__ideas">
+    <h3 class="home__ideas__title">
+      Some of our ideas
+    </h3>
+
+    <div class="home__ideas__teasers">
+      <div class="home__ideas__teaser" *ngFor="let idea of topIdeas">
+        <idea-teaser [idea]="idea"></idea-teaser>
+      </div>
+    </div>
+
+    <a class="home__ideas__view-all" routerLink="/ideas">
+      View all
+    </a>
+  </section>
+
+  <section class="home__ranking">
+    <h3 class="home__ranking__title">
+      Here are our collaboration heroes:
+    </h3>
+
+    <p class="home__ranking__description">
+      If you get a lot of modificatoins and additions to your own idea, or contribute a lot you will appear here in our user ranking! Only restriction: They have to be added in the end. So we are looking for quality contributions instead of the highest quantity ;)
+    </p>
+
+    <p class="home__ranking__description">
+      When you register you are assigned a random name. This keeps the discussions anonymous, but still shows you the community members.
+    </p>
+
+    <div class="home__ranking__items">
+      <div class="home__ranking__item">
+        <div class="ranking">
+          <h5 class="ranking__title">
+            Idea creators
+          </h5>
+
+          <ol class="ranking__list">
+            <li class="ranking__item" *ngFor="let creator of creators">
+              {{creator.email}}
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="home__ranking__item">
+        <div class="ranking">
+          <h5 class="ranking__title">
+            Contributors
+          </h5>
+
+          <ol class="ranking__list">
+            <li class="ranking__item" *ngFor="let contributor of contributors">
+              {{contributor.email}}
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

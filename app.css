@@ -5,24 +5,28 @@
  * white: #fefefe;
  */
 
-.navigation {}
-
-.navigation__item {}
-
-.navigation__item + .navigation__item {
-  margin-left: 1em;
+*, *::after, *::before {
+  box-sizing: inherit;
 }
 
-.navigation__link {
-  font-size: 1.6rem;
-}
-
-.navigation__list {
-  display: flex;
-  list-style: none;
+body {
   margin: 0;
-  padding: 0;
 }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.6rem;
+  margin: 0 0 0.75em;
+}
+
+
+
+
 
 /*.help-block {
     font-size: 12px;

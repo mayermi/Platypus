@@ -1,4 +1,4 @@
-h1 {
+/*h1 {
   font-size: 1.2em;
   color: #999;
   margin-bottom: 0;
@@ -8,21 +8,23 @@ h2 {
   margin-top: 0;
   padding-top: 0;
 }
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
+*/
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-nav a:visited, a:link {
-  color: #607D8B;
+
+.app__main {
+  flex-grow: 1;
+  display: flex;
+  padding: 0 2%;
 }
-nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
+
+.app__navigation {
+  border-bottom: 0.1em solid #aaa;
+  margin-bottom: 1.2em;
+  padding: 0.6em 2% 0.5em;
 }
-nav a.active {
-  color: #039be5;
-}
+

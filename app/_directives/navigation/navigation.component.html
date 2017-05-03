@@ -1,0 +1,33 @@
+<nav class="navigation">
+  <ul class="navigation__list">
+    <li class="navigation__item">
+      <a class="navigation__link" routerLink="/" routerLinkActive="is-active">
+        Platypus
+      </a>
+    </li>
+
+    <li class="navigation__item">
+      <a class="navigation__link" routerLink="/ideas" routerLinkActive="is-active">
+        Ideas
+      </a>
+    </li>
+
+    <li class="navigation__item">
+      <a class="navigation__link" routerLink="/dashboard" routerLinkActive="is-active">
+        Rules &amp; Etiquette
+      </a>
+    </li>
+
+    <li class="navigation__item" *ngIf="!isLoggedIn">
+      <a class="navigation__link" routerLink="/login" routerLinkActive="is-active">
+        Login
+      </a>
+    </li>
+
+    <li class="navigation__item" *ngIf="isLoggedIn">
+      <button class="navigation__logout" (click)="logout()">
+        Logout
+      </button>
+    </li>
+  </ul>
+</nav>

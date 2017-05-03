@@ -1,0 +1,32 @@
+.navigation {}
+
+.navigation__item {}
+
+.navigation__item + .navigation__item {
+  margin-left: 1em;
+}
+
+.navigation__link {
+  color: #0074d9;
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+
+.navigation__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__logout {
+  background: none;
+  border: 0;
+  color: #0074d9;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  padding: 0;
+  text-decoration: underline;
+}

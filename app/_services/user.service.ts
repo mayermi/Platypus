@@ -11,10 +11,20 @@ export class UserService {
 
   constructor(private service: APIService) { }
 
-    getUsers(): Promise<User[]> {
-      return this.service.get('/api/user')
-        .then((response: any) => response as User[]);
-    }
+  getCreators(): Promise<User[]> {
+    return this.service.get('/api/user')
+      .then((response: any) => response.slice(0, 3) as User[]);
+  }
+
+  getContributors(): Promise<User[]> {
+    return this.service.get('/api/user')
+      .then((response: any) => response.slice(1, 4) as User[]);
+  }
+
+  getUsers(): Promise<User[]> {
+    return this.service.get('/api/user')
+      .then((response: any) => response as User[]);
+  }
 
     // getById(id: number) {
     //     return this.http.get('/api/user/' + id, this.jwt()).map((response: Response) => response.json());

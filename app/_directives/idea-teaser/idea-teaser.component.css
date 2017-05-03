@@ -1,0 +1,40 @@
+.idea-teaser {
+  background: #fefefe;
+  border: 0.1em solid #aaa;
+  cursor: pointer;
+  padding: 0.5em 0.9em;
+}
+
+.idea-teaser__countdown {
+  margin: 0;
+}
+
+.idea-teaser__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.idea-teaser__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.idea-teaser__location {
+  margin: 0;
+}
+
+.idea-teaser__phase {
+  margin: 0;
+}
+
+.idea-teaser__tag {
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.idea-teaser__tags {}
+
+.idea-teaser__title {
+  font-size: 1.6rem;
+  margin: 0;
+}

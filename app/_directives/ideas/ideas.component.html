@@ -39,7 +39,7 @@
   </form>
   <section class="ideas__list">
     <div class="home__ideas__teasers">
-      <ideas-teaser (onDetailSelected)="ideaDetailSelected($event)" [idea]="idea" *ngFor="let idea of ideas"></ideas-teaser>
+      <idea-teaser (onDetailSelected)="ideaDetailSelected($event)" [idea]="idea" *ngFor="let idea of ideas"></idea-teaser>
     </div>
    </section>
 </main>
