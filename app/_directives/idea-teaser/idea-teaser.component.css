@@ -1,10 +1,11 @@
 .idea-teaser {
-  background: #fefefe;
-  border: 0.1em solid #aaa;
+  background: #e2f2f2;
+  border: 0;
+  border-radius: 0.2em;
   cursor: pointer;
   display: block;
   font-family: inherit;
-  padding: 0.5em 0.9em;
+  padding: 0.9em 1em;
   text-align: left;
   width: 100%;
 }
@@ -21,9 +22,14 @@
 .idea-teaser__header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1.2em;
 }
 
 .idea-teaser__location {
+  color: #666;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
   margin: 0;
 }
 
@@ -31,14 +37,15 @@
   margin: 0;
 }
 
-.idea-teaser__tag {
-  display: inline-block;
-  font-size: 1.6rem;
+.idea-teaser__tags {
+  color: #666;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+  margin: 0;
 }
-
-.idea-teaser__tags {}
 
 .idea-teaser__title {
   font-size: 1.6rem;
-  margin: 0;
+  margin: 0 0 0.375em; /* 0 0 6px */
 }

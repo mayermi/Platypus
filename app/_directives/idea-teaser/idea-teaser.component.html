@@ -1,13 +1,11 @@
 <button class="idea-teaser" (click)="goToIdea()">
   <header class="idea-teaser__header">
-    <div class="idea-teaser__tags" *ngFor="let tag of idea.tags">
-      <a class="idea-teaser__tag" href="#">
-        Tag
-      </a>
-    </div>
-
     <p class="idea-teaser__location">
-      {{idea.location}}
+      {{idea.location.join(', ')}}
+    </p>
+
+    <p class="idea-teaser__tags">
+      {{idea.tags.join(', ')}}
     </p>
   </header>
 

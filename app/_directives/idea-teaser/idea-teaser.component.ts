@@ -20,6 +20,7 @@ export class IdeaTeaserComponent implements OnInit {
   getPhase(): void {
     // TODO move this to service
     // TODO also map `_id` to `id`
+    // TODO map location-array to string
     this.phase = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'][this.idea.phase];
   }
 
@@ -28,6 +29,10 @@ export class IdeaTeaserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('on init', this.idea);
+    this.idea.location = ['Spring Hill'];
+    this.idea.tags = ['social', 'economic', 'political'];
+
     this.getPhase();
   }
 }
