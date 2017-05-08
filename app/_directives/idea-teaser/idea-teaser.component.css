@@ -2,7 +2,11 @@
   background: #fefefe;
   border: 0.1em solid #aaa;
   cursor: pointer;
+  display: block;
+  font-family: inherit;
   padding: 0.5em 0.9em;
+  text-align: left;
+  width: 100%;
 }
 
 .idea-teaser__countdown {

@@ -1,51 +1,57 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import { Headers, Http, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {User} from "../_models/user";
+
+import { User } from '../_models/user';
 
 @Injectable()
 export class APIService {
+  private headers = new Headers({
+    'Content-Type': 'application/json'
+  });
 
-  private headers = new Headers({'Content-Type': 'application/json'});
-  private options = new RequestOptions({ headers: this.headers});
-  private url_local = 'http://localhost:3000/app';
+  private options = new RequestOptions({
+    headers: this.headers
+  });
+
+  // local: 'http://localhost:3000/app';
   private url = 'https://cityidea.herokuapp.com/app';
+
   constructor(private http: Http) { }
 
-  getUrl() {return this.url;}
-
-  put(urlAppend: String = '', params: String = '', body: any = '') {
-    console.log(this.getUrl() + urlAppend + params, body, this.jwt());
-    return this.http.put(this.getUrl() + urlAppend + params, body, this.jwt())
+  delete(url: String): Promise<any> {
+    return this.http.delete(`${this.url}${url}`, this.jwt())
       .toPromise()
-      .then(res => res.json().response)
-        .catch( (e:any) => this.handleError(e));
+      .then((response: any) => response.json().response)
+      .catch((error: any) => this.handleError(error));
   }
 
-  post(urlAppend: String = '', params: String = '', body: any = '') {
-    return this.http.post(this.getUrl() + urlAppend + params, body, this.jwt())
+  get(url: String): Promise<any> {
+    return this.http.get(`${this.url}${url}`, this.jwt())
       .toPromise()
-      .then(res => res.json().response)
-        .catch( (e:any) => this.handleError(e));
+      .then((response: any) => response.json().response)
+      .catch((error: any) => this.handleError(error));
   }
 
-  delete(urlAppend: String = '', params: String = '') {
-    return this.http.delete(this.getUrl() + urlAppend + params, this.jwt())
+  post(url: String, body: any = ''): Promise<any> {
+    return this.http.post(`${this.url}${url}`, body, this.jwt())
       .toPromise()
-      .then(res => res.json().response)
-        .catch( (e:any) => this.handleError(e));
+      .then((response: any) => response.json().response)
+      .catch((error: any) => this.handleError(error));
   }
 
-  get(urlAppend: String, params: String = '') {
-    return this.http.get(this.getUrl() + urlAppend + params, this.jwt())
+  put(url: String, body: any = ''): Promise<any> {
+    return this.http.put(`${this.url}${url}`, body, this.jwt())
       .toPromise()
-      .then(res => res.json().response)
-      .catch( (e:any) => this.handleError(e));
+      .then((response: any) => response.json().response)
+      .catch((error: any) => this.handleError(error));
   }
 
   private jwt() {
     if (window.sessionStorage.token) {
-      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let headers = new Headers({
+        'Content-Type': 'application/json'
+      });
       headers.append('Authorization', window.sessionStorage.token);
       // return {headers: headers};
       return new RequestOptions({headers: headers});
@@ -55,9 +61,10 @@ export class APIService {
   }
 
   private handleError(error: any): Promise<any> {
-    if(error.status === 401) {
+    if (error.status === 401) {
       this.deleteSession();
     }
+
     return Promise.reject(error.message || error);
   }
 

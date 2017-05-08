@@ -5,14 +5,13 @@ import { IdeaService, UserService } from '../../_services/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'home',
   styleUrls: ['home.component.css'],
   templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
-  contributors: User[] = [];
-  creators: User[] = [];
-  topIdeas: Idea[] = [];
+  contributors: User[];
+  creators: User[];
+  topIdeas: Idea[];
 
   constructor(
     private ideaService: IdeaService,
@@ -40,4 +39,3 @@ export class HomeComponent implements OnInit {
     this.getTopIdeas();
   }
 }
-

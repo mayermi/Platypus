@@ -28,7 +28,6 @@ import {
   IdeaAddComponent,
   HowItWorksComponent,
   IdeaAddModificationComponent,
-  IdeaSearchComponent,
   ArgumentsComponent,
   ModificationDetailComponent,
 } from './_directives/index';
@@ -51,6 +50,7 @@ import {APIService} from "./_services/apiservice";
     ],
     declarations: [
         HomeComponent,
+        IdeasComponent,
         IdeaTeaserComponent,
         NavigationComponent,
 
@@ -62,8 +62,6 @@ import {APIService} from "./_services/apiservice";
         IdeaEditComponent,
         IdeaAddComponent,
         IdeaAddModificationComponent,
-        IdeasComponent,
-        IdeaSearchComponent,
         ArgumentsComponent,
         HowItWorksComponent,
         ModificationDetailComponent,

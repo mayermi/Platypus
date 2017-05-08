@@ -5,6 +5,15 @@ import { Location }               from '@angular/common';
 import { Idea }        from '../../_models/index';
 import { IdeaService } from '../../_services/index';
 
+// add(title: string): void {
+//   title = title.trim();
+//   if (!title) { return; }
+//   this.ideaService.create(title).then(idea => {
+//     this.ideas.push(idea);
+//     // this.selectedIdea = null;
+//   });
+// }
+
 @Component({
   moduleId: module.id,
   selector: 'idea-add',

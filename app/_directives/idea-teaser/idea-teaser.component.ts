@@ -19,11 +19,12 @@ export class IdeaTeaserComponent implements OnInit {
 
   getPhase(): void {
     // TODO move this to service
+    // TODO also map `_id` to `id`
     this.phase = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'][this.idea.phase];
   }
 
-  goToDetail(): void {
-    this.router.navigate(['/detail', this.idea._id]);
+  goToIdea(): void {
+    this.router.navigateByUrl(`/detail/${this.idea._id}`);
   }
 
   ngOnInit(): void {

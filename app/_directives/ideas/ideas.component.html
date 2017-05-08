@@ -1,45 +1,25 @@
 <main class="ideas">
-  <h1 class="ideas__title">These are our Ideas!</h1>
-  <form class="ideas__filters">
-    <div class="ideas__filter">
-      <select>
-        <option>Tag</option>
-        <option>Social</option>
-        <option>Technological</option>
-        <option>Economic</option>
-        <option>Environmental</option>
-        <option>Political</option>
-      </select>
+  <h1 class="ideas__title">
+    These are our Ideas!
+  </h1>
+
+  <div class="ideas__controls">
+    <div class="ideas__search">
+      <label class="ideas__search__label" for="query">
+        Search:
+      </label>
+
+      <input class="ideas__search__query" id="query" type="text" placeholder="e.g. Spring Hill or playground" (keyup)="search()" [(ngModel)]="query">
     </div>
-    <div class="ideas__filter">
-      <select>
-        <option>Location</option>
-        <option>Bowen Hills</option>
-        <option>Brisbane</option>
-        <option>East Brisbane</option>
-        <option>Fortitude Valley</option>
-        <option>Herston</option>
-        <option>Highgate Hill</option>
-        <option>Kangaroo Point</option>
-        <option>Kelvin Grove</option>
-        <option>New Farm</option>
-        <option>Newstead</option>
-        <option>Paddington</option>
-        <option>Petrie Terrace</option>
-        <option>Red Hill</option>
-        <option>South Brisbane</option>
-        <option>Spring Hill</option>
-        <option>Teneriffe</option>
-        <option>West End</option>
-        <option>Woolloongabba</option>
-      </select>
-    </div>
-    <idea-search></idea-search>
-    <button class="ideas__create" routerLink="/idea-add" routerLinkActive="active">Create new idea</button>
-  </form>
+
+    <a class="ideas__create" routerLink="/idea-add">
+      Create new idea
+    </a>
+  </div>
+
   <section class="ideas__list">
-    <div class="home__ideas__teasers">
-      <idea-teaser (onDetailSelected)="ideaDetailSelected($event)" [idea]="idea" *ngFor="let idea of ideas"></idea-teaser>
-    </div>
-   </section>
+    <article class="ideas__idea" *ngFor="let idea of filteredIdeas">
+      <idea-teaser [idea]="idea"></idea-teaser>
+    </article>
+  </section>
 </main>
