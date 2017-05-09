@@ -8,7 +8,6 @@
 
 .home__ideas {
   margin-bottom: 2.4em;
-  overflow: hidden;
 }
 
 .home__ideas__teaser {
@@ -17,9 +16,9 @@
 
 .home__ideas__teasers {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 1.2em;
-  flex-wrap: wrap;
 }
 
 .home__ideas__title {
@@ -29,7 +28,6 @@
 
 .home__ideas__view-all {
   display: inline-block;
-  float: right;
   font-size: 1.6rem;
 }
 

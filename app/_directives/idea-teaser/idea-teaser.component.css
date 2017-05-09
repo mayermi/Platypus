@@ -1,13 +1,126 @@
 .idea-teaser {
-  background: #e2f2f2;
+  background: var(--color-neutral--lightest);
   border: 0;
   border-radius: 0.2em;
+  box-shadow: 0 0 0 0.1em var(--color-neutral);
   cursor: pointer;
   display: block;
   font-family: inherit;
-  padding: 0.9em 1em;
+  padding: 0;
   text-align: left;
   width: 100%;
+}
+
+.idea-teaser__categories {
+  border-radius: 0.2em 0.2em 0 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.idea-teaser__categories__content {
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.idea-teaser__category {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 1px;
+  justify-content: center;
+  position: relative;
+}
+.idea-teaser__category::after,
+.idea-teaser__category::before {
+  content: '';
+  display: block;
+  height: 200%;
+  position: absolute;
+  top: -50%;
+  transform: rotate(11.5deg);
+  width: 50%;
+  z-index: 1;
+}
+
+.idea-teaser__category::after {
+  right: 0;
+}
+
+.idea-teaser__category::before {
+  left: 0;
+}
+
+.idea-teaser__category__title {
+  font-size: 2.4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.idea-teaser__category__title__text {
+  display: block;
+  height: 0;
+  text-indent: -99999em;
+  width: 0;
+}
+
+.idea-teaser__category__title::before {
+  color: var(--color-neutral--lightest);
+  font-family: FontAwesome;
+}
+
+.idea-teaser__category--economical,
+.idea-teaser__category--economical::after,
+.idea-teaser__category--economical::before {
+  background: var(--color-category--economical);
+}
+
+.idea-teaser__category--economical .idea-teaser__category__title::before {
+  content: '\f201'; /* line-chart */
+}
+
+.idea-teaser__category--environmental,
+.idea-teaser__category--environmental::after,
+.idea-teaser__category--environmental::before {
+  background: var(--color-category--environmental);
+}
+
+.idea-teaser__category--environmental .idea-teaser__category__title::before {
+  content: '\f06c'; /* leaf */
+}
+
+.idea-teaser__category--political,
+.idea-teaser__category--political::after,
+.idea-teaser__category--political::before {
+  background: var(--color-category--political);
+}
+
+.idea-teaser__category--political .idea-teaser__category__title::before {
+  content: '\f0e3'; /* gavel */
+}
+
+.idea-teaser__category--social,
+.idea-teaser__category--social::after,
+.idea-teaser__category--social::before {
+  background: var(--color-category--social);
+}
+
+.idea-teaser__category--social .idea-teaser__category__title::before {
+  content: '\f0c0'; /* group */
+}
+
+.idea-teaser__category--technological,
+.idea-teaser__category--technological::after,
+.idea-teaser__category--technological::before {
+  background: var(--color-category--technological);
+}
+
+.idea-teaser__category--technological .idea-teaser__category__title::before {
+  content: '\f135'; /* rocket */
 }
 
 .idea-teaser__countdown {
@@ -26,11 +139,15 @@
 }
 
 .idea-teaser__location {
-  color: #666;
+  color: var(--color-neutral--darker);
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 300;
   margin: 0;
+}
+
+.idea-teaser__main {
+  padding: 0.9em 1em;
 }
 
 .idea-teaser__phase {
@@ -38,7 +155,7 @@
 }
 
 .idea-teaser__tags {
-  color: #666;
+  color: var(--color-neutral--darker);
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 300;
@@ -47,5 +164,5 @@
 
 .idea-teaser__title {
   font-size: 1.6rem;
-  margin: 0 0 0.375em; /* 0 0 6px */
+  margin: 0 0 0.75em; /* 0 0 6px */
 }

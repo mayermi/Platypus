@@ -29,9 +29,14 @@ export class IdeaTeaserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('on init', this.idea);
     this.idea.location = ['Spring Hill'];
-    this.idea.tags = ['social', 'economic', 'political'];
+    this.idea.tags = [
+      ['social', 'economical', 'political'],
+      ['economical', 'environmental'],
+      ['technological', 'economical'],
+      ['political'],
+      ['social', 'political', 'economical', 'technological']
+    ][Math.floor(Math.random() * 5)];
 
     this.getPhase();
   }

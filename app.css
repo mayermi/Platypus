@@ -1,21 +1,76 @@
-﻿/*
- * blue: #0074d9;
- * blue--lighter: #e2f2f2;
- * gray: #aaa;
- * green: #2ecc40;
- * white: #fefefe;
- */
+@font-face {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/fontawesome/fontawesome-webfont.eot?v=4.7.0');
+  src: url('./assets/fonts/fontawesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+    url('./assets/fonts/fontawesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),
+    url('./assets/fonts/fontawesome/fontawesome-webfont.woff?v=4.7.0') format('woff'),
+    url('./assets/fonts/fontawesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),
+    url('./assets/fonts/fontawesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+}
+
+:root {
+  --color-action: #69f; /* violet */
+  --color-action--lighter: #a3c2ff;
+  --color-action--lightest: #e0ebff;
+  --color-action--darker: #2970ff;
+  --color-action--darkest: #004eeb;
+
+  --color-brand: #8dcccc; /* blue */
+  --color-brand--lighter: #b7dfdf;
+  --color-brand--lightest: #e2f2f2;
+  --color-brand--darker: #63b9b9;
+  --color-brand--darkest: #459a9a;
+
+  --color-category--economical: #69f;
+  --color-category--environmental: #8ccd6c;
+  --color-category--political: #8dcccc;
+  --color-category--social: #ffa65f;
+  --color-category--technological: #ff5f61;
+
+  --color-error: #ff5f61; /* red */
+  --color-error--lighter: #ff9c9d;
+  --color-error--lightest: #ffd9da;
+  --color-error--darker: #ff2225;
+  --color-error--darkest: #e40003;
+
+  --color-neutral: #aaa; /* gray */
+  --color-neutral--lighter: lightgray;
+  --color-neutral--lightest: #fcfcfc;
+  --color-neutral--darker: #636363;
+  --color-neutral--darkest: #1b1b1b;
+
+  --color-success: #8ccd6c; /* green */
+  --color-success--lighter: #b0dd9a;
+  --color-success--lightest: #d3ecc7;
+  --color-success--darker: #69bc40;
+  --color-success--darkest: #4f8e30;
+
+  --color-warning: #ffa65f; /* orange */
+  --color-warning--lighter: #ffc89c;
+  --color-warning--lightest: #ffead9;
+  --color-warning--darker: #ff8422;
+  --color-warning--darkest: #e46500;
+
+}
 
 *, *::after, *::before {
   box-sizing: inherit;
 }
 
+a {
+  color: var(--color-action--darker);
+}
+
 body {
+  color: var(--color-neutral--darkest);
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
 html {
+  background: var(--color-neutral--lightest);
   box-sizing: border-box;
   font-size: 62.5%;
   line-height: 1.5;
@@ -25,125 +80,3 @@ p {
   font-size: 1.6rem;
   margin: 0 0 0.75em;
 }
-
-
-
-
-
-/*.help-block {
-    font-size: 12px;
-}
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
-body {
-  margin: 2em;
-}*/
-/* #enddocregion quickstart */
-/*body, input[text], button {
-  color: #888;
-  font-family: Cambria, Georgia;
-}*/
-/* #enddocregion toh */
-/*a {
-  cursor: pointer;
-  cursor: hand;
-}
-button {
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
-}*/
-
-/* Navigation link styles */
-/*nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-right: 10px;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
-}
-nav a:visited, a:link {
-  color: #607D8B;
-}
-nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
-}
-nav a.active {
-  color: #039be5;
-}*/
-
-/* items class */
-/*.items {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 24em;
-}
-.items li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-.items li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.items li.selected {
-  background-color: #CFD8DC;
-  color: white;
-}
-.items li.selected:hover {
-  background-color: #BBD8DC;
-}
-.items .text {
-  position: relative;
-  top: -3px;
-}
-.items .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}*/
-/* #docregion toh */
-/* everywhere else */
-/** {
-  font-family: Arial, Helvetica, sans-serif;
-}*/

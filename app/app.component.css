@@ -10,7 +10,7 @@
 }
 
 .app__navigation {
-  border-bottom: 0.1em solid #aaa;
+  background: var(--color-brand--lightest);
   margin-bottom: 1.2em;
-  padding: 0.6em 2% 0.5em;
+  padding: 1.2em 2%;
 }

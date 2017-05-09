@@ -17,17 +17,19 @@
         Rules &amp; Etiquette
       </a>
     </li>
-
-    <li class="navigation__item" *ngIf="!isLoggedIn">
-      <a class="navigation__link" routerLink="/login" routerLinkActive="is-active">
-        Login
-      </a>
-    </li>
-
-    <li class="navigation__item" *ngIf="isLoggedIn">
-      <button class="navigation__logout" (click)="logout()">
-        Logout
-      </button>
-    </li>
   </ul>
+
+  <div class="navigation__controls">
+    <a class="navigation__go-to-create" routerLink="/idea-add">
+      Create new idea
+    </a>
+
+    <a class="navigation__link" *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="is-active">
+      Login
+    </a>
+
+    <button class="navigation__logout" (click)="logout()" *ngIf="isLoggedIn">
+      Logout
+    </button>
+  </div>
 </nav>
