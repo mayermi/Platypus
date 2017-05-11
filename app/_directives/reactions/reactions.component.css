@@ -1,0 +1,74 @@
+.reactions {
+  display: flex;
+}
+
+.reactions__action {
+  background: var(--color-neutral--lightest);
+  border: 0.0625em solid; /* 1px */
+  color: var(--color-action);
+  font-size: 1.6rem;
+  margin-right: 0.3125em; /* 5px */
+  padding: 2px 6px;
+}
+
+.reactions__action:hover {
+  background: var(--color-action);
+  border: 0;
+  color: var(--color-neutral--lightest);
+  padding: 3px 7px;
+}
+
+.reactions__action::before {
+  font-family: FontAwesome;
+}
+
+.reactions__count {
+  color: var(--color-neutral--darker);
+  font-size: 1.6rem;
+}
+
+.reactions__action::before {
+  font-family: FontAwesome;
+}
+
+.reactions__reaction {
+  align-items: center;
+  color: var(--color-neutral--darker);
+  display: flex;
+  margin-bottom: 0.6em;
+  padding: 0;
+}
+
+.reactions__reaction + .reactions__reaction {
+  margin-left: 1.5em;
+}
+
+.reactions__reaction.reactions__reaction--dislike {}
+
+.reactions__reaction.reactions__reaction--dislike .reactions__action {
+  color: var(--color-error);
+}
+
+.reactions__reaction.reactions__reaction--dislike .reactions__action:hover {
+  background: var(--color-error);
+  color: var(--color-neutral--lightest);
+}
+
+.reactions__reaction.reactions__reaction--dislike .reactions__action::before {
+  content: '\f088'; /* thumbs down */
+}
+
+.reactions__reaction.reactions__reaction--like {}
+
+.reactions__reaction.reactions__reaction--like .reactions__action {
+  color: var(--color-success--darker);
+}
+
+.reactions__reaction.reactions__reaction--like .reactions__action:hover {
+  background: var(--color-success);
+  color: var(--color-neutral--lightest);
+}
+
+.reactions__reaction.reactions__reaction--like .reactions__action::before {
+  content: '\f087'; /* thumbs up */
+}

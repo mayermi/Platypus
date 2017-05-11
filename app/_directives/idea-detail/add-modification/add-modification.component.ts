@@ -1,23 +1,20 @@
-
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, Input, Output, EventEmitter }      from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
-import { Idea }        from '../../../_models/index';
+import { Location } from '@angular/common';
+
+import { Idea } from '../../../_models/index';
 import { IdeaService } from '../../../_services/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'idea-add-modification',
-  templateUrl: 'idea-add-modification.component.html',
-  styleUrls: [ '../idea-detail.component.css' ]
+  selector: 'add-modification',
+  templateUrl: 'add-modification.component.html'
 })
-export class IdeaAddModificationComponent {
-
+export class AddModificationComponent {
   @Input() idea: Idea;
   @Output() onSave = new EventEmitter<boolean>();
   @Output() onGoBack = new EventEmitter<boolean>();
-
 
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
 
@@ -25,7 +22,9 @@ export class IdeaAddModificationComponent {
     private ideaService: IdeaService,
     private route: ActivatedRoute,
     private location: Location
-  ) {}
+  ) {
+  }
+
   ngOnInit(): void {
     this.route.params
       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))

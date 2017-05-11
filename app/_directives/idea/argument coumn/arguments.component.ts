@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   moduleId: module.id,
   selector: 'arguments',
   templateUrl: 'arguments.component.html',
-  styleUrls: [ '../idea-detail.component.css' ]
+//  styleUrls: [ '../idea-detail.component.css' ]
 })
 export class ArgumentsComponent implements OnInit {
   @Input() idea: Idea;

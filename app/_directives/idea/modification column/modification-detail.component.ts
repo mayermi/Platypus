@@ -6,7 +6,7 @@ import { Idea }        from '../../../_models/index';
   moduleId: module.id,
   selector: 'modification-detail',
   templateUrl: 'modification-detail.component.html',
-  styleUrls: [ '../idea-detail.component.css' ]
+//  styleUrls: [ '../idea-detail.component.css' ]
 })
 export class ModificationDetailComponent {
   @Input() idea: Idea;

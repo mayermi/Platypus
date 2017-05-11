@@ -17,17 +17,19 @@ import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
 import {
+  AddBlockControlsComponent,
+  CustomButtonComponent,
   HomeComponent,
+  HowItWorksComponent,
+  IdeaComponent,
+  IdeasComponent,
   IdeaTeaserComponent,
   NavigationComponent,
+  ReactionsComponent,
 
   AlertComponent,
-  IdeasComponent,
-  IdeaDetailComponent,
   IdeaEditComponent,
   IdeaAddComponent,
-  HowItWorksComponent,
-  IdeaAddModificationComponent,
   ArgumentsComponent,
   ModificationDetailComponent,
 } from './_directives/index';
@@ -40,47 +42,51 @@ import {APIService} from "./_services/apiservice";
 //import 'hammerjs';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        NoopAnimationsModule,
-        FormsModule,
-        HttpModule,
-        routing,
-        MaterialModule
-    ],
-    declarations: [
-        HomeComponent,
-        IdeasComponent,
-        IdeaTeaserComponent,
-        NavigationComponent,
+  imports: [
+    BrowserModule,
+    NoopAnimationsModule,
+    FormsModule,
+    HttpModule,
+    routing,
+    MaterialModule
+  ],
+  declarations: [
+    AddBlockControlsComponent,
+    CustomButtonComponent,
+    HomeComponent,
+    IdeaComponent,
+    IdeasComponent,
+    IdeaTeaserComponent,
+    NavigationComponent,
+    ReactionsComponent,
 
-        AppComponent,
-        AlertComponent,
-        LoginComponent,
-        RegisterComponent,
-        IdeaDetailComponent,
-        IdeaEditComponent,
-        IdeaAddComponent,
-        IdeaAddModificationComponent,
-        ArgumentsComponent,
-        HowItWorksComponent,
-        ModificationDetailComponent,
-    ],
-    providers: [
-        AuthGuard,
-        IdeaOwnerAuthGuard,
-        AlertService,
-        AuthenticationService,
-        UserService,
-        IdeaService,
-        APIService,
+    AppComponent,
+    AlertComponent,
+    LoginComponent,
+    RegisterComponent,
+    IdeaEditComponent,
+    IdeaAddComponent,
+    ArgumentsComponent,
+    HowItWorksComponent,
+    ModificationDetailComponent,
+  ],
+  providers: [
+    AuthGuard,
+    IdeaOwnerAuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    IdeaService,
+    APIService,
 
-        // providers used to create fake backend
-        // fakeBackendProvider,
-        MockBackend,
-        BaseRequestOptions
-    ],
-    bootstrap: [AppComponent]
+    // providers used to create fake backend
+    // fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 
 export class AppModule { }

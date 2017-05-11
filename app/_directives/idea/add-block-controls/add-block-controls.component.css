@@ -1,0 +1,16 @@
+.add-block-controls {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-block-controls__cancel {
+  background: none;
+  border-radius: 0;
+  color: var(--color-action--darker);
+  margin: 0 0.625em 0 0; /* 0 10px 0 0 */
+  padding: 0;
+  text-decoration: underline;
+}
+
+.add-block-controls__save {}

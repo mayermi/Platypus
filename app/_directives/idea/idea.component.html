@@ -1,0 +1,89 @@
+<main class="idea" *ngIf="idea">
+  <h1 class="idea__title">
+    {{idea.title}}
+  </h1>
+
+  <div class="idea__body">
+    <aside class="idea__description">
+      <section class="idea__metadata">
+        <header class="idea__metadata__header">
+          <p class="idea__deadline">
+            Phase II ends
+
+            <time class="idea__deadline__time">
+              22.4.17, 10:00 a.m.
+            </time>
+          </p>
+        </header>
+
+        <footer class="idea__metadata__footer">
+          <p class="idea__location">
+            {{idea.location}}
+          </p>
+
+          <section class="idea__tags">
+            <p class="idea__tags" *ngFor="let tag of idea.tags">
+              {{idea.tags.join(', ')}}
+            </p>
+          </section>
+        </footer>
+
+        <p>
+          <a routerLink="edit">
+            Go to edit
+          </a>
+        </p>
+      </section>
+
+      <section>
+        [DESCRIPTION (Part 1/Part 2)]
+
+        <button type="button" (click)="showArguments()">
+          Show arguments the idea is based on
+        </button>
+      </section>
+    </aside>
+
+    <main class="idea__main">
+      <h2>
+        Modifications
+      </h2>
+
+      <modification-detail></modification-detail>
+
+      <div *ngIf="isModificationFormVisible">
+        <textarea placeholder="placeholder" [(ngModel)]="modification"></textarea>
+
+        <add-block-controls (onCancel)="closeModificationForm()" (onSave)="saveModification()"></add-block-controls>
+      </div>
+
+      <button type="button" (click)="openModificationForm()" *ngIf="!isModificationFormVisible">
+        Add Modification
+      </button>
+
+      <div class="idea__modifications">
+        <div class="idea__quicklinks">
+          <a class="idea__quicklink" [ngClass]="'idea__quicklink--' + getTypeForModification(modification)" [routerLink]="['.']" [fragment]="['modification-' + modification._id]" *ngFor="let modification of idea.modifications">
+            #1
+          </a>
+        </div>
+
+        <div class="idea__modification" [id]="'modification-' + modification._id" [ngClass]="'idea__modification--' + getTypeForModification(modification)" *ngFor="let modification of idea.modifications">
+          <p>
+            {{modification.content}}
+          </p>
+
+          <div class="idea__reactions">
+            <reactions [dislikes]="modification.dislikes" [likes]="modification.likes" (onDislike)="dislike()" (onLike)="like()"></reactions>
+          </div>
+        </div>
+      </div>
+
+      <how-it-works></how-it-works>
+    </main>
+
+    <!--aside class="idea__arguments" *ngIf="argumentsIsVisible">
+      <arguments [idea]="idea"></arguments>
+    </aside-->
+  </div>
+</main>

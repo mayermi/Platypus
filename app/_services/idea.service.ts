@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
 import { APIService } from './index';
-import { Idea } from '../_models/index';
+import { Idea, Modification } from '../_models/index';
 
 @Injectable()
 export class IdeaService {
@@ -16,7 +16,23 @@ export class IdeaService {
 
   getIdea(id: String): Promise<Idea> {
     return this.apiService.get(`/api/idea/?_id=${id}`)
-      .then((response: any) => response[0] as Idea);
+      .then((response: any) => {
+        const idea = response[0] as Idea;
+
+        return this.apiService.get(`/api/modification?idea=${id}`).then((modifications: any) => {
+          idea.modifications = modifications as Modification[];
+
+          // TODO have this be done by the server
+          idea.modifications.map((modification: Modification) => {
+            modification.dislikes = Math.floor(Math.random() * 10);
+            modification.likes = Math.floor(Math.random() * 10);
+
+            return modification;
+          })
+
+          return idea;
+        })
+      });
   }
 
   getTopIdeas(): Promise<Idea[]> {
@@ -45,6 +61,10 @@ export class IdeaService {
       content: modification,
       idea: idea._id,
       phases: [idea.phase]
-    }).then(() => idea);
+    }).then((response) => {
+      idea.modifications.push(response.modification);
+
+      return idea;
+    });
   }
 }

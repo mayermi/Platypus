@@ -4,41 +4,41 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService, AuthenticationService } from '../_services/index';
 
 @Component({
-    moduleId: module.id,
-    templateUrl: 'login.component.html'
+  moduleId: module.id,
+  templateUrl: 'login.component.html'
 })
 
 export class LoginComponent implements OnInit {
-    model: any = {};
-    loading = false;
-    returnUrl: string;
+  model: any = {};
+  loading = false;
+  returnUrl: string;
 
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private zone: NgZone,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private zone: NgZone,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService) {
+  }
 
-    ngOnInit() {
-        // reset login status
-        this.authenticationService.logout();
+  ngOnInit() {
+    // reset login status
+    this.authenticationService.logout();
 
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    }
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
-    login() {
-        this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
-            .then((data: any) => {
-                this.zone.run(() => {
-                    this.router.navigate([this.returnUrl]);
-                });
-            })
-             .catch((error: any) => {
-                this.alertService.error(error);
-                this.loading = false;
-            });
-    }
+  login() {
+    this.loading = true;
+    this.authenticationService.login(this.model.username, this.model.password)
+      .then((data: any) => {
+        this.zone.run(() => {
+          this.router.navigateByUrl(this.returnUrl);
+        });
+      }).catch((error: any) => {
+        this.alertService.error(error);
+        this.loading = false;
+      });
+  }
 }

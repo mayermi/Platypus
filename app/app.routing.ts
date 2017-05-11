@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 
 import {
   HomeComponent,
+  IdeaComponent,
   IdeasComponent,
-  IdeaDetailComponent,
   IdeaEditComponent,
-  IdeaAddComponent,
-  IdeaAddModificationComponent
+  IdeaAddComponent
 } from './_directives/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -19,14 +18,13 @@ const appRoutes: Routes = [
     component: HomeComponent,
     pathMatch: 'full'
   }, {
+    path: 'idea/:id',
+    component: IdeaComponent
+  }, {
     path: 'ideas',
     component: IdeasComponent
   },
 
-  {
-    path: 'detail/:_id',
-    component: IdeaDetailComponent
-  },
   {
     path: 'idea-edit/:_id',
     component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]

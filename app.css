@@ -69,6 +69,48 @@ body {
   margin: 0;
 }
 
+button {
+  background: var(--color-action);
+  border: 0;
+  border-radius: 0.25em; /* 4px */
+  color: var(--color-neutral--lightest);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.375em 0.625em; /* 6px 10px */
+}
+
+button:hover {
+  background: var(--color-action--darker);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 0.1875em; /* 6px */
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5em; /* 6px */
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 0.3em; /* 6px */
+}
+
 html {
   background: var(--color-neutral--lightest);
   box-sizing: border-box;
@@ -76,7 +118,32 @@ html {
   line-height: 1.5;
 }
 
+li {
+  font-size: 1.6rem;
+}
+
+ol {
+  margin: 0;
+}
+
 p {
   font-size: 1.6rem;
   margin: 0 0 0.75em;
+}
+
+textarea {
+  border: 0.0625em solid var(--color-neutral); /* 1px */
+  border-radius: 0.125em; /* 2px */
+  font-family: inherit;
+  font-size: 1.6rem;
+  height: 7.2em;
+  line-height: 1.5;
+  margin: 0;
+  padding: 5px 9px;
+  width: 100%;
+}
+
+ul {
+  list-style: disc;
+  margin: 0;
 }

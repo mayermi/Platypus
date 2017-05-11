@@ -1,0 +1,48 @@
+<div class="how-it-works">
+  <button class="how-it-works__toggle" type="button" (click)="toggle()">
+    <span *ngIf="isContentVisible">
+      Hide how it works
+    </span>
+
+    <span *ngIf="!isContentVisible">
+      Show how it works
+    </span>
+  </button>
+
+  <main class="how-it-works__main" *ngIf="isContentVisible">
+    <h3>
+      How it works
+    </h3>
+
+    <ol>
+      <li>
+        Check out the <strong>idea</strong> on the left!
+      </li>
+
+      <li>
+        Take a look at the <strong>arguments</strong> on the right on which the idea is based on.
+      </li>
+
+      <li>
+        How you can contribute:
+        <ul>
+          <li>
+            Add another argument around the idea
+          </li>
+
+          <li>
+            Suggest a <strong>modification</strong> of the idea
+          </li>
+
+          <li>
+            Suggest an <strong>addition</strong> to an existing modification
+          </li>
+
+          <li>
+            Share your opinion by liking/disliking the existing modifications and additions
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </main>
+</div>

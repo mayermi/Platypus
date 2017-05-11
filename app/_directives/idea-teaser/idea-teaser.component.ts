@@ -25,7 +25,7 @@ export class IdeaTeaserComponent implements OnInit {
   }
 
   goToIdea(): void {
-    this.router.navigateByUrl(`/detail/${this.idea._id}`);
+    this.router.navigateByUrl(`/idea/${this.idea._id}`);
   }
 
   ngOnInit(): void {

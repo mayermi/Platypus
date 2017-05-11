@@ -1,0 +1,21 @@
+<div class="reactions">
+  <div class="reactions__reaction reactions__reaction--like">
+    <button class="reactions__action" (click)="like()" type="secondary">
+      Like
+    </button>
+
+    <span class="reactions__count">
+      {{likes}}
+    </span>
+  </div>
+
+  <div class="reactions__reaction reactions__reaction--dislike">
+    <button class="reactions__action" (click)="dislike()" type="secondary">
+      Dislike
+    </button>
+
+    <span class="reactions__count">
+      {{dislikes}}
+    </span>
+  </div>
+</div>
