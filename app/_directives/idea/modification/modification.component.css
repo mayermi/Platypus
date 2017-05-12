@@ -1,0 +1,35 @@
+.modification {
+  margin-bottom: 1.2em;
+}
+
+.modification__actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modification__addition-form {
+  border: 0.1em solid var(--color-neutral);
+  border-top: 0;
+  margin-left: 5em;
+  padding: 0.6em 0.9em 0.5em;
+}
+
+.modification__main {
+  background: var(--color-neutral--lightest);
+  border: 0.1em solid var(--color-neutral);
+  border-left-color: var(--color-neutral);
+  border-left-width: 0.5em;
+  padding: 0.5em 0.9em 0.5em 1em;
+}
+
+.modification__main.modification__main--dislikes-only {
+  border-left-color: var(--color-error);
+}
+
+.modification__main.modification__main--likes-only {
+  border-left-color: var(--color-success);
+}
+
+.modification__main.modification__main--mixed {
+  border-left-color: var(--color-warning);
+}

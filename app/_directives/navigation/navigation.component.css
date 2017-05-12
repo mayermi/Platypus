@@ -13,7 +13,7 @@
   font-size: 1.6rem;
   line-height: 1.5;
   margin: 0 0.625em 0 0; /* 0 10px 0 0 */
-  padding: 0.375em 0.625em 0.375em 1.625em; /* 6px 10px 6px 26px */
+  padding: 0.375em 0.625em; /* 6px 10px */
   position: relative;
   text-decoration: none;
 }
@@ -25,11 +25,7 @@
 .navigation__go-to-create::before {
   content: '\f0eb';
   font-family: FontAwesome;
-  left: 0.625em; /* 10px */
-  line-height: 1.5;
-  position: absolute;
-  top: 0.375em; /* 3px */
-  width: 1em; /* 20px */
+  margin-right: 0.1875em;
 }
 
 .navigation__item {}

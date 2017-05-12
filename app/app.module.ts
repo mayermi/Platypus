@@ -24,6 +24,7 @@ import {
   IdeaComponent,
   IdeasComponent,
   IdeaTeaserComponent,
+  ModificationComponent,
   NavigationComponent,
   ReactionsComponent,
 
@@ -57,6 +58,7 @@ import {APIService} from "./_services/apiservice";
     IdeaComponent,
     IdeasComponent,
     IdeaTeaserComponent,
+    ModificationComponent,
     NavigationComponent,
     ReactionsComponent,
 

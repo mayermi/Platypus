@@ -3,6 +3,7 @@ export * from './custom-button/custom-button.component';
 export * from './how-it-works/how-it-works.component';
 export * from './idea/idea.component';
 export * from './idea/add-block-controls/add-block-controls.component';
+export * from './idea/modification/modification.component';
 export * from './idea-teaser/idea-teaser.component';
 export * from './navigation/navigation.component';
 export * from './reactions/reactions.component';

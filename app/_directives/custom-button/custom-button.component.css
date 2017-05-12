@@ -1,7 +1,17 @@
 .custom-button {}
 
 .custom-button.custom-button--secondary {
+  background: var(--color-neutral--lightest);
+  border: 0.0625em solid; /* 1px */
+  color: var(--color-action);
+  font-size: 1.6rem;
+  margin-right: 0.3125em; /* 5px */
+  padding: 0.125em 0.375em; /* 2px 6px */
 }
 
 .custom-button.custom-button--secondary:hover {
+  background: var(--color-action);
+  border: 0;
+  color: var(--color-neutral--lightest);
+  padding: 0.1875em 0.4375em; /* 3px 7px */
 }

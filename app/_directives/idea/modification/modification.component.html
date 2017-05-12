@@ -1,0 +1,27 @@
+<div class="modification">
+  <main class="modification__main" [ngClass]="'modification__main--' + type">
+    <p>
+      {{modification.content}}
+    </p>
+
+    <div class="modification__actions">
+      <div>
+        <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
+          Add addition
+        </custom-button>
+      </div>
+
+      <reactions [dislikes]="modification.dislikes" [likes]="modification.likes" (onDislike)="dislike()" (onLike)="like()"></reactions>
+    </div>
+  </main>
+
+  <div class="modification__addition-form" *ngIf="isAdditionFormVisible">
+    <label for="addition">
+      Add something to this modification
+    </label>
+
+    <textarea id="addition" placeholder="e.g. make this more colorful" [(ngModel)]="addition"></textarea>
+
+    <add-block-controls (onCancel)="hideAdditionForm()" (onSave)="saveAddition()"></add-block-controls>
+  </div>
+</div>

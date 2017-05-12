@@ -57,28 +57,6 @@
   flex-wrap: wrap;
 }
 
-.idea__modification {
-  background: var(--color-neutral--lightest);
-  border: 0.1em solid var(--color-neutral);
-  border-left-color: var(--color-neutral);
-  border-left-width: 0.5em;
-  border-radius: 0 0.4em 0.4em 0;
-  margin-bottom: 1.2em;
-  padding: 0.5em 0.9em 0.5em 1em;
-}
-
-.idea__modification--dislikes-only {
-  border-left-color: var(--color-error);
-}
-
-.idea__modification--likes-only {
-  border-left-color: var(--color-success);
-}
-
-.idea__modification--mixed {
-  border-left-color: var(--color-warning);
-}
-
 .idea__modifications {
 }
 
@@ -113,11 +91,6 @@
 .idea__quicklinks {
   display: flex;
   margin-bottom: 1.2em;
-}
-
-.idea__reactions {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .idea__tags {

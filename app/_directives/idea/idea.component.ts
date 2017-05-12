@@ -46,10 +46,6 @@ export class IdeaComponent implements OnInit {
     this.isModificationFormVisible = false;
   }
 
-  dislike(): void {
-    console.log('dislike');
-  }
-
   getTypeForModification(modification: Modification): string {
     const { dislikes, likes } = modification;
 
@@ -60,10 +56,6 @@ export class IdeaComponent implements OnInit {
     }
 
     return 'mixed';
-  }
-
-  like(): void {
-    console.log('like');
   }
 
   openAdditionForm() {

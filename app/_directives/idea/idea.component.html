@@ -68,15 +68,7 @@
           </a>
         </div>
 
-        <div class="idea__modification" [id]="'modification-' + modification._id" [ngClass]="'idea__modification--' + getTypeForModification(modification)" *ngFor="let modification of idea.modifications">
-          <p>
-            {{modification.content}}
-          </p>
-
-          <div class="idea__reactions">
-            <reactions [dislikes]="modification.dislikes" [likes]="modification.likes" (onDislike)="dislike()" (onLike)="like()"></reactions>
-          </div>
-        </div>
+        <modification [modification]="modification" [type]="getTypeForModification(modification)" *ngFor="let modification of idea.modifications"></modification>
       </div>
 
       <how-it-works></how-it-works>
