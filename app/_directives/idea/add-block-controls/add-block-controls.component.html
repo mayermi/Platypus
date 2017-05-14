@@ -1,9 +1,15 @@
 <div class="add-block-controls">
-  <button class="add-block-controls__cancel" type="button" (click)="cancel()">
+  <button class="add-block-controls__cancel" type="button" (click)="cancel()" *ngIf="!isSaving">
     Cancel
   </button>
 
-  <button class="add-block-controls__save" type="button" (click)="save()">
-    Save
+  <button class="add-block-controls__save" [disabled]="isSaving" type="button" (click)="save()">
+    <span *ngIf="!isSaving">
+      Save
+    </span>
+
+    <span *ngIf="isSaving">
+      Saving&hellip;
+    </span>
   </button>
 </div>

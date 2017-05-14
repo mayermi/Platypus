@@ -10,6 +10,8 @@ export class AddBlockControlsComponent {
   @Output() onCancel = new EventEmitter<void>();
   @Output() onSave = new EventEmitter<void>();
 
+  isSaving: boolean = false;
+
   constructor() {
   }
 
@@ -18,6 +20,7 @@ export class AddBlockControlsComponent {
   }
 
   save(): void {
+    this.isSaving = true;
     this.onSave.emit();
   }
 }

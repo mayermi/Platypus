@@ -86,6 +86,12 @@ button:hover {
   background: var(--color-action--darker);
 }
 
+button:disabled {
+  background: var(--color-neutral--lighter);
+  color: var(--color-neutral--darker);
+  cursor: default;
+}
+
 h1,
 h2,
 h3,
