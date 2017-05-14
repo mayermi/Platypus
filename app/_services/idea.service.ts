@@ -16,23 +16,7 @@ export class IdeaService {
 
   getIdea(id: String): Promise<Idea> {
     return this.apiService.get(`/api/idea/?_id=${id}`)
-      .then((response: any) => {
-        const idea = response[0] as Idea;
-
-        return this.apiService.get(`/api/modification?idea=${id}`).then((modifications: any) => {
-          idea.modifications = modifications as Modification[];
-
-          // TODO have this be done by the server
-          idea.modifications.map((modification: Modification) => {
-            modification.dislikes = Math.floor(Math.random() * 10);
-            modification.likes = Math.floor(Math.random() * 10);
-
-            return modification;
-          })
-
-          return idea;
-        })
-      });
+      .then((response: any) => response[0] as Idea);
   }
 
   getTopIdeas(): Promise<Idea[]> {

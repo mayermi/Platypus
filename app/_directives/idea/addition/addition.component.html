@@ -1,0 +1,9 @@
+<div class="addition" [ngClass]="'addition--' + getType()">
+  <p>
+    {{addition.content}}
+  </p>
+
+  <div class="addition__reactions">
+    <reactions [dislikes]="addition.dislikes" [likes]="addition.likes" (onDislike)="dislike()" (onLike)="like()"></reactions>
+  </div>
+</div>

@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { Idea, Modification } from '../../_models/index';
-import { IdeaService } from '../../_services/index';
+import { IdeaService, ModificationService } from '../../_services/index';
 
 @Component({
   moduleId: module.id,
@@ -11,6 +11,7 @@ import { IdeaService } from '../../_services/index';
   styleUrls: ['idea.component.css']
 })
 export class IdeaComponent implements OnInit {
+  hasLoadedModifications: boolean = false;
   isAdditionFormVisible: boolean = false;
   isArgumentFormVisible: boolean = false;
   isModificationFormVisible: boolean = false;
@@ -30,6 +31,7 @@ export class IdeaComponent implements OnInit {
 
   constructor(
     private ideaService: IdeaService,
+    private modificationService: ModificationService,
     private route: ActivatedRoute
   ) {
   }
@@ -44,18 +46,6 @@ export class IdeaComponent implements OnInit {
 
   closeModificationForm(): void {
     this.isModificationFormVisible = false;
-  }
-
-  getTypeForModification(modification: Modification): string {
-    const { dislikes, likes } = modification;
-
-    if (likes > 0 && dislikes === 0) {
-      return 'likes-only';
-    } else if (likes === 0 && dislikes > 0) {
-      return 'dislikes-only';
-    }
-
-    return 'mixed';
   }
 
   openAdditionForm() {
@@ -84,6 +74,11 @@ export class IdeaComponent implements OnInit {
       .subscribe((idea: Idea) => {
         this.idea = idea;
         this.currentPhase = this.phases[idea.phase];
+
+        this.modificationService.getModificationsByIdea(idea).then(modifications => {
+          idea.modifications = modifications;
+          this.hasLoadedModifications = true;
+        });
     });
   }
 

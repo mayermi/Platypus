@@ -1,5 +1,5 @@
 <div class="modification">
-  <main class="modification__main" [ngClass]="'modification__main--' + type">
+  <main class="modification__main" [ngClass]="'modification__main--' + getType()">
     <p>
       {{modification.content}}
     </p>
@@ -15,12 +15,16 @@
     </div>
   </main>
 
+  <div class="modification__additions" *ngIf="hasLoadedAdditions">
+    <addition [addition]="addition" *ngFor="let addition of modification.additions"></addition>
+  </div>
+
   <div class="modification__addition-form" *ngIf="isAdditionFormVisible">
     <label for="addition">
       Add something to this modification
     </label>
 
-    <textarea id="addition" placeholder="e.g. make this more colorful" [(ngModel)]="addition"></textarea>
+    <textarea autofocus id="addition" placeholder="e.g. make this more colorful" [(ngModel)]="addition"></textarea>
 
     <add-block-controls (onCancel)="hideAdditionForm()" (onSave)="saveAddition()"></add-block-controls>
   </div>

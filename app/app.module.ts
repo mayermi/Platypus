@@ -18,6 +18,7 @@ import { routing }        from './app.routing';
 
 import {
   AddBlockControlsComponent,
+  AdditionComponent,
   CustomButtonComponent,
   HomeComponent,
   HowItWorksComponent,
@@ -32,10 +33,17 @@ import {
   IdeaEditComponent,
   IdeaAddComponent,
   ArgumentsComponent,
-  ModificationDetailComponent,
 } from './_directives/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
+import {
+  AdditionService,
+  ModificationService,
+
+  AlertService,
+  AuthenticationService,
+  UserService,
+  IdeaService
+} from './_services/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import {APIService} from "./_services/apiservice";
@@ -53,6 +61,7 @@ import {APIService} from "./_services/apiservice";
   ],
   declarations: [
     AddBlockControlsComponent,
+    AdditionComponent,
     CustomButtonComponent,
     HomeComponent,
     IdeaComponent,
@@ -70,9 +79,11 @@ import {APIService} from "./_services/apiservice";
     IdeaAddComponent,
     ArgumentsComponent,
     HowItWorksComponent,
-    ModificationDetailComponent,
   ],
   providers: [
+    AdditionService,
+    ModificationService,
+
     AuthGuard,
     IdeaOwnerAuthGuard,
     AlertService,
