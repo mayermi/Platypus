@@ -1,7 +1,7 @@
 import { Addition } from './addition';
 
 export class Modification {
-  _id: string;
+  id: string;
   content: string;
   idea: string;
   merged: boolean;

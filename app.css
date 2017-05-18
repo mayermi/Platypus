@@ -55,7 +55,9 @@
 
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
@@ -92,6 +94,30 @@ button:disabled {
   cursor: default;
 }
 
+dd {
+  font-size: 1.6rem;
+  margin: 0 0 0.375em; /* 0 0 6px */
+}
+
+dl {
+  margin: 0 0 0.6em;
+}
+
+dt {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+fieldset {
+  border: 0.1em solid var(--color-neutral--lighter);
+  padding: 0.5em 0.9em;
+  margin: 0 0 1.2em;
+}
+
+form {
+  margin-bottom: 1.2em;
+}
+
 h1,
 h2,
 h3,
@@ -124,11 +150,61 @@ html {
   line-height: 1.5;
 }
 
-label {
+input[type="password"],
+input[type="text"] {
+  border: 0.0625em solid var(--color-neutral); /* 1px */
+  border-radius: 0.125em; /* 2px */
+  font-family: inherit;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.3125em 0.5625em; /* 5px 9px */
+  width: 49%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  padding-left: 1.5625em; /* 25px */
+  position: relative;
+}
+
+input[type="checkbox"] + label::before {
+  background: white;
+  border: 0.1em solid var(--color-neutral);
+  border-radius: 0.2em;
   color: var(--color-neutral--darker);
+  content: '';
+  cursor: pointer;
+  display: block;
+  font-family: FontAwesome;
+  font-size: 1rem;
+  height: 2em;
+  left: 0;
+  line-height: 1.8;
+  position: absolute;
+  text-align: center;
+  top: 0.2em;
+  width: 2em;
+}
+
+input[type="checkbox"]:checked + label::before {
+  content: '\f00c';
+}
+
+label {
+  color: var(--color-neutral--darkest);
   display: block;
   font-size: 1.6rem;
   margin-bottom: 0.375em; /* 6px */
+}
+
+legend {
+  color: var(--color-neutral--darkest);
+  font-size: 1.6rem;
+  padding: 0 0.3125em; /* 5px 0 */
 }
 
 li {
@@ -152,7 +228,7 @@ textarea {
   height: 7.2em;
   line-height: 1.5;
   margin: 0;
-  padding: 5px 9px;
+  padding: 0.3125em 0.5625em; /* 5px 9px */
   width: 100%;
 }
 

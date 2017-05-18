@@ -10,7 +10,6 @@ import { AdditionService, ModificationService } from '../../../_services/index';
   templateUrl: 'modification.component.html'
 })
 export class ModificationComponent implements OnInit {
-  @Input() currentPhase: number;
   @Input() modification: Modification;
 
   addition: string = '';
@@ -47,7 +46,7 @@ export class ModificationComponent implements OnInit {
   }
 
   saveAddition(): void {
-    this.modificationService.saveAddition(this.modification, this.addition, this.currentPhase)
+    this.modificationService.saveAddition(this.modification, this.addition)
       .then(() => {
         this.hasLoadedAdditions = true;
         this.hideAdditionForm();

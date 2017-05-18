@@ -1,5 +1,5 @@
 export class Addition {
-  _id: string;
+  id: string;
   content: string;
   modification: string;
   user: string;

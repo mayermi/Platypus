@@ -40,6 +40,8 @@
   white-space: nowrap;
 }
 
+.navigation__link.is-active {}
+
 .navigation__list {
   display: flex;
   list-style: none;

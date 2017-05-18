@@ -11,6 +11,9 @@ import { IdeaService, ModificationService } from '../../_services/index';
   styleUrls: ['idea.component.css']
 })
 export class IdeaComponent implements OnInit {
+  createdAt: string;
+  updatedAt: string;
+
   hasLoadedModifications: boolean = false;
   isAdditionFormVisible: boolean = false;
   isArgumentFormVisible: boolean = false;
@@ -19,7 +22,6 @@ export class IdeaComponent implements OnInit {
   modification: string = '';
 
   idea: Idea;
-  currentPhase: String;
   selectedPhase: String;
   phases = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'];
   argumentsIsVisible = false;
@@ -73,7 +75,8 @@ export class IdeaComponent implements OnInit {
       .switchMap((params: Params) => this.ideaService.getIdea(params.id))
       .subscribe((idea: Idea) => {
         this.idea = idea;
-        this.currentPhase = this.phases[idea.phase];
+        this.createdAt = (new Date(idea.createdAt)).toLocaleString();
+        this.updatedAt = (new Date(idea.updatedAt)).toLocaleString();
 
         this.modificationService.getModificationsByIdea(idea).then(modifications => {
           idea.modifications = modifications;

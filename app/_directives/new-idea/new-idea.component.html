@@ -1,0 +1,73 @@
+<div class="new-idea">
+  <h1>
+    Create your idea
+  </h1>
+
+  <form (ngSubmit)="save()" novalidate>
+    <input-block>
+      <label for="title">
+        Title
+      </label>
+
+      <input id="title" name="title" placeholder="Name for your idea" required type="text" [(ngModel)]="idea.title">
+    </input-block>
+
+    <input-block>
+      <label for="description">
+        Description
+      </label>
+
+      <textarea id="description" name="description" placeholder="Summary of your idea" required [(ngModel)]="idea.description"></textarea>
+    </input-block>
+
+    <input-block>
+      <label for="reasoning">
+        Reasoning
+      </label>
+
+      <textarea id="reasoning" name="reasoning" placeholder="Basis for your idea" required [(ngModel)]="idea.reasoning"></textarea>
+
+      <p class="new-idea__explanation">
+        Others can use the reasoning behind an idea to understand the justification behind it&hellip;
+      </p>
+    </input-block>
+
+    <input-block>
+      <label for="location">
+        Location
+
+        <span class="new-idea__optional">
+          (optional)
+        </span>
+      </label>
+
+      <input id="location" name="location" placeholder="Location" type="text" [(ngModel)]="idea.location">
+    </input-block>
+
+    <input-block>
+      <fieldset>
+        <legend>
+          Categories
+        </legend>
+
+        <div *ngFor="let category of categories">
+          <input type="checkbox" [name]="'category-' + category.value" [id]="'category-' + category.value" [value]="category.value" [(ngModel)]="category.checked">
+
+          <label [for]="'category-' + category.value">
+            {{category.value}}
+          </label>
+        </div>
+      </fieldset>
+    </input-block>
+
+    <button type="submit" [disabled]="isSaving">
+      <span *ngIf="!isSaving">
+        Save
+      </span>
+
+      <span *ngIf="isSaving">
+        Saving&hellip;
+      </span>
+    </button>
+  </form>
+</div>

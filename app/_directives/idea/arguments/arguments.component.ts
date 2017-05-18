@@ -25,16 +25,5 @@ export class ArgumentsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
-//     this.ideaService.getIdeas().then(ideas => this.ideas = ideas);
-
-//     this.route.params
-//       .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
-//       // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-//       .subscribe(idea => {
-//         this.idea = idea;
-//         this.currentPhase = this.phases[idea.phase];
-//       });
-
   }
 }

@@ -8,7 +8,7 @@ export class AdditionService {
   constructor(private apiService: APIService) {}
 
   getAdditionsByModification(modification: Modification): Promise<Addition[]> {
-    return this.apiService.get(`/api/addition?modification=${modification._id}`)
+    return this.apiService.get(`/api/addition?modification=${modification.id}`)
       .then(response => {
         const additions = response as Addition[];
 

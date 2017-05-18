@@ -1,17 +1,18 @@
 import { Modification } from './modification';
 
 export class Idea {
-  _id: string;
+  id: string;
   title: string;
+  description: string;
+  reasoning: string;
+  location: string;
+  categories: string[];
+  version: number;
+  createdAt: number;
+  modifiedAt: number;
+
+  // TODO add in server
   user: string;
-  created: number;
-  modified: number;
-  _v: number;
-  information: string[];
   phase: number;
-  location: string[];
   modifications: Modification[];
-  tags: string[];
-  parts: string[];
-  type: string;
 }

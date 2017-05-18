@@ -1,25 +1,26 @@
-﻿import {Component, OnInit, NgZone} from '@angular/core';
+﻿import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService, AuthenticationService } from '../_services/index';
+import { AuthenticationService } from '../../_services/index';
 
 @Component({
   moduleId: module.id,
+  styleUrls: ['login.component.css'],
   templateUrl: 'login.component.html'
 })
-
 export class LoginComponent implements OnInit {
-  model: any = {};
-  loading = false;
-  returnUrl: string;
+  isLoading: boolean = false;
+  password: string = '';
+  username: string = '';
+
+  private returnUrl: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private zone: NgZone,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService) {
-  }
+    private authenticationService: AuthenticationService
+  ) {}
 
   ngOnInit() {
     // reset login status
@@ -30,15 +31,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
+    this.isLoading = true;
+
+    this.authenticationService.login(this.username, this.password)
       .then((data: any) => {
         this.zone.run(() => {
           this.router.navigateByUrl(this.returnUrl);
         });
       }).catch((error: any) => {
-        this.alertService.error(error);
-        this.loading = false;
+        this.isLoading = false;
       });
   }
 }

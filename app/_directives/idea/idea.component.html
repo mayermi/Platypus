@@ -1,50 +1,84 @@
 <main class="idea" *ngIf="idea">
-  <h1 class="idea__title">
+  <h1>
     {{idea.title}}
   </h1>
 
   <div class="idea__body">
     <aside class="idea__description">
-      <section class="idea__metadata">
-        <header class="idea__metadata__header">
-          <p class="idea__deadline">
-            Phase II ends
+      <p>
+        Phase II ends
 
-            <time class="idea__deadline__time">
-              22.4.17, 10:00 a.m.
-            </time>
-          </p>
-        </header>
+        <time class="idea__deadline">
+          22.4.17, 10:00 a.m.
+        </time>
+      </p>
 
-        <footer class="idea__metadata__footer">
-          <p class="idea__location">
-            {{idea.location}}
-          </p>
+      <dl>
+        <dt>
+          Location
+        </dt>
 
-          <section class="idea__tags">
-            <p class="idea__tags" *ngFor="let tag of idea.tags">
-              {{idea.tags.join(', ')}}
-            </p>
-          </section>
-        </footer>
+        <dd>
+          {{idea.location}}
+        </dd>
 
-        <p>
-          <a routerLink="edit">
-            Go to edit
-          </a>
-        </p>
-      </section>
+        <dt>
+          Categories
+        </dt>
 
-      <section>
-        [DESCRIPTION (Part 1/Part 2)]
+        <dd>
+          {{idea.categories.join(', ')}}
+        </dd>
 
-        <button type="button" (click)="showArguments()">
-          Show arguments the idea is based on
-        </button>
-      </section>
+        <dt>
+          Version
+        </dt>
+
+        <dd>
+          {{idea.version}}
+        </dd>
+
+        <dt>
+          Created at
+        </dt>
+
+        <dd>
+          {{createdAt}}
+        </dd>
+
+        <dt>
+          Last updated
+        </dt>
+
+        <dd>
+          {{updatedAt}}
+        </dd>
+      </dl>
+
+      <p>
+        <a routerLink="edit">
+          Go to edit
+        </a>
+      </p>
     </aside>
 
     <main class="idea__main">
+      <h2>
+        Description
+      </h2>
+
+      <p>
+        {{idea.description}}
+      </p>
+
+      <h2>
+        Reasoning
+      </h2>
+
+      <p>
+        {{idea.reasoning}}
+      </p>
+
       <h2>
         Modifications
       </h2>
@@ -62,20 +96,16 @@
 
         <div class="idea__modifications">
           <div class="idea__quicklinks">
-            <a class="idea__quicklink" [ngClass]="'idea__quicklink--mixed'" [routerLink]="['.']" [fragment]="['modification-' + modification._id]" *ngFor="let modification of idea.modifications">
+            <span class="idea__quicklink" [ngClass]="'idea__quicklink--mixed'" *ngFor="let modification of idea.modifications">
               #1
-            </a>
+            </span>
           </div>
 
-          <modification [currentPhase]="idea.phase" [modification]="modification" *ngFor="let modification of idea.modifications"></modification>
+          <modification [modification]="modification" *ngFor="let modification of idea.modifications"></modification>
         </div>
       </div>
 
       <how-it-works></how-it-works>
     </main>
-
-    <!--aside class="idea__arguments" *ngIf="argumentsIsVisible">
-      <arguments [idea]="idea"></arguments>
-    </aside-->
   </div>
 </main>

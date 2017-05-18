@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/toPromise';
 
 import { User } from '../_models/user';
 
@@ -15,16 +15,15 @@ export class APIService {
     headers: this.headers
   });
 
-  // local: 'http://localhost:3000/app';
-  private url = 'https://cityidea.herokuapp.com/app';
+  // https://cityidea.herokuapp.com/app
+  private url = 'http://localhost:8000';
 
-  constructor(private http: Http) {
-  }
+  constructor(private http: Http) {}
 
   handleRequest(request: Observable<any>): Promise<any> {
     return request
       .toPromise()
-      .then((response: any) => response.json().response)
+      .then((response: any) => response.json().data)
       .catch((error: any) => this.handleError(error));
   }
 
@@ -41,7 +40,6 @@ export class APIService {
   }
 
   put(url: String, body: any = ''): Promise<any> {
-//    return this.handleRequest(this.http.put(`http://localhost:3100/app${url}`, body, this.jwt()));
     return this.handleRequest(this.http.put(`${this.url}${url}`, body, this.jwt()));
   }
 
@@ -51,7 +49,7 @@ export class APIService {
         'Content-Type': 'application/json'
       });
 
-      headers.append('Authorization', window.sessionStorage.token);
+      headers.append('Authorization', `Bearer ${window.sessionStorage.token}`);
 
       return new RequestOptions({
         headers: headers
@@ -68,15 +66,5 @@ export class APIService {
     }
 
     return Promise.reject(error.message || error);
-  }
-
-  startSession(user: User, token: String) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    window.sessionStorage.token = token;
-  }
-
-  deleteSession() {
-    localStorage.removeItem('currentUser');
-    delete window.sessionStorage.token;
   }
 }

@@ -5,11 +5,13 @@ import {
   HomeComponent,
   IdeaComponent,
   IdeasComponent,
+  LoginComponent,
+  NewIdeaComponent,
+  SignupComponent,
+  RulesAndEtiquetteComponent,
+
   IdeaEditComponent,
-  IdeaAddComponent
 } from './_directives/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
@@ -23,27 +25,26 @@ const appRoutes: Routes = [
   }, {
     path: 'ideas',
     component: IdeasComponent
+  }, {
+    path: 'ideas/new',
+    component: NewIdeaComponent,
+    canActivate: [AuthGuard]
+  }, {
+    path: 'login',
+    component: LoginComponent
+  }, {
+    path: 'rules-and-etiquette',
+    component: RulesAndEtiquetteComponent
+  }, {
+    path: 'signup',
+    component: SignupComponent
   },
+
 
   {
     path: 'idea-edit/:_id',
-    component: IdeaEditComponent, canActivate: [IdeaOwnerAuthGuard]
-  },
-  {
-    path: 'idea-add',
-    component: IdeaAddComponent, canActivate: [AuthGuard]
-  },
-  // {
-  //   path: 'idea-add-modification/:_id',
-  //   component: IdeaAddModificationComponent, canActivate: [AuthGuard]
-  // },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
+    component: IdeaEditComponent,
+    canActivate: [IdeaOwnerAuthGuard]
   },
 
   // otherwise redirect to home

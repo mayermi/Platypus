@@ -16,8 +16,7 @@ export class IdeasComponent implements OnInit {
   ideas: Idea[];
   query: string;
 
-  constructor(private ideaService: IdeaService) {
-  }
+  constructor(private ideaService: IdeaService) {}
 
   getIdeas(): void {
     this.ideaService.getIdeas().then((ideas: Idea[]) => {
@@ -34,7 +33,9 @@ export class IdeasComponent implements OnInit {
       this.filteredIdeas = this.ideas.filter((idea: Idea) =>
         queries.map((term: string) =>
           containsTerm(idea.title, term) ||
-          containsTerm(idea.information.join(), term)
+          containsTerm(idea.description, term) ||
+          containsTerm(idea.location, term) ||
+          containsTerm(idea.reasoning, term)
         ).reduce((accumulator: boolean, wasTermFound: boolean): boolean =>
           accumulator && wasTermFound
         , true)

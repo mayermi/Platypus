@@ -1,7 +1,7 @@
 <button class="idea-teaser" (click)="goToIdea()">
   <div class="idea-teaser__categories">
     <div class="idea-teaser__categories__content">
-      <div class="idea-teaser__category" [ngClass]="'idea-teaser__category--' + type" *ngFor="let type of idea.tags">
+      <div class="idea-teaser__category" [ngClass]="'idea-teaser__category--' + type" *ngFor="let type of idea.categories">
         <span class="idea-teaser__category__title">
           <span class="idea-teaser__category__title__text">
             {{type}}
@@ -14,11 +14,11 @@
   <main class="idea-teaser__main">
     <header class="idea-teaser__header">
       <p class="idea-teaser__tags">
-        {{idea.tags.join(', ')}}
+        {{idea.categories.join(', ')}}
       </p>
 
       <p class="idea-teaser__location">
-        {{idea.location.join(', ')}}
+        {{idea.location}}
       </p>
     </header>
 
@@ -28,11 +28,11 @@
 
     <footer class="idea-teaser__footer">
       <p class="idea-teaser__phase">
-        {{phase}}
+        version {{idea.version}}
       </p>
 
       <p class="idea-teaser__countdown">
-        Countdown
+        COUNTDOWN
       </p>
     </footer>
   </main>

@@ -23,7 +23,7 @@
     </div>
 
     <a class="home__ideas__view-all" routerLink="/ideas">
-      View all
+      See all ideas
     </a>
   </section>
 
@@ -49,7 +49,7 @@
 
           <ol class="ranking__list">
             <li class="ranking__item" *ngFor="let creator of creators">
-              {{creator.email}}
+              {{creator.username}}
             </li>
           </ol>
         </div>
@@ -63,7 +63,7 @@
 
           <ol class="ranking__list">
             <li class="ranking__item" *ngFor="let contributor of contributors">
-              {{contributor.email}}
+              {{contributor.username}}
             </li>
           </ol>
         </div>

@@ -8,7 +8,9 @@ export class ModificationService {
   constructor(private apiService: APIService) {}
 
   getModificationsByIdea(idea: Idea): Promise<Modification[]> {
-    return this.apiService.get(`/api/modification?idea=${idea._id}`)
+    console.log({ idea });
+
+    return this.apiService.get(`/api/modification?idea=${idea.id}`)
       .then(response => {
         const modifications = response as Modification[];
 
@@ -22,11 +24,10 @@ export class ModificationService {
       });
   }
 
-  saveAddition(modification: Modification, addition: string, currentPhase: number): Promise<Modification> {
+  saveAddition(modification: Modification, addition: string): Promise<Modification> {
     return this.apiService.put('/api/addition/new', {
       content: addition,
-      modification: modification._id,
-      phases: [currentPhase]
+      modification: modification.id
     }).then((response) => {
       const addition = response.addition as Addition;
 

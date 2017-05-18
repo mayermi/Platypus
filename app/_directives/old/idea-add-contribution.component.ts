@@ -22,16 +22,18 @@ export class IdeaAddContributionComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) {}
+
   ngOnInit(): void {
     this.route.params
-      // .switchMap((params: Params) => this.ideaService.getIdea(+params['id']))
-      .switchMap((params: Params) => this.ideaService.getIdea(params['_id']))
+      .switchMap((params: Params) => this.ideaService.getIdea(params.id))
       .subscribe((idea: Idea) => this.idea = idea);
   }
+
   save(): void {
     this.ideaService.update(this.idea)
       .then(() => this.goBack());
   }
+
   // !!! Going back too far could take us out of the application. That's acceptable in a demo. We'd guard against it in a real application, perhaps with the CanDeactivate guard.
   goBack(): void {
     this.location.back();

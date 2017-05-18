@@ -25,30 +25,28 @@ import {
   IdeaComponent,
   IdeasComponent,
   IdeaTeaserComponent,
+  InputBlockComponent,
+  LoginComponent,
   ModificationComponent,
   NavigationComponent,
+  NewIdeaComponent,
   ReactionsComponent,
+  RulesAndEtiquetteComponent,
+  SignupComponent,
 
-  AlertComponent,
   IdeaEditComponent,
-  IdeaAddComponent,
   ArgumentsComponent,
 } from './_directives/index';
 import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 import {
   AdditionService,
+  APIService,
   ModificationService,
 
-  AlertService,
   AuthenticationService,
   UserService,
   IdeaService
 } from './_services/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
-import {APIService} from "./_services/apiservice";
-
-//import 'hammerjs';
 
 @NgModule({
   imports: [
@@ -67,16 +65,17 @@ import {APIService} from "./_services/apiservice";
     IdeaComponent,
     IdeasComponent,
     IdeaTeaserComponent,
+    InputBlockComponent,
+    LoginComponent,
     ModificationComponent,
     NavigationComponent,
+    NewIdeaComponent,
     ReactionsComponent,
+    RulesAndEtiquetteComponent,
+    SignupComponent,
 
     AppComponent,
-    AlertComponent,
-    LoginComponent,
-    RegisterComponent,
     IdeaEditComponent,
-    IdeaAddComponent,
     ArgumentsComponent,
     HowItWorksComponent,
   ],
@@ -86,7 +85,6 @@ import {APIService} from "./_services/apiservice";
 
     AuthGuard,
     IdeaOwnerAuthGuard,
-    AlertService,
     AuthenticationService,
     UserService,
     IdeaService,

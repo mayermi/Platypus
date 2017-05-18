@@ -3,20 +3,24 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 @Injectable()
 export class IdeaOwnerAuthGuard implements CanActivate {
+  constructor(private router: Router) {}
 
-    constructor(private router: Router) { }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return true;
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // TODO temporarily deactivated as we only check token-existence at the moment
+    // if (localStorage.getItem('currentUser')) {
+    //   // return `true` if "fake-admin" user
+    //   return JSON.parse(localStorage.getItem('currentUser')).username === 'm';
+    // }
 
-        if (localStorage.getItem('currentUser')) {
-            if (JSON.parse(localStorage.getItem('currentUser')).username === 'm') {
-                // logged in so return true
-                return true;
-            }
-        }
-
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-        return false;
-    }
+    // not logged in so redirect to login page with return-URL
+    // this.router.navigateByUrl('/login', {
+    //   queryParams: {
+    //     returnUrl: state.url
+    //   }
+    // });
+    //
+    // return false;
+  }
 }

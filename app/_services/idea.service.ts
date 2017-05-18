@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/toPromise';
 
 import { APIService } from './index';
 import { Idea, Modification } from '../_models/index';
@@ -10,32 +9,32 @@ export class IdeaService {
   }
 
   getIdeas(): Promise<Idea[]> {
-    return this.apiService.get('/api/idea')
+    return this.apiService.get('/ideas')
       .then((response: any) => response as Idea[]);
   }
 
   getIdea(id: String): Promise<Idea> {
-    return this.apiService.get(`/api/idea/?_id=${id}`)
-      .then((response: any) => response[0] as Idea);
+    return this.apiService.get(`/ideas/${id}`)
+      .then((response: any) => response as Idea);
   }
 
   getTopIdeas(): Promise<Idea[]> {
-    return this.apiService.get('/api/idea')
+    return this.apiService.get('/ideas')
       .then((response: any) => response.slice(0, 3) as Idea[]);
   }
 
   delete(id: String): Promise<any> {
-    return this.apiService.delete(`/api/idea/${id}`)
+    return this.apiService.delete(`/ideas/${id}`)
       .then(() => null);
   }
 
-  create(title: String): Promise<Idea> {
-    return this.apiService.put('/api/idea/new', { title })
+  create(idea: Idea): Promise<Idea> {
+    return this.apiService.post('/ideas', idea)
       .then((response: any) => response);
   }
 
   update(idea: Idea): Promise<Idea> {
-    return this.apiService.put(`/api/idea/${idea._id}`, idea)
+    return this.apiService.put(`/ideas/${idea.id}`, idea)
       .then(() => idea);
   }
 
@@ -43,8 +42,7 @@ export class IdeaService {
   addModification(idea: Idea, modification: String): Promise<Idea> {
     return this.apiService.put('/api/modification/new', {
       content: modification,
-      idea: idea._id,
-      phases: [idea.phase]
+      idea: idea.id
     }).then((response) => {
       idea.modifications.push(response.modification);
 

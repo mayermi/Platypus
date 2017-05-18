@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Idea } from '../../_models/index';
@@ -9,35 +9,12 @@ import { Idea } from '../../_models/index';
   styleUrls: ['idea-teaser.component.css'],
   templateUrl: 'idea-teaser.component.html',
 })
-export class IdeaTeaserComponent implements OnInit {
+export class IdeaTeaserComponent {
   @Input() idea: Idea;
 
-  phase: String = '';
-
-  constructor(private router: Router) {
-  }
-
-  getPhase(): void {
-    // TODO move this to service
-    // TODO also map `_id` to `id`
-    // TODO map location-array to string
-    this.phase = ['Phase I', 'Phase II', 'Phase III', 'Phase IV'][this.idea.phase];
-  }
+  constructor(private router: Router) {}
 
   goToIdea(): void {
-    this.router.navigateByUrl(`/idea/${this.idea._id}`);
-  }
-
-  ngOnInit(): void {
-    this.idea.location = ['Spring Hill'];
-    this.idea.tags = [
-      ['social', 'economical', 'political'],
-      ['economical', 'environmental'],
-      ['technological', 'economical'],
-      ['political'],
-      ['social', 'political', 'economical', 'technological']
-    ][Math.floor(Math.random() * 5)];
-
-    this.getPhase();
+    this.router.navigateByUrl(`/idea/${this.idea.id}`);
   }
 }

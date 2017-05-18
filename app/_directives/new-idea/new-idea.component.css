@@ -1,0 +1,18 @@
+.new-idea {}
+
+.new-idea__block {
+  margin-bottom: 1.2em;
+}
+
+.new-idea__explanation {
+  color: var(--color-neutral--darker);
+  font-style: italic;
+}
+
+.new-idea__optional {
+  color: var(--color-neutral);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 2;
+  margin-left: 0.25em; /* 3px */
+}

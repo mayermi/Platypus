@@ -6,6 +6,7 @@
 
 .app__main {
   flex-grow: 1;
+  margin-bottom: 2.4em;
   padding: 0 2%;
 }
 

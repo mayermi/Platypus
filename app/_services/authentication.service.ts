@@ -1,43 +1,60 @@
 ﻿import { Injectable } from '@angular/core';
+
+import { APIService } from './index';
 import { User } from '../_models/index';
-import {APIService} from './index';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
-  private user: User;
-  constructor(private service: APIService) {}
+  constructor(private apiService: APIService) {}
 
-  login(email: string, pw: string) {
-    return this.service.post('/login', {
-      email: email,
-      pw: pw
-    }).then((responseJson: any) => {
-      this.service.startSession(responseJson.user, responseJson.token);
-      return responseJson;
-    }).catch((e: any) => {
-      this.service.deleteSession();
-      return e;
+  isLoggedIn() {
+    return !!window.sessionStorage.token;
+  }
+
+  login(username: string, password: string): Promise<User> {
+    return this.apiService.post('/login', {
+      username,
+      password
+    }).then((response: any) => {
+      this.startSession(response.token);
+
+      return response;
+    }).catch((error: any) => {
+      this.endSession();
+
+      return error;
     });
   }
 
-  logout() {
-    let user = JSON.parse(localStorage.getItem('currentUser'));
+  logout(): Promise<User> {
+    if (this.isLoggedIn()) {
+      return this.apiService.get('/logout')
+        .then((response: any) => {
+          this.endSession();
 
-    if (!!user) {
-      this.user = user;
-
-      return this.service.post('/logout', {
-        email: this.user.email
-      }).then((responseJson: any) => {
-        this.service.deleteSession();
-        return responseJson;
-      }).catch((e: any) => {
-        return e;
+          return response;
+      }).catch((error: any) => {
+        return error;
       });
-    } else {
-      return;
     }
+  }
+
+  signup(username: string, password: string): Promise<User> {
+    return this.apiService.post('/signup', {
+      username,
+      password
+    }).then((response: any) => {
+      this.startSession(response.token);
+
+      return response;
+    });
+  }
+
+  startSession(token: String) {
+    window.sessionStorage.token = token;
+  }
+
+  endSession() {
+    delete window.sessionStorage.token;
   }
 }

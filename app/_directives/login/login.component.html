@@ -1,0 +1,40 @@
+<div class="login">
+  <h1>
+    Login
+  </h1>
+
+  <form (ngSubmit)="login()" novalidate>
+    <input-block>
+      <label for="username">
+        Username
+      </label>
+
+      <input id="username" name="username" placeholder="Username" type="text" required [(ngModel)]="username">
+    </input-block>
+
+    <input-block>
+      <label for="password">
+        Password
+      </label>
+
+      <input id="password" name="password" placeholder="Password" type="password" required [(ngModel)]="password">
+    </input-block>
+
+    <button type="submit" [disabled]="isLoading">
+      <span *ngIf="!isLoading">
+        Login
+      </span>
+
+      <span *ngIf="isLoading">
+        Logging in&hellip;
+      </span>
+    </button>
+  </form>
+
+  <p>
+    Don’t have an account yet?
+    <a routerLink="/signup">
+      Sign up now.
+    </a>
+  </p>
+</div>
