@@ -1,4 +1,4 @@
-<div class="reactions">
+<div class="reactions" *ngIf="reactions">
   <div class="reactions__reaction">
     <button class="reactions__action reactions__action--like" [ngClass]="{ 'is-active': wasLikedByCurrentUser() }" (click)="like()" type="secondary">
       Like

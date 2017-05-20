@@ -4,7 +4,7 @@
   </h1>
 
   <div class="idea__body">
-    <aside class="idea__description">
+    <aside class="idea__metadata">
       <p>
         Phase II ends
 
@@ -14,11 +14,11 @@
       </p>
 
       <dl>
-        <dt>
+        <dt *ngIf="idea.location">
           Location
         </dt>
 
-        <dd>
+        <dd *ngIf="idea.location">
           {{idea.location}}
         </dd>
 
@@ -63,6 +63,22 @@
         </dd>
       </dl>
 
+      <h2 class="idea__metadata__title">
+        Description
+      </h2>
+
+      <div class="idea__description">
+        <markdown [content]="idea.description"></markdown>
+      </div>
+
+      <h2 class="idea__metadata__title">
+        Reasoning
+      </h2>
+
+      <div class="idea__reasoning">
+        <markdown [content]="idea.reasoning"></markdown>
+      </div>
+
       <p>
         <a routerLink="edit">
           Go to edit
@@ -71,22 +87,6 @@
     </aside>
 
     <main class="idea__main">
-      <h2>
-        Description
-      </h2>
-
-      <p>
-        {{idea.description}}
-      </p>
-
-      <h2>
-        Reasoning
-      </h2>
-
-      <p>
-        {{idea.reasoning}}
-      </p>
-
       <h2>
         Modifications
       </h2>

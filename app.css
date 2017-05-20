@@ -185,6 +185,11 @@ h3 {
   margin-bottom: 0.3em; /* 6px */
 }
 
+h4 {
+  font-size: 1.6rem;
+  margin-bottom: 0.375em; /* 6px */
+}
+
 html {
   background: var(--color-neutral--lightest);
   box-sizing: border-box;

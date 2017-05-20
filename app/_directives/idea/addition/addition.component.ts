@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { Addition, Idea, Modification, Reaction } from '../../../_models/index';
 import { AuthenticationService, IdeaService } from '../../../_services/index';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   moduleId: module.id,
   selector: 'addition',
   styleUrls: ['addition.component.css'],

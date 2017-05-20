@@ -1,7 +1,3 @@
-﻿/**
- * System configuration for Angular 2 samples
- * Adjust as necessary for your application needs.
- */
 (function (global) {
   System.config({
     paths: {
@@ -28,6 +24,7 @@
       // other libraries
       'rxjs': 'npm:rxjs',
       "reflect-metadata": "npm:reflect-metadata@0.1.10",
+      marked: 'node_modules/marked/marked.min.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { Addition, Idea, Modification, Reaction } from '../../../_models/index';
 import { AuthenticationService, IdeaService } from '../../../_services/index';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   moduleId: module.id,
   selector: 'modification',
   styleUrls: ['modification.component.css'],
@@ -16,6 +17,7 @@ export class ModificationComponent implements OnInit {
   addition: Addition = new Addition();
   hasLoadedAdditions: boolean = false;
   isAdditionFormVisible: boolean = false;
+  reasoning: string;
 
   constructor(
     private authenticationService: AuthenticationService,

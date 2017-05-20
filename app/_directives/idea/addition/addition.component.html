@@ -1,11 +1,17 @@
 <div class="addition" [ngClass]="'addition--' + getType()">
-  <p>
-    {{addition.text}}
-  </p>
+  <div class="addition__text">
+    <markdown [content]="addition.text"></markdown>
+  </div>
 
-  <p>
-    {{addition.reasoning}}
-  </p>
+  <div class="addition__reasoning">
+    <h4 class="addition__reasoning__title">
+      Reasoning
+    </h4>
+
+    <div class="addition__reasoning__content">
+      <markdown [content]="addition.reasoning"></markdown>
+    </div>
+  </div>
 
   <p class="addition__byline">
     by <strong>{{addition.user.username}}</strong> on {{createdAt}}

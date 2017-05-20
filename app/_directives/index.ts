@@ -9,6 +9,7 @@ export * from './idea-teaser/idea-teaser.component';
 export * from './ideas/ideas.component';
 export * from './input-block/input-block.component';
 export * from './login/login.component';
+export * from './markdown/markdown.component';
 export * from './navigation/navigation.component';
 export * from './new-idea/new-idea.component';
 export * from './reactions/reactions.component';

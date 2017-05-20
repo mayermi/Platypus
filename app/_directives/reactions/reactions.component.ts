@@ -16,12 +16,20 @@ export class ReactionsComponent {
 
   constructor(private authenticationService: AuthenticationService) {}
 
+  private isDislike(reaction: Reaction) {
+    return reaction.type === 'dislike';
+  }
+
+  private isLike(reaction: Reaction) {
+    return reaction.type === 'like';
+  }
+
   getDislikes(): number {
-    return (this.reactions || []).filter((reaction: Reaction) => reaction.type === 'dislike').length;
+    return this.reactions.filter((reaction: Reaction) => this.isDislike(reaction)).length;
   }
 
   getLikes(): number {
-    return (this.reactions || []).filter((reaction: Reaction) => reaction.type === 'like').length;
+    return this.reactions.filter((reaction: Reaction) => this.isLike(reaction)).length;
   }
 
   dislike(): void {
@@ -34,15 +42,15 @@ export class ReactionsComponent {
 
   wasDislikedByCurrentUser(): boolean {
     const user = this.authenticationService.getLoggedInUser();
-    const reaction = (this.reactions || []).find(reaction => reaction.user.id === user.id);
+    const reaction = this.reactions.find(reaction => reaction.user.id === user.id);
 
-    return reaction ? reaction.type === 'dislike' : false;
+    return reaction ? this.isDislike(reaction) : false;
   }
 
   wasLikedByCurrentUser(): boolean {
     const user = this.authenticationService.getLoggedInUser();
-    const reaction = (this.reactions || []).find(reaction => reaction.user.id === user.id);
+    const reaction = this.reactions.find(reaction => reaction.user.id === user.id);
 
-    return reaction ? reaction.type === 'like' : false;
+    return reaction ? this.isLike(reaction) : false;
   }
 }

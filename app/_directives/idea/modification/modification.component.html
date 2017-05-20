@@ -1,12 +1,18 @@
 <div class="modification">
   <main class="modification__main" [ngClass]="'modification__main--' + getType()">
-    <p>
-      {{modification.text}}
-    </p>
+    <div class="modification__text">
+      <markdown [content]="modification.text"></markdown>
+    </div>
 
-    <p>
-      {{modification.reasoning}}
-    </p>
+    <div class="modification__reasoning">
+      <h4 class="modification__reasoning__title">
+        Reasoning
+      </h4>
+
+      <div class="modification__reasoning__content">
+        <markdown [content]="modification.reasoning"></markdown>
+      </div>
+    </div>
 
     <p class="modification__byline">
       by <strong>{{modification.user.username}}</strong> on {{modification.createdAt}}

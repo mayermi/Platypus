@@ -45,3 +45,23 @@
 .modification__main.modification__main--mixed {
   border-left-color: var(--color-warning);
 }
+
+.modification__reasoning {}
+
+.modification__reasoning__title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em; /* 6px */
+}
+
+.modification__reasoning__content p {
+  color: var(--color-neutral--darker);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 0.5em; /* 6px */
+}
+
+.modification__reasoning__content em {
+  font-style: normal;
+}
+
+.modification__text {}

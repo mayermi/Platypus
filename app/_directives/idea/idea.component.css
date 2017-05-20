@@ -11,12 +11,19 @@
   display: block;
 }
 
-.idea__description {
-  flex-basis: 32%;
-}
+.idea__description {}
 
 .idea__main {
   flex-basis: 66%;
+}
+
+.idea__metadata {
+  flex-basis: 32%;
+}
+
+.idea__metadata__title {
+  font-size: 1.6rem;
+  margin-bottom: 0;
 }
 
 .idea__modifications {}
@@ -53,3 +60,5 @@
   display: flex;
   margin-bottom: 1.2em;
 }
+
+.idea__reasoning {}
