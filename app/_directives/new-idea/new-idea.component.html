@@ -62,12 +62,16 @@
 
     <button type="submit" [disabled]="isSaving">
       <span *ngIf="!isSaving">
-        Save
+        Publish
       </span>
 
       <span *ngIf="isSaving">
-        Saving&hellip;
+        Publishing&hellip;
       </span>
     </button>
+
+    <p>
+      By publishing, you enable the community to collaborate on your idea with you. You will not be able to edit it afterwards.
+    </p>
   </form>
 </div>

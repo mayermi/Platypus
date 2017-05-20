@@ -31,6 +31,14 @@
         </dd>
 
         <dt>
+          First suggested by
+        </dt>
+
+        <dd>
+          {{idea.user.username}}
+        </dd>
+
+        <dt>
           Version
         </dt>
 
@@ -85,13 +93,27 @@
 
       <div *ngIf="hasLoadedModifications">
         <div *ngIf="isModificationFormVisible">
-          <textarea placeholder="placeholder" [(ngModel)]="modification"></textarea>
+          <input-block>
+            <label for="modification-text">
+              Text
+            </label>
+
+            <textarea id="modification-text" placeholder="text" [(ngModel)]="modification.text"></textarea>
+          </input-block>
+
+          <input-block>
+            <label for="modification-reasoning">
+              Reasoning
+            </label>
+
+            <textarea id="modification-reasoning" placeholder="reasoning" [(ngModel)]="modification.reasoning"></textarea>
+          </input-block>
 
           <add-block-controls (onCancel)="closeModificationForm()" (onSave)="saveModification()"></add-block-controls>
         </div>
 
         <button type="button" (click)="openModificationForm()" *ngIf="!isModificationFormVisible">
-          Add Modification
+          Add modification
         </button>
 
         <div class="idea__modifications">
@@ -101,7 +123,7 @@
             </span>
           </div>
 
-          <modification [modification]="modification" *ngFor="let modification of idea.modifications"></modification>
+          <modification [idea]="idea" [modification]="modification" *ngFor="let modification of idea.modifications"></modification>
         </div>
       </div>
 

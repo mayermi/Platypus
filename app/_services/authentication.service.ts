@@ -7,6 +7,10 @@ import { User } from '../_models/index';
 export class AuthenticationService {
   constructor(private apiService: APIService) {}
 
+  getLoggedInUser(): User {
+    return JSON.parse(localStorage.getItem('user')) as User;
+  }
+
   isLoggedIn() {
     return !!window.sessionStorage.token;
   }
@@ -16,7 +20,7 @@ export class AuthenticationService {
       username,
       password
     }).then((response: any) => {
-      this.startSession(response.token);
+      this.startSession(response);
 
       return response;
     }).catch((error: any) => {
@@ -44,17 +48,23 @@ export class AuthenticationService {
       username,
       password
     }).then((response: any) => {
-      this.startSession(response.token);
+      this.startSession(response);
 
       return response;
     });
   }
 
-  startSession(token: String) {
-    window.sessionStorage.token = token;
+  startSession(user: User) {
+    window.sessionStorage.token = user.token;
+
+    const userCopy = Object.assign({}, user);
+    delete userCopy.token;
+    localStorage.setItem('user', JSON.stringify(userCopy));
   }
 
   endSession() {
     delete window.sessionStorage.token;
+
+    localStorage.removeItem('user');
   }
 }

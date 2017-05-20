@@ -1,4 +1,4 @@
-import { Modification } from './modification';
+import { Modification, User } from './index';
 
 export class Idea {
   id: string;
@@ -8,11 +8,12 @@ export class Idea {
   location: string;
   categories: string[];
   version: number;
-  createdAt: number;
-  modifiedAt: number;
 
-  // TODO add in server
-  user: string;
-  phase: number;
+  // objects
+  user: User;
   modifications: Modification[];
+
+  // timestamps
+  createdAt: number;
+  updatedAt: number;
 }

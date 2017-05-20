@@ -18,6 +18,14 @@
   margin-left: 5em;
 }
 
+.modification__byline {
+  color: var(--color-neutral);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1em;
+  text-align: right;
+}
+
 .modification__main {
   background: var(--color-neutral--lightest);
   border: 0.1em solid var(--color-neutral);

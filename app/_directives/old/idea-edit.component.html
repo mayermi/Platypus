@@ -1,21 +1,13 @@
 <div *ngIf="idea">
-  <h2>{{idea.title}}</h2>
-  <h3>The phase ended. Your modification can be added to the idea!</h3>
+  <h1>
+    {{idea.title}}
+  </h1>
 
-  <p>Decide now, if you want to add your modification and the selected additions to the idea, or keep them for the next phase to elaborate further.</p>
-  <!-- <div> -->
-    <!-- <label>id: </label>{{idea.id}}</div> -->
+  <h2>
+    The phase ended. Your modification can be added to the idea!
+  </h2>
 
-  <div *ngFor="let ideaPart of ideaParts">
-    <h3 md-subheader>{{ideaPart}}</h3>
-    <md-input-container class="example-full-width">
-      <textarea mdInput placeholder="Idea name:"></textarea>
-    </md-input-container>
-    <h3 md-subheader>Information {{ideaPart}} is based on</h3>
-    <md-input-container class="example-full-width">
-      <textarea mdInput placeholder="Idea name:"></textarea>
-    </md-input-container>
-  </div>
-  <button md-button (click)="goBack()">Back</button>
-  <button md-raised-button (click)="save()">Save</button>
+  <p>
+    Decide now, if you want to add your modification and the selected additions to the idea, or keep them for the next phase to elaborate further.
+  </p>
 </div>

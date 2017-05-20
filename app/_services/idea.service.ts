@@ -1,52 +1,136 @@
 import { Injectable } from '@angular/core';
 
 import { APIService } from './index';
-import { Idea, Modification } from '../_models/index';
+import { Addition, Idea, Modification, Reaction } from '../_models/index';
 
 @Injectable()
 export class IdeaService {
-  constructor(private apiService: APIService) {
-  }
+  constructor(private apiService: APIService) {}
 
   getIdeas(): Promise<Idea[]> {
     return this.apiService.get('/ideas')
-      .then((response: any) => response as Idea[]);
+      .then((ideas: Idea[]) => ideas);
   }
 
   getIdea(id: String): Promise<Idea> {
     return this.apiService.get(`/ideas/${id}`)
-      .then((response: any) => response as Idea);
+      .then((idea: Idea) => idea);
   }
 
   getTopIdeas(): Promise<Idea[]> {
     return this.apiService.get('/ideas')
-      .then((response: any) => response.slice(0, 3) as Idea[]);
+      .then((ideas: Idea[]) => ideas.slice(0, 3));
   }
 
-  delete(id: String): Promise<any> {
-    return this.apiService.delete(`/ideas/${id}`)
+  delete(idea: Idea): Promise<any> {
+    return this.apiService.delete(`/ideas/${idea.id}`)
       .then(() => null);
   }
 
   create(idea: Idea): Promise<Idea> {
     return this.apiService.post('/ideas', idea)
-      .then((response: any) => response);
+      .then((idea: Idea) => idea);
   }
 
   update(idea: Idea): Promise<Idea> {
     return this.apiService.put(`/ideas/${idea.id}`, idea)
-      .then(() => idea);
+      .then((idea: Idea) => idea);
+  }
+
+  /* modifications */
+
+  getModificationsForIdea(idea: Idea): Promise<Modification[]> {
+    return this.apiService.get(`/ideas/${idea.id}/modifications`)
+      .then((modifications: Modification[]) => modifications);
+  }
+
+  createModificationForIdea(idea: Idea, modification: Modification): Promise<Idea> {
+    return this.apiService.post(`/ideas/${idea.id}/modifications`, modification)
+      .then((modification: Modification) => {
+        idea.modifications.push(modification);
+
+        return idea;
+      });
+  }
+
+  /* additions */
+
+  getAdditionsForModification(idea: Idea, modification: Modification): Promise<Addition[]> {
+    return this.apiService.get(`/ideas/${idea.id}/modifications/${modification.id}/additions`)
+      .then((additions: Addition[]) => additions);
+  }
+
+  createAdditionForModification(idea: Idea, modification: Modification, addition: Addition): Promise<Modification> {
+    return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/additions`, addition)
+      .then((addition: Addition) => {
+        modification.additions.push(addition);
+
+        return modification;
+      });
+  }
+
+  /* reactions */
+
+  getReactionsForModification(idea: Idea, modification: Modification): Promise<Reaction[]> {
+    return this.apiService.get(`/ideas/${idea.id}/modifications/${modification.id}/reactions`)
+      .then((reactions: Reaction[]) => reactions);
+  }
+
+  createReactionForModification(idea: Idea, modification: Modification, reaction: Reaction): Promise<Modification> {
+    return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/reactions`, reaction)
+      .then((reaction: Reaction) => {
+        // replace reaction if one with this ID already exists in list, push otherwise
+        const existingReaction = modification.reactions.find(existingReaction => existingReaction.id === reaction.id);
+        if (existingReaction) {
+          modification.reactions.splice(modification.reactions.indexOf(existingReaction), 1, reaction);
+        } else {
+          modification.reactions.push(reaction);
+        }
+
+        return modification;
+      });
+  }
+
+  deleteReactionForModification(idea: Idea, modification: Modification): Promise<Modification> {
+    return this.apiService.delete(`/ideas/${idea.id}/modifications/${modification.id}/reactions`)
+      .then((reaction: Reaction) => {
+        // replace reaction if one with this ID already exists in list, push otherwise
+        const previousReaction = modification.reactions.find(previousReaction => previousReaction.id === reaction.id);
+        modification.reactions.splice(modification.reactions.indexOf(previousReaction), 1);
+
+        return modification;
+      });
   }
 
 
-  addModification(idea: Idea, modification: String): Promise<Idea> {
-    return this.apiService.put('/api/modification/new', {
-      content: modification,
-      idea: idea.id
-    }).then((response) => {
-      idea.modifications.push(response.modification);
+  getReactionsForAddition(idea: Idea, modification: Modification, addition: Addition): Promise<Reaction[]> {
+    return this.apiService.get(`/ideas/${idea.id}/modifications/${modification.id}/additions/${addition.id}/reactions`)
+      .then(response => response as Reaction[]);
+  }
 
-      return idea;
-    });
+  createReactionForAddition(idea: Idea, modification: Modification, addition: Addition, reaction: Reaction): Promise<Addition> {
+    return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/additions/${addition.id}/reactions`, reaction)
+      .then((reaction: Reaction) => {
+        // replace reaction if one with this ID already exists in list, push otherwise
+        const existingReaction = addition.reactions.find(existingReaction => existingReaction.id === reaction.id);
+        if (existingReaction) {
+          addition.reactions.splice(addition.reactions.indexOf(existingReaction), 1, reaction);
+        } else {
+          addition.reactions.push(reaction);
+        }
+
+        return addition;
+      });
+  }
+
+  deleteReactionForAddition(idea: Idea, modification: Modification, addition: Addition): Promise<Addition> {
+    return this.apiService.delete(`/ideas/${idea.id}/modifications/${modification.id}/additions/${addition.id}/reactions`)
+      .then((reaction: Reaction) => {
+        // replace reaction if one with this ID already exists in list, push otherwise
+        const previousReaction = addition.reactions.find(previousReaction => previousReaction.id === reaction.id);
+        addition.reactions.splice(addition.reactions.indexOf(previousReaction), 1);
+
+        return addition;
+      });
   }
 }

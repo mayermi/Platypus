@@ -1,9 +1,17 @@
 <div class="addition" [ngClass]="'addition--' + getType()">
   <p>
-    {{addition.content}}
+    {{addition.text}}
+  </p>
+
+  <p>
+    {{addition.reasoning}}
+  </p>
+
+  <p class="addition__byline">
+    by <strong>{{addition.user.username}}</strong> on {{createdAt}}
   </p>
 
   <div class="addition__reactions">
-    <reactions [dislikes]="addition.dislikes" [likes]="addition.likes" (onDislike)="dislike()" (onLike)="like()"></reactions>
+    <reactions [reactions]="addition.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
   </div>
 </div>

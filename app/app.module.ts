@@ -1,20 +1,14 @@
 ﻿import './rxjs-extensions';
 
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 
-// used to create fake backend
-// import { fakeBackendProvider } from './_helpers/index';
-
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
 import { AppComponent }  from './app.component';
-import { routing }        from './app.routing';
+import { routing } from './app.routing';
 
 import {
   AddBlockControlsComponent,
@@ -37,7 +31,12 @@ import {
   IdeaEditComponent,
   ArgumentsComponent,
 } from './_directives/index';
-import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
+
+import {
+  AuthGuard,
+  IdeaOwnerAuthGuard
+} from './_guards/index';
+
 import {
   AdditionService,
   APIService,
@@ -51,11 +50,9 @@ import {
 @NgModule({
   imports: [
     BrowserModule,
-    NoopAnimationsModule,
     FormsModule,
     HttpModule,
-    routing,
-    MaterialModule
+    routing
   ],
   declarations: [
     AddBlockControlsComponent,
@@ -88,16 +85,11 @@ import {
     AuthenticationService,
     UserService,
     IdeaService,
-    APIService,
-
-    // providers used to create fake backend
-    // fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
+    APIService
   ],
   bootstrap: [
     AppComponent
   ]
 })
 
-export class AppModule { }
+export class AppModule {}

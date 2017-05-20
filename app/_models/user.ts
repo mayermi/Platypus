@@ -1,12 +1,17 @@
+import { Addition, Idea, Modification } from './index';
+
 ﻿export class User {
   id: string;
-  username: string;
-  createdAt: number;
-  modifiedAt: number;
 
-  // ideas: string[];
-  // information: string[];
-  // likes: string[];
-  // modifications: string[];
-  // positions: string[];
+  token: string;
+  username: string;
+
+  // objects
+  additions: Addition[];
+  ideas: Idea[];
+  modifications: Modification[];
+
+  // timestamps
+  createdAt: number;
+  updatedAt: number;
 }

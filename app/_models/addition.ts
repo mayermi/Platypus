@@ -1,12 +1,17 @@
+import { Modification, Reaction, User } from './index';
+
 export class Addition {
   id: string;
-  content: string;
-  modification: string;
-  user: string;
-  created: number;
-  modified: number;
-  phases: number[];
 
-  likes: number;
-  dislikes: number;
+  reasoning: string;
+  text: string;
+
+  // objects
+  modification: Modification;
+  reactions: Reaction[];
+  user: User;
+
+  // timestamps
+  createdAt: number;
+  updatedAt: number;
 }

@@ -17,6 +17,13 @@
   border-left-color: var(--color-warning);
 }
 
+.addition__byline {
+  color: var(--color-neutral);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1em;
+  text-align: right;
+}
 
 .addition__reactions {
   display: flex;

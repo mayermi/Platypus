@@ -13,13 +13,13 @@ import { IdeaService, ModificationService } from '../../_services/index';
 export class IdeaComponent implements OnInit {
   createdAt: string;
   updatedAt: string;
+  modification: Modification = new Modification();
 
   hasLoadedModifications: boolean = false;
   isAdditionFormVisible: boolean = false;
   isArgumentFormVisible: boolean = false;
   isModificationFormVisible: boolean = false;
 
-  modification: string = '';
 
   idea: Idea;
   selectedPhase: String;
@@ -66,7 +66,7 @@ export class IdeaComponent implements OnInit {
   }
 
   saveModification(): void {
-    this.ideaService.addModification(this.idea, this.modification)
+    this.ideaService.createModificationForIdea(this.idea, this.modification)
       .then(() => this.closeModificationForm());
   }
 
@@ -78,7 +78,7 @@ export class IdeaComponent implements OnInit {
         this.createdAt = (new Date(idea.createdAt)).toLocaleString();
         this.updatedAt = (new Date(idea.updatedAt)).toLocaleString();
 
-        this.modificationService.getModificationsByIdea(idea).then(modifications => {
+        this.ideaService.getModificationsForIdea(idea).then(modifications => {
           idea.modifications = modifications;
           this.hasLoadedModifications = true;
         });

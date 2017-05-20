@@ -1,21 +1,21 @@
 <div class="reactions">
   <div class="reactions__reaction">
-    <button class="reactions__action reactions__action--like" (click)="like()" type="secondary">
+    <button class="reactions__action reactions__action--like" [ngClass]="{ 'is-active': wasLikedByCurrentUser() }" (click)="like()" type="secondary">
       Like
     </button>
 
     <span class="reactions__count">
-      {{likes}}
+      {{getLikes()}}
     </span>
   </div>
 
   <div class="reactions__reaction">
-    <button class="reactions__action reactions__action--dislike" (click)="dislike()" type="secondary">
+    <button class="reactions__action reactions__action--dislike" [ngClass]="{ 'is-active': wasDislikedByCurrentUser() }" (click)="dislike()" type="secondary">
       Dislike
     </button>
 
     <span class="reactions__count">
-      {{dislikes}}
+      {{getDislikes()}}
     </span>
   </div>
 </div>

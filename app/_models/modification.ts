@@ -1,16 +1,18 @@
-import { Addition } from './addition';
+import { Addition, Idea, Reaction, User } from './index';
 
 export class Modification {
   id: string;
-  content: string;
-  idea: string;
-  merged: boolean;
-  user: string;
-  created: number;
-  modified: number;
-  additions: Addition[];
-  phases: number[];
 
-  likes: number;
-  dislikes: number;
+  reasoning: string;
+  text: string;
+
+  // objects
+  additions: Addition[];
+  idea: Idea;
+  reactions: Reaction[];
+  user: User;
+
+  // timestamps
+  createdAt: number;
+  updatedAt: number;
 }

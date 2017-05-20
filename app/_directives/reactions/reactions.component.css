@@ -22,6 +22,11 @@
   font-family: FontAwesome;
 }
 
+.reactions__action.is-active {
+  border: 0;
+  padding: 0.1875em 0.4375em; /* 3px 7px */
+}
+
 .reactions__action.reactions__action--dislike {
   color: var(--color-error);
 }
@@ -35,6 +40,11 @@
   content: '\f088'; /* thumbs down */
 }
 
+.reactions__action.reactions__action--dislike.is-active {
+  background: var(--color-error);
+  color: var(--color-neutral--lightest);
+}
+
 .reactions__action.reactions__action--like {
   color: var(--color-success--darker);
 }
@@ -46,6 +56,11 @@
 
 .reactions__action.reactions__action--like::before {
   content: '\f087'; /* thumbs up */
+}
+
+.reactions__action.reactions__action--like.is-active {
+  background: var(--color-success);
+  color: var(--color-neutral--lightest);
 }
 
 .reactions__count {

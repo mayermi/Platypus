@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+import { User, Reaction } from '../../_models/index';
+import { AuthenticationService } from '../../_services/index';
+
 @Component({
   moduleId: module.id,
   selector: 'reactions',
@@ -7,12 +10,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: 'reactions.component.html'
 })
 export class ReactionsComponent {
-  @Input() dislikes: number;
-  @Input() likes: number;
+  @Input() reactions: Reaction[];
   @Output() onDislike = new EventEmitter<void>();
   @Output() onLike = new EventEmitter<void>();
 
-  constructor() {}
+  constructor(private authenticationService: AuthenticationService) {}
+
+  getDislikes(): number {
+    return (this.reactions || []).filter((reaction: Reaction) => reaction.type === 'dislike').length;
+  }
+
+  getLikes(): number {
+    return (this.reactions || []).filter((reaction: Reaction) => reaction.type === 'like').length;
+  }
 
   dislike(): void {
     this.onDislike.emit();
@@ -20,5 +30,19 @@ export class ReactionsComponent {
 
   like(): void {
     this.onLike.emit();
+  }
+
+  wasDislikedByCurrentUser(): boolean {
+    const user = this.authenticationService.getLoggedInUser();
+    const reaction = (this.reactions || []).find(reaction => reaction.user.id === user.id);
+
+    return reaction ? reaction.type === 'dislike' : false;
+  }
+
+  wasLikedByCurrentUser(): boolean {
+    const user = this.authenticationService.getLoggedInUser();
+    const reaction = (this.reactions || []).find(reaction => reaction.user.id === user.id);
+
+    return reaction ? reaction.type === 'like' : false;
   }
 }

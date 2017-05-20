@@ -1,22 +1,30 @@
 <div class="modification">
   <main class="modification__main" [ngClass]="'modification__main--' + getType()">
     <p>
-      {{modification.content}}
+      {{modification.text}}
+    </p>
+
+    <p>
+      {{modification.reasoning}}
+    </p>
+
+    <p class="modification__byline">
+      by <strong>{{modification.user.username}}</strong> on {{modification.createdAt}}
     </p>
 
     <div class="modification__actions">
       <div>
         <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
-          Add addition
+          Add to this
         </custom-button>
       </div>
 
-      <reactions [dislikes]="modification.dislikes" [likes]="modification.likes" (onDislike)="dislike()" (onLike)="like()"></reactions>
+      <reactions [reactions]="modification.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
     </div>
   </main>
 
   <div class="modification__additions" *ngIf="hasLoadedAdditions">
-    <addition [addition]="addition" *ngFor="let addition of modification.additions"></addition>
+    <addition [addition]="addition" [idea]="idea" [modification]="modification" *ngFor="let addition of modification.additions"></addition>
   </div>
 
   <div class="modification__addition-form" *ngIf="isAdditionFormVisible">
@@ -24,7 +32,21 @@
       Add something to this modification
     </label>
 
-    <textarea autofocus id="addition" placeholder="e.g. make this more colorful" [(ngModel)]="addition"></textarea>
+    <input-block>
+      <label for="text">
+        Text
+      </label>
+
+      <textarea autofocus id="text" placeholder="Text" [(ngModel)]="addition.text"></textarea>
+    </input-block>
+
+    <input-block>
+      <label for="reasoning">
+        Reasoning
+      </label>
+
+      <textarea id="reasoning" placeholder="Reasoning" [(ngModel)]="addition.reasoning"></textarea>
+    </input-block>
 
     <add-block-controls (onCancel)="hideAdditionForm()" (onSave)="saveAddition()"></add-block-controls>
   </div>

@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { Addition } from '../../../_models/index';
+import { Addition, Idea, Modification, Reaction } from '../../../_models/index';
+import { AuthenticationService, IdeaService } from '../../../_services/index';
 
 @Component({
   moduleId: module.id,
@@ -8,19 +9,46 @@ import { Addition } from '../../../_models/index';
   styleUrls: ['addition.component.css'],
   templateUrl: 'addition.component.html'
 })
-export class AdditionComponent {
+export class AdditionComponent implements OnInit {
   @Input() addition: Addition;
-  @Input() type: string;
+  @Input() idea: Idea;
+  @Input() modification: Modification;
 
-  constructor() {}
+  createdAt: string;
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private ideaService: IdeaService
+  ) {}
+
+  getDislikes(): number {
+    return this.addition.reactions ? this.addition.reactions.filter((reaction: Reaction) => reaction.type === 'dislike').length : 0;
+  }
+
+  getLikes(): number {
+    return this.addition.reactions ? this.addition.reactions.filter((reaction: Reaction) => reaction.type === 'like').length : 0;
+  }
 
   dislike(): void {
-    console.log('dislike');
+    const user = this.authenticationService.getLoggedInUser();
+    const existingReaction = (this.addition.reactions || []).find(reaction => reaction.user.id === user.id);
+
+    const isDislikedByCurrentUser = existingReaction ? existingReaction.type === 'dislike' : false;
+
+    if (isDislikedByCurrentUser) {
+      this.ideaService.deleteReactionForAddition(this.idea, this.modification, this.addition);
+    } else {
+      const reaction = new Reaction();
+      reaction.type = 'dislike';
+
+      this.ideaService.createReactionForAddition(this.idea, this.modification, this.addition, reaction);
+    }
   }
 
   // TODO move logic to helper file
   getType(): string {
-    const { dislikes, likes } = this.addition;
+    const dislikes = this.getDislikes();
+    const likes = this.getLikes();
 
     if (likes > 0 && dislikes === 0) {
       return 'likes-only';
@@ -32,6 +60,27 @@ export class AdditionComponent {
   }
 
   like(): void {
-    console.log('like');
+    const user = this.authenticationService.getLoggedInUser();
+    const existingReaction = (this.addition.reactions || []).find(reaction => reaction.user.id === user.id);
+
+    const isLikedByCurrentUser = existingReaction ? existingReaction.type === 'like' : false;
+
+    if (isLikedByCurrentUser) {
+      this.ideaService.deleteReactionForAddition(this.idea, this.modification, this.addition);
+    } else {
+      const reaction = new Reaction();
+      reaction.type = 'like';
+
+      this.ideaService.createReactionForAddition(this.idea, this.modification, this.addition, reaction);
+    }
+  }
+
+  ngOnInit(): void {
+    this.createdAt = (new Date(this.addition.createdAt)).toLocaleString();
+
+
+    this.ideaService.getReactionsForAddition(this.idea, this.modification, this.addition).then((reactions: Reaction[]) => {
+      this.addition.reactions = reactions;
+    });
   }
 }
