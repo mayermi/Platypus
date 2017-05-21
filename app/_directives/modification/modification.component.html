@@ -1,0 +1,81 @@
+<div class="modification" *ngIf="idea && modification">
+  <nav>
+    <a [routerLink]="'/ideas/' + idea.id">
+      &larr; {{idea.title}}
+    </a>
+  </nav>
+
+  <h1>
+    {{modification.title}}
+  </h1>
+
+  <div class="modification__text">
+    <markdown [content]="modification.text"></markdown>
+  </div>
+
+  <div class="modification__reasoning">
+    <h2 class="modification__reasoning__title">
+      Reasoning
+    </h2>
+
+    <div class="modification__reasoning__content">
+      <markdown [content]="modification.reasoning"></markdown>
+    </div>
+  </div>
+
+  <p class="modification__byline">
+    by <strong>{{modification.user.username}}</strong> on {{modification.createdAt}}
+  </p>
+
+  <div class="modification__original-idea">
+    <h2>
+      {{idea.title}}
+    </h2>
+
+    <markdown [content]="idea.description"></markdown>
+
+    <h3 class="modification__original-idea__subtitle">
+      Reasoning
+    </h3>
+
+    <markdown [content]="idea.reasoning"></markdown>
+  </div>
+
+  <div class="modification__actions">
+    <div>
+      <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
+        Add to this
+      </custom-button>
+    </div>
+
+    <reactions [reactions]="modification.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
+  </div>
+
+  <div class="modification__additions" *ngIf="hasLoadedAdditions">
+    <addition [addition]="addition" [idea]="idea" [modification]="modification" *ngFor="let addition of modification.additions"></addition>
+  </div>
+
+  <div class="modification__addition-form" *ngIf="isAdditionFormVisible">
+    <label for="addition">
+      Add something to this modification
+    </label>
+
+    <input-block>
+      <label for="text">
+        Text
+      </label>
+
+      <textarea autofocus id="text" placeholder="Text" [(ngModel)]="addition.text"></textarea>
+    </input-block>
+
+    <input-block>
+      <label for="reasoning">
+        Reasoning
+      </label>
+
+      <textarea id="reasoning" placeholder="Reasoning" [(ngModel)]="addition.reasoning"></textarea>
+    </input-block>
+
+    <add-block-controls (onCancel)="hideAdditionForm()" (onSave)="saveAddition()"></add-block-controls>
+  </div>
+</div>

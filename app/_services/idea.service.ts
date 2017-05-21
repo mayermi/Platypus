@@ -39,6 +39,11 @@ export class IdeaService {
 
   /* modifications */
 
+  getModification(ideaId: String, modificationId: String): Promise<Modification> {
+    return this.apiService.get(`/ideas/${ideaId}/modifications/${modificationId}`)
+      .then((modification: Modification) => modification);
+  }
+
   getModificationsForIdea(idea: Idea): Promise<Modification[]> {
     return this.apiService.get(`/ideas/${idea.id}/modifications`)
       .then((modifications: Modification[]) => modifications);

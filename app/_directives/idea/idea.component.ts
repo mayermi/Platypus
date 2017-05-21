@@ -14,6 +14,7 @@ export class IdeaComponent implements OnInit {
   createdAt: string;
   updatedAt: string;
   modification: Modification = new Modification();
+  hasModifications: boolean = false;
 
   hasLoadedModifications: boolean = false;
   isAdditionFormVisible: boolean = false;
@@ -67,7 +68,10 @@ export class IdeaComponent implements OnInit {
 
   saveModification(): void {
     this.ideaService.createModificationForIdea(this.idea, this.modification)
-      .then(() => this.closeModificationForm());
+      .then(() => {
+        this.closeModificationForm();
+        this.hasLoadedModifications = this.hasModifications = true;
+      });
   }
 
   ngOnInit(): void {
@@ -79,8 +83,12 @@ export class IdeaComponent implements OnInit {
         this.updatedAt = (new Date(idea.updatedAt)).toLocaleString();
 
         this.ideaService.getModificationsForIdea(idea).then(modifications => {
+          console.log({ modifications });
+          console.log('length', modifications.length);
+
           idea.modifications = modifications;
           this.hasLoadedModifications = true;
+          this.hasModifications = modifications.length > 0;
         });
     });
   }

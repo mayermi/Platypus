@@ -15,6 +15,6 @@ export class IdeaTeaserComponent {
   constructor(private router: Router) {}
 
   goToIdea(): void {
-    this.router.navigateByUrl(`/idea/${this.idea.id}`);
+    this.router.navigateByUrl(`/ideas/${this.idea.id}`);
   }
 }

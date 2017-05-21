@@ -48,7 +48,7 @@ export class NewIdeaComponent {
     this.ideaService.create(this.idea)
       .then((idea) => {
         this.isSaving = false;
-        this.router.navigateByUrl(`/idea/${idea.id}`);
+        this.router.navigateByUrl(`/ideas/${idea.id}`);
       });
   }
 }

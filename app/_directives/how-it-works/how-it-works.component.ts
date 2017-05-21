@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: 'how-it-works.component.html'
 })
 export class HowItWorksComponent {
-  isContentVisible: boolean = true;
+  isContentVisible: boolean = false;
 
   constructor() {}
 

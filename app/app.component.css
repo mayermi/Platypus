@@ -1,4 +1,6 @@
 .app {
+  --app__horizontal-padding: 2%;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -7,11 +9,42 @@
 .app__main {
   flex-grow: 1;
   margin-bottom: 2.4em;
-  padding: 0 2%;
+  padding: 0 var(--app__horizontal-padding);
 }
 
 .app__navigation {
   background: var(--color-brand--lightest);
   margin-bottom: 1.2em;
-  padding: 1.2em 2%;
+  padding: 1.2em var(--app__horizontal-padding);
+}
+
+@media (min-width: 640px) {
+  .app {
+    --app__horizontal-padding: 4%;
+  }
+}
+
+@media (min-width: 800px) {
+  .app {
+    --app__horizontal-padding: 6%;
+  }
+}
+
+@media (min-width: 960px) {
+  .app {
+    --app__horizontal-padding: 6%;
+  }
+}
+
+@media (min-width: 1120px) {
+  .app {
+    --app__horizontal-padding: 0;
+  }
+
+  .app__main,
+  .app__navigation__content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+  }
 }

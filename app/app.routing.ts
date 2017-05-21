@@ -5,6 +5,7 @@ import {
   HomeComponent,
   IdeaComponent,
   IdeasComponent,
+  ModificationComponent,
   LoginComponent,
   NewIdeaComponent,
   SignupComponent,
@@ -12,23 +13,30 @@ import {
 
   IdeaEditComponent,
 } from './_directives/index';
-import { AuthGuard, IdeaOwnerAuthGuard } from './_guards/index';
 
-const appRoutes: Routes = [
+import {
+  AuthGuard,
+  IdeaOwnerAuthGuard
+} from './_guards/index';
+
+export const routing = RouterModule.forRoot([
   {
     path: '',
     component: HomeComponent,
     pathMatch: 'full'
   }, {
-    path: 'idea/:id',
-    component: IdeaComponent
-  }, {
-    path: 'ideas',
-    component: IdeasComponent
-  }, {
     path: 'ideas/new',
     component: NewIdeaComponent,
     canActivate: [AuthGuard]
+  }, {
+    path: 'ideas/:id',
+    component: IdeaComponent
+  }, {
+    path: 'ideas/:ideaId/modifications/:modificationId',
+    component: ModificationComponent
+  }, {
+    path: 'ideas',
+    component: IdeasComponent
   }, {
     path: 'login',
     component: LoginComponent
@@ -40,17 +48,17 @@ const appRoutes: Routes = [
     component: SignupComponent
   },
 
-
-  {
-    path: 'idea-edit/:_id',
-    component: IdeaEditComponent,
-    canActivate: [IdeaOwnerAuthGuard]
-  },
+  // {
+  //   path: 'idea-edit/:_id',
+  //   component: IdeaEditComponent,
+  //   canActivate: [IdeaOwnerAuthGuard]
+  // },
 
   // otherwise redirect to home
-  { path: '**', redirectTo: '' }
-];
-
-export const routing = RouterModule.forRoot(appRoutes);
+  {
+    path: '**',
+    redirectTo: ''
+  }
+]);
 
 export class AppRoutingModule {}

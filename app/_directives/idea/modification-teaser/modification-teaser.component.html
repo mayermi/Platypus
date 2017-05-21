@@ -1,0 +1,19 @@
+<div class="modification-teaser" [ngClass]="'modification-teaser--' + type">
+  <a class="modification-teaser__title" [routerLink]="'/ideas/' + idea.id + '/modifications/' + modification.id">
+    {{modification.title}}
+  </a>
+
+  <div class="modification-teaser__aside">
+    <span class="modification-teaser__metadata modification-teaser__metadata--additions" [title]="additionCount + ' additions'" *ngIf="hasAdditions">
+      {{additionCount}}
+    </span>
+
+    <span class="modification-teaser__metadata modification-teaser__metadata--likes" [title]="likeCount + ' likes'">
+      {{likeCount}}
+    </span>
+
+    <span class="modification-teaser__metadata modification-teaser__metadata--dislikes" [title]="dislikeCount + ' dislikes'">
+      {{dislikeCount}}
+    </span>
+  </div>
+</div>

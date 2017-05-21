@@ -1,7 +1,7 @@
 .addition {
   border: 0.1em solid var(--color-neutral);
-  border-top: 0;
   border-left-width: 0.5em;
+  margin-bottom: 1.2em;
   padding: 0.5em 0.9em 0.5em 1em;
 }
 

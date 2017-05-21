@@ -13,6 +13,22 @@
         </time>
       </p>
 
+      <h2 class="idea__metadata__title">
+        Description
+      </h2>
+
+      <div class="idea__description">
+        <markdown [content]="idea.description"></markdown>
+      </div>
+
+      <h2 class="idea__metadata__title">
+        Reasoning
+      </h2>
+
+      <div class="idea__reasoning">
+        <markdown [content]="idea.reasoning"></markdown>
+      </div>
+
       <dl>
         <dt *ngIf="idea.location">
           Location
@@ -37,53 +53,27 @@
         <dd>
           {{idea.user.username}}
         </dd>
-
-        <dt>
-          Version
-        </dt>
-
-        <dd>
-          {{idea.version}}
-        </dd>
-
-        <dt>
-          Created at
-        </dt>
-
-        <dd>
-          {{createdAt}}
-        </dd>
-
-        <dt>
-          Last updated
-        </dt>
-
-        <dd>
-          {{updatedAt}}
-        </dd>
       </dl>
 
-      <h2 class="idea__metadata__title">
-        Description
-      </h2>
+      <p>
+        Version: {{idea.version}}
+      </p>
 
-      <div class="idea__description">
-        <markdown [content]="idea.description"></markdown>
-      </div>
+      <p>
+        Created at: {{createdAt}}
+      </p>
 
-      <h2 class="idea__metadata__title">
-        Reasoning
-      </h2>
-
-      <div class="idea__reasoning">
-        <markdown [content]="idea.reasoning"></markdown>
-      </div>
+      <p>
+        Last updated: {{updatedAt}}
+      </p>
 
       <p>
         <a routerLink="edit">
           Go to edit
         </a>
       </p>
+
+      <how-it-works></how-it-works>
     </aside>
 
     <main class="idea__main">
@@ -91,8 +81,22 @@
         Modifications
       </h2>
 
+      <div class="idea__suggest-modification">
+        <button type="button" (click)="openModificationForm()" *ngIf="!isModificationFormVisible">
+          Suggest a modification
+        </button>
+      </div>
+
       <div *ngIf="hasLoadedModifications">
         <div *ngIf="isModificationFormVisible">
+          <input-block>
+            <label for="modification-title">
+              Title
+            </label>
+
+            <input id="modification-title" placeholder="Short summary" type="text" [(ngModel)]="modification.title">
+          </input-block>
+
           <input-block>
             <label for="modification-text">
               Text
@@ -112,22 +116,14 @@
           <add-block-controls (onCancel)="closeModificationForm()" (onSave)="saveModification()"></add-block-controls>
         </div>
 
-        <button type="button" (click)="openModificationForm()" *ngIf="!isModificationFormVisible">
-          Add modification
-        </button>
-
-        <div class="idea__modifications">
-          <div class="idea__quicklinks">
-            <span class="idea__quicklink" [ngClass]="'idea__quicklink--mixed'" *ngFor="let modification of idea.modifications">
-              #1
-            </span>
-          </div>
-
-          <modification [idea]="idea" [modification]="modification" *ngFor="let modification of idea.modifications"></modification>
+        <div class="idea__modifications" *ngIf="hasModifications">
+          <modification-teaser [idea]="idea" [modification]="modification" *ngFor="let modification of idea.modifications"></modification-teaser>
         </div>
-      </div>
 
-      <how-it-works></how-it-works>
+        <p *ngIf="!hasModifications && !isModificationFormVisible">
+          Be the first.
+        </p>
+      </div>
     </main>
   </div>
 </main>

@@ -10,6 +10,7 @@
   border: 0;
   border-radius: 0.25em; /* 4px */
   color: var(--color-neutral--lightest);
+  display: inline-block;
   font-size: 1.6rem;
   line-height: 1.5;
   margin: 0 0.625em 0 0; /* 0 10px 0 0 */
@@ -43,6 +44,7 @@
 .navigation__link.is-active {}
 
 .navigation__list {
+  align-items: center;
   display: flex;
   list-style: none;
   margin: 0;

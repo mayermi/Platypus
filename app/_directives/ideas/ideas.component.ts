@@ -18,12 +18,6 @@ export class IdeasComponent implements OnInit {
 
   constructor(private ideaService: IdeaService) {}
 
-  getIdeas(): void {
-    this.ideaService.getIdeas().then((ideas: Idea[]) => {
-      this.ideas = this.filteredIdeas = ideas;
-    });
-  }
-
   search(): void {
     if (this.query.trim() === '') {
       this.filteredIdeas = this.ideas;
@@ -44,6 +38,8 @@ export class IdeasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getIdeas();
+    this.ideaService.getIdeas().then((ideas: Idea[]) => {
+      this.ideas = this.filteredIdeas = ideas;
+    });
   }
 }

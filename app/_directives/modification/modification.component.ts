@@ -1,12 +1,13 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
-import { Addition, Idea, Modification, Reaction } from '../../../_models/index';
-import { AuthenticationService, IdeaService } from '../../../_services/index';
+import { Addition, Idea, Modification, Reaction } from '../../_models/index';
+import { AuthenticationService, IdeaService } from '../../_services/index';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
   moduleId: module.id,
-  selector: 'modification',
   styleUrls: ['modification.component.css'],
   templateUrl: 'modification.component.html'
 })
@@ -16,12 +17,14 @@ export class ModificationComponent implements OnInit {
 
   addition: Addition = new Addition();
   hasLoadedAdditions: boolean = false;
+  isAdmin: () => boolean;
   isAdditionFormVisible: boolean = false;
   reasoning: string;
 
   constructor(
     private authenticationService: AuthenticationService,
-    private ideaService: IdeaService
+    private ideaService: IdeaService,
+    private route: ActivatedRoute
   ) {}
 
   dislike(): void {
@@ -94,13 +97,26 @@ export class ModificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ideaService.getAdditionsForModification(this.idea, this.modification).then((additions: Addition[]) => {
-      this.modification.additions = additions;
-      this.hasLoadedAdditions = true;
-    });
+    // TODO remove at least one request
+    this.route.params
+      .switchMap((params: Params) => this.ideaService.getIdea(params.ideaId))
+      .subscribe((idea: Idea) => {
+        this.idea = idea;
 
-    this.ideaService.getReactionsForModification(this.idea, this.modification).then((reactions: Reaction[]) => {
-      this.modification.reactions = reactions;
-    });
+        this.route.params
+          .switchMap((params: Params) => this.ideaService.getModification(params.ideaId, params.modificationId))
+          .subscribe((modification: Modification) => {
+            this.modification = modification;
+
+            this.ideaService.getAdditionsForModification(this.idea, this.modification).then((additions: Addition[]) => {
+              this.modification.additions = additions;
+              this.hasLoadedAdditions = true;
+            });
+
+            this.ideaService.getReactionsForModification(this.idea, this.modification).then((reactions: Reaction[]) => {
+              this.modification.reactions = reactions;
+            });
+          });
+      });
   }
 }
