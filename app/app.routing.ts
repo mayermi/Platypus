@@ -2,16 +2,16 @@
 import { NgModule } from '@angular/core';
 
 import {
+  HistoryComponent,
   HomeComponent,
   IdeaComponent,
   IdeasComponent,
+  MergeComponent,
   ModificationComponent,
   LoginComponent,
   NewIdeaComponent,
   SignupComponent,
-  RulesAndEtiquetteComponent,
-
-  IdeaEditComponent,
+  RulesAndEtiquetteComponent
 } from './_directives/index';
 
 import {
@@ -32,8 +32,15 @@ export const routing = RouterModule.forRoot([
     path: 'ideas/:id',
     component: IdeaComponent
   }, {
+    path: 'ideas/:id/history',
+    component: HistoryComponent
+  }, {
     path: 'ideas/:ideaId/modifications/:modificationId',
     component: ModificationComponent
+  }, {
+    path: 'ideas/:ideaId/modifications/:modificationId/merge',
+    component: MergeComponent
+    //   canActivate: [IdeaOwnerAuthGuard]
   }, {
     path: 'ideas',
     component: IdeasComponent
@@ -46,18 +53,9 @@ export const routing = RouterModule.forRoot([
   }, {
     path: 'signup',
     component: SignupComponent
-  },
-
-  // {
-  //   path: 'idea-edit/:_id',
-  //   component: IdeaEditComponent,
-  //   canActivate: [IdeaOwnerAuthGuard]
-  // },
-
-  // otherwise redirect to home
-  {
+  }, {
     path: '**',
-    redirectTo: ''
+    redirectTo: '' // redirect unknown pages to homepage
   }
 ]);
 

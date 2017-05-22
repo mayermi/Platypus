@@ -4,7 +4,7 @@ export class Modification {
   id: string;
 
   isMergeable: boolean;
-  isOpen: boolean;
+  isMerged: boolean;
   reasoning: string;
   text: string;
   title: string;

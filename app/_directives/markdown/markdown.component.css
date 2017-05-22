@@ -1,1 +1,9 @@
 .markdown {}
+
+.markdown del {
+  color: var(--color-error);
+}
+
+.markdown .md-added {
+  color: var(--color-success--darker);
+}

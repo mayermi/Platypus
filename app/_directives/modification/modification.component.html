@@ -9,6 +9,16 @@
     {{modification.title}}
   </h1>
 
+  <div class="modification__merging" *ngIf="isMergeable">
+    <p class="modification__merging__message">
+      Your modification can now be integrated with the idea.
+    </p>
+
+    <a class="modification__merging__action" [routerLink]="'/ideas/' + idea.id + '/modifications/' + modification.id + '/merge'">
+      Integrate
+    </a>
+  </div>
+
   <div class="modification__text">
     <markdown [content]="modification.text"></markdown>
   </div>

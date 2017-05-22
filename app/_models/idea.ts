@@ -1,4 +1,4 @@
-import { Modification, User } from './index';
+import { History, Modification, User } from './index';
 
 export class Idea {
   id: string;
@@ -10,6 +10,7 @@ export class Idea {
   version: number;
 
   // objects
+  histories: History[];
   user: User;
   modifications: Modification[];
 

@@ -20,6 +20,7 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
 
       // other libraries
+      diff: 'npm:diff/dist/diff.min.js',
       marked: 'npm:marked/marked.min.js',
       'reflect-metadata': 'npm:reflect-metadata@0.1.10',
       rxjs: 'npm:rxjs'

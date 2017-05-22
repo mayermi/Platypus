@@ -1,0 +1,83 @@
+<div class="merge" *ngIf="idea && modification">
+  <h1>
+    Merge
+  </h1>
+
+  <p>
+    TODO: how to merge
+  </p>
+
+  <form (ngSubmit)="save()" #ideaForm="ngForm" novalidate>
+    <input-block>
+      <h2>
+        Description
+      </h2>
+
+      <div class="merge__bases">
+        <div class="merge__basis">
+          <h3>
+            Current
+          </h3>
+
+          <div class="merge__markdown">
+            <markdown [content]="idea.description"></markdown>
+          </div>
+        </div>
+
+        <div class="merge__basis">
+          <h3>
+            Modification
+          </h3>
+
+          <div class="merge__markdown">
+            <markdown [content]="modification.text"></markdown>
+          </div>
+        </div>
+      </div>
+
+      <label for="description">
+        Updated description
+      </label>
+
+      <textarea id="description" name="description" [(ngModel)]="updatedIdea.description">{{updatedIdea.description}}</textarea>
+    </input-block>
+
+    <input-block>
+      <h2>
+        Reasoning
+      </h2>
+
+      <div class="merge__bases">
+        <div class="merge__basis">
+          <h3>
+            Current
+          </h3>
+
+          <div class="merge__markdown">
+            <markdown [content]="idea.reasoning"></markdown>
+          </div>
+        </div>
+
+        <div class="merge__basis">
+          <h3>
+            Modification
+          </h3>
+
+          <div class="merge__markdown">
+            <markdown [content]="modification.reasoning"></markdown>
+          </div>
+        </div>
+      </div>
+
+      <label for="reasoning">
+        Updated reasoning
+      </label>
+
+      <textarea id="reasoning" name="reasoning" [(ngModel)]="updatedIdea.reasoning">{{updatedIdea.reasoning}}</textarea>
+    </input-block>
+
+    <button type="submit">
+      Update the idea with my changes
+    </button>
+  </form>
+</div>

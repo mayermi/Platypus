@@ -67,12 +67,6 @@
         Last updated: {{updatedAt}}
       </p>
 
-      <p>
-        <a routerLink="edit">
-          Go to edit
-        </a>
-      </p>
-
       <how-it-works></how-it-works>
     </aside>
 
@@ -116,13 +110,13 @@
           <add-block-controls (onCancel)="closeModificationForm()" (onSave)="saveModification()"></add-block-controls>
         </div>
 
-        <div class="idea__modifications" *ngIf="hasModifications">
-          <modification-teaser [idea]="idea" [modification]="modification" *ngFor="let modification of idea.modifications"></modification-teaser>
+        <div class="idea__modifications" *ngIf="hasOpenModifications">
+          <modification-teaser [idea]="idea" [modification]="modification" *ngFor="let modification of openModifications"></modification-teaser>
         </div>
 
-        <p *ngIf="!hasModifications && !isModificationFormVisible">
-          Be the first.
-        </p>
+        <a [routerLink]="'/ideas/' + idea.id + '/history'">
+          Show history
+        </a>
       </div>
     </main>
   </div>

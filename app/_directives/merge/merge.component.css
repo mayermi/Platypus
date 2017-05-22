@@ -1,0 +1,17 @@
+.merge {}
+
+.merge__bases {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6em;
+}
+
+.merge__basis {
+  flex-basis: 49%;
+}
+
+.merge__markdown p {
+  color: var(--color-neutral--darker);
+  font-size: 1.2rem;
+  margin-bottom: 0.5em; /* 6px */
+}

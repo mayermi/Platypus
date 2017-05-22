@@ -14,6 +14,7 @@ import {
   AddBlockControlsComponent,
   AdditionComponent,
   CustomButtonComponent,
+  HistoryComponent,
   HomeComponent,
   HowItWorksComponent,
   IdeaComponent,
@@ -22,6 +23,7 @@ import {
   InputBlockComponent,
   LoginComponent,
   MarkdownComponent,
+  MergeComponent,
   ModificationComponent,
   ModificationTeaserComponent,
   NavigationComponent,
@@ -30,7 +32,6 @@ import {
   RulesAndEtiquetteComponent,
   SignupComponent,
 
-  IdeaEditComponent,
   ArgumentsComponent,
 } from './_directives/index';
 
@@ -60,10 +61,12 @@ import {
     AddBlockControlsComponent,
     AdditionComponent,
     CustomButtonComponent,
+    HistoryComponent,
     HomeComponent,
     IdeaComponent,
     IdeasComponent,
     IdeaTeaserComponent,
+    MergeComponent,
     ModificationTeaserComponent,
     InputBlockComponent,
     LoginComponent,
@@ -76,7 +79,6 @@ import {
     SignupComponent,
 
     AppComponent,
-    IdeaEditComponent,
     ArgumentsComponent,
     HowItWorksComponent,
   ],

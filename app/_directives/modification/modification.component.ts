@@ -17,8 +17,8 @@ export class ModificationComponent implements OnInit {
 
   addition: Addition = new Addition();
   hasLoadedAdditions: boolean = false;
-  isAdmin: () => boolean;
   isAdditionFormVisible: boolean = false;
+  isMergeable: boolean = false;
   reasoning: string;
 
   constructor(
@@ -97,26 +97,22 @@ export class ModificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO remove at least one request
     this.route.params
-      .switchMap((params: Params) => this.ideaService.getIdea(params.ideaId))
-      .subscribe((idea: Idea) => {
-        this.idea = idea;
+      .switchMap((params: Params) => this.ideaService.getModification(params.ideaId, params.modificationId))
+      .subscribe((modification: Modification) => {
+        this.modification = modification;
+        this.idea = modification.idea as Idea;
 
-        this.route.params
-          .switchMap((params: Params) => this.ideaService.getModification(params.ideaId, params.modificationId))
-          .subscribe((modification: Modification) => {
-            this.modification = modification;
+        this.isMergeable = !modification.isMerged && modification.isMergeable && modification.user.id === this.authenticationService.getLoggedInUser().id;
 
-            this.ideaService.getAdditionsForModification(this.idea, this.modification).then((additions: Addition[]) => {
-              this.modification.additions = additions;
-              this.hasLoadedAdditions = true;
-            });
+        this.ideaService.getAdditionsForModification(this.idea, this.modification).then((additions: Addition[]) => {
+          this.modification.additions = additions;
+          this.hasLoadedAdditions = true;
+        });
 
-            this.ideaService.getReactionsForModification(this.idea, this.modification).then((reactions: Reaction[]) => {
-              this.modification.reactions = reactions;
-            });
-          });
+        this.ideaService.getReactionsForModification(this.idea, this.modification).then((reactions: Reaction[]) => {
+          this.modification.reactions = reactions;
+        });
       });
   }
 }

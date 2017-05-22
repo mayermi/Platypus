@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { APIService } from './index';
-import { Addition, Idea, Modification, Reaction } from '../_models/index';
+import { Addition, History, Idea, Modification, Reaction } from '../_models/index';
 
 @Injectable()
 export class IdeaService {
@@ -32,9 +32,16 @@ export class IdeaService {
       .then((idea: Idea) => idea);
   }
 
-  update(idea: Idea): Promise<Idea> {
-    return this.apiService.put(`/ideas/${idea.id}`, idea)
+  updateIdeaWithModification(idea: Idea, modification: Modification): Promise<Idea> {
+    return this.apiService.put(`/ideas/${idea.id}`, { idea, modification })
       .then((idea: Idea) => idea);
+  }
+
+  /* histories */
+
+  getHistoriesForIdea(idea: Idea): Promise<History[]> {
+    return this.apiService.get(`/ideas/${idea.id}/histories`)
+      .then((histories: History[]) => histories);
   }
 
   /* modifications */

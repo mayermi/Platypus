@@ -1,0 +1,17 @@
+<main class="history" *ngIf="histories">
+  <h1>
+    History for idea {{idea.title}}
+  </h1>
+
+  <div>
+    <div *ngFor="let history of histories">
+      <p>
+        version {{history.version}}, createdAt {{history.createdAt}}
+      </p>
+
+      <p>
+        <markdown [content]="getDiffForHistory(history)"></markdown>
+      </p>
+    </div>
+  </div>
+</main>

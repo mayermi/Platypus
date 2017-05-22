@@ -1,4 +1,5 @@
 export * from './custom-button/custom-button.component';
+export * from './history/history.component';
 ﻿export * from './home/home.component';
 export * from './how-it-works/how-it-works.component';
 export * from './idea/idea.component';
@@ -10,6 +11,7 @@ export * from './ideas/ideas.component';
 export * from './input-block/input-block.component';
 export * from './login/login.component';
 export * from './markdown/markdown.component';
+export * from './merge/merge.component';
 export * from './modification/modification.component';
 export * from './navigation/navigation.component';
 export * from './new-idea/new-idea.component';
@@ -17,5 +19,4 @@ export * from './reactions/reactions.component';
 export * from './rules-and-etiquette/rules-and-etiquette.component';
 export * from './signup/signup.component';
 
-export * from './old/idea-edit.component';
 export * from './idea/arguments/arguments.component';

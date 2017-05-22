@@ -37,6 +37,33 @@
   border-left-color: var(--color-warning);
 }
 
+.modification__merging {
+  align-items: center;
+  background: var(--color-action--lightest);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2em;
+  padding: 1.2em 1em;
+}
+
+.modification__merging__action {
+  background: var(--color-action);
+  border-radius: 0.25em; /* 4px */
+  color: var(--color-neutral--lightest);
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 0.375em 0.625em; /* 6px 10px */
+  text-decoration: none;
+}
+
+.modification__merging__action:hover {
+  background: var(--color-action--darker);
+}
+
+.modification__merging__message {
+  margin-bottom: 0;
+}
+
 .modification__original-idea {
   /* TODO use different color(name) */
   background: var(--color-warning--lightest);

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import * as marked from 'marked';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   moduleId: module.id,
   selector: 'markdown',
   styleUrls: ['markdown.component.css'],
