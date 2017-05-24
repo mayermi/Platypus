@@ -6,6 +6,7 @@ import * as diff from 'diff';
 
 import { History, Idea } from '../../_models/index';
 import { IdeaService } from '../../_services/index';
+import { formatDate } from '../../_helpers/index';
 
 @Component({
   moduleId: module.id,
@@ -38,6 +39,14 @@ export class HistoryComponent implements OnInit {
     }).join('');
   }
 
+  getFormattedDate(date: number): string {
+    return formatDate.absolute(date);
+  }
+
+  getRelativeDate(date: number): string {
+    return formatDate.relative(date);
+  }
+
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.ideaService.getIdea(params.id))
@@ -45,7 +54,7 @@ export class HistoryComponent implements OnInit {
         this.idea = idea;
 
         this.ideaService.getHistoriesForIdea(idea).then(histories => {
-          this.idea.histories = this.histories = histories;
+          this.idea.histories = this.histories = histories.reverse();
         });
     });
   }

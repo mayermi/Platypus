@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { APIService } from './index';
-import { Addition, History, Idea, Modification, Reaction } from '../_models/index';
+import { Addition, History, Idea, Modification, Reaction, State } from '../_models/index';
 
 @Injectable()
 export class IdeaService {
@@ -44,6 +44,11 @@ export class IdeaService {
       .then((histories: History[]) => histories);
   }
 
+  getStatesForIdea(idea: Idea): Promise<State[]> {
+    return this.apiService.get(`/ideas/${idea.id}/states`)
+      .then((states: State[]) => states);
+  }
+
   /* modifications */
 
   getModification(ideaId: String, modificationId: String): Promise<Modification> {
@@ -56,12 +61,12 @@ export class IdeaService {
       .then((modifications: Modification[]) => modifications);
   }
 
-  createModificationForIdea(idea: Idea, modification: Modification): Promise<Idea> {
+  createModificationForIdea(idea: Idea, modification: Modification): Promise<Modification> {
     return this.apiService.post(`/ideas/${idea.id}/modifications`, modification)
       .then((modification: Modification) => {
         idea.modifications.push(modification);
 
-        return idea;
+        return modification;
       });
   }
 
@@ -72,12 +77,12 @@ export class IdeaService {
       .then((additions: Addition[]) => additions);
   }
 
-  createAdditionForModification(idea: Idea, modification: Modification, addition: Addition): Promise<Modification> {
+  createAdditionForModification(idea: Idea, modification: Modification, addition: Addition): Promise<Addition> {
     return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/additions`, addition)
       .then((addition: Addition) => {
         modification.additions.push(addition);
 
-        return modification;
+        return addition;
       });
   }
 
@@ -88,7 +93,7 @@ export class IdeaService {
       .then((reactions: Reaction[]) => reactions);
   }
 
-  createReactionForModification(idea: Idea, modification: Modification, reaction: Reaction): Promise<Modification> {
+  createReactionForModification(idea: Idea, modification: Modification, reaction: Reaction): Promise<Reaction> {
     return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/reactions`, reaction)
       .then((reaction: Reaction) => {
         // replace reaction if one with this ID already exists in list, push otherwise
@@ -99,18 +104,18 @@ export class IdeaService {
           modification.reactions.push(reaction);
         }
 
-        return modification;
+        return reaction;
       });
   }
 
-  deleteReactionForModification(idea: Idea, modification: Modification): Promise<Modification> {
+  deleteReactionForModification(idea: Idea, modification: Modification): Promise<Reaction> {
     return this.apiService.delete(`/ideas/${idea.id}/modifications/${modification.id}/reactions`)
       .then((reaction: Reaction) => {
         // replace reaction if one with this ID already exists in list, push otherwise
         const previousReaction = modification.reactions.find(previousReaction => previousReaction.id === reaction.id);
         modification.reactions.splice(modification.reactions.indexOf(previousReaction), 1);
 
-        return modification;
+        return reaction;
       });
   }
 
@@ -120,7 +125,7 @@ export class IdeaService {
       .then(response => response as Reaction[]);
   }
 
-  createReactionForAddition(idea: Idea, modification: Modification, addition: Addition, reaction: Reaction): Promise<Addition> {
+  createReactionForAddition(idea: Idea, modification: Modification, addition: Addition, reaction: Reaction): Promise<Reaction> {
     return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/additions/${addition.id}/reactions`, reaction)
       .then((reaction: Reaction) => {
         // replace reaction if one with this ID already exists in list, push otherwise
@@ -131,18 +136,18 @@ export class IdeaService {
           addition.reactions.push(reaction);
         }
 
-        return addition;
+        return reaction;
       });
   }
 
-  deleteReactionForAddition(idea: Idea, modification: Modification, addition: Addition): Promise<Addition> {
+  deleteReactionForAddition(idea: Idea, modification: Modification, addition: Addition): Promise<Reaction> {
     return this.apiService.delete(`/ideas/${idea.id}/modifications/${modification.id}/additions/${addition.id}/reactions`)
       .then((reaction: Reaction) => {
         // replace reaction if one with this ID already exists in list, push otherwise
         const previousReaction = addition.reactions.find(previousReaction => previousReaction.id === reaction.id);
         addition.reactions.splice(addition.reactions.indexOf(previousReaction), 1);
 
-        return addition;
+        return reaction;
       });
   }
 }

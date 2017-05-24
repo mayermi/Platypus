@@ -4,12 +4,12 @@
   </h1>
 
   <div class="idea__body">
-    <aside class="idea__metadata">
-      <p>
-        Phase II ends
+    <aside class="idea__aside">
+      <p *ngIf="currentState">
+        Phase {{currentState.phase.number}} ends
 
-        <time class="idea__deadline">
-          22.4.17, 10:00 a.m.
+        <time [title]="getAbsoluteDate(currentState.endsAt)">
+          {{getRelativeDate(currentState.endsAt)}}
         </time>
       </p>
 
@@ -29,43 +29,31 @@
         <markdown [content]="idea.reasoning"></markdown>
       </div>
 
-      <dl>
-        <dt *ngIf="idea.location">
-          Location
-        </dt>
 
-        <dd *ngIf="idea.location">
-          {{idea.location}}
-        </dd>
+      <div class="idea__metadata">
+        <p class="idea__metadata__entry">
+          Categories: {{idea.categories.join(', ')}}
+        </p>
 
-        <dt>
-          Categories
-        </dt>
+        <p class="idea__metadata__entry" *ngIf="idea.location">
+          Location: {{idea.location}}
+        </p>
 
-        <dd>
-          {{idea.categories.join(', ')}}
-        </dd>
+        <p class="idea__metadata__entry">
+          Version {{idea.version}}
+          <span *ngIf="idea.version > 1">
+            (<a class="idea__history-link" [routerLink]="'/ideas/' + idea.id + '/history'">
+              Show history
+            </a>)
+          </span>
+        </p>
 
-        <dt>
-          First suggested by
-        </dt>
-
-        <dd>
-          {{idea.user.username}}
-        </dd>
-      </dl>
-
-      <p>
-        Version: {{idea.version}}
-      </p>
-
-      <p>
-        Created at: {{createdAt}}
-      </p>
-
-      <p>
-        Last updated: {{updatedAt}}
-      </p>
+        <p class="idea__metadata__entry">
+          created by {{idea.user.username}},
+          <time [title]="getAbsoluteDate(idea.createdAt)">{{getRelativeDate(idea.createdAt)}}</time><span *ngIf="idea.version > 1">, last updated
+          <time [title]="getAbsoluteDate(idea.updatedAt)">{{getRelativeDate(idea.updatedAt)}}</time></span>
+        </p>
+      </div>
 
       <how-it-works></how-it-works>
     </aside>
@@ -113,10 +101,6 @@
         <div class="idea__modifications" *ngIf="hasOpenModifications">
           <modification-teaser [idea]="idea" [modification]="modification" *ngFor="let modification of openModifications"></modification-teaser>
         </div>
-
-        <a [routerLink]="'/ideas/' + idea.id + '/history'">
-          Show history
-        </a>
       </div>
     </main>
   </div>

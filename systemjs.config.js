@@ -22,6 +22,7 @@
       // other libraries
       diff: 'npm:diff/dist/diff.min.js',
       marked: 'npm:marked/marked.min.js',
+      moment: 'npm:moment/min/moment.min.js',
       'reflect-metadata': 'npm:reflect-metadata@0.1.10',
       rxjs: 'npm:rxjs'
     },

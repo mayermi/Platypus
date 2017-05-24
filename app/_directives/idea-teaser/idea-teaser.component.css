@@ -130,6 +130,9 @@
 }
 
 .idea-teaser__countdown {
+  color: var(--color-neutral--darker);
+  font-size: 1.2rem;
+  font-style: italic;
   margin: 0;
 }
 
@@ -157,13 +160,6 @@
   padding: 0.9em 1em;
 }
 
-.idea-teaser__phase {
-  color: var(--color-neutral--darker);
-  font-size: 1.2rem;
-  font-style: italic;
-  margin: 0;
-}
-
 .idea-teaser__tags {
   color: var(--color-neutral--darker);
   font-size: 1.2rem;
@@ -175,4 +171,11 @@
 .idea-teaser__title {
   font-size: 1.6rem;
   margin: 0 0 0.75em; /* 0 0 6px */
+}
+
+.idea-teaser__version {
+  color: var(--color-neutral--darker);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0;
 }

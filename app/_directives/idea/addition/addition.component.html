@@ -14,7 +14,11 @@
   </div>
 
   <p class="addition__byline">
-    by <strong>{{addition.user.username}}</strong> on {{createdAt}}
+    created by {{addition.user.username}},
+
+    <time [title]="getAbsoluteDate(addition.createdAt)">
+      {{getRelativeDate(addition.createdAt)}}
+    </time>
   </p>
 
   <div class="addition__reactions">

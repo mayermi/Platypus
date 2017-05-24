@@ -1,13 +1,16 @@
 .modification {}
 
-.modification__actions {
-  display: flex;
-  justify-content: space-between;
+.modification__action {
+  margin-bottom: 1.2em;
 }
 
 .modification__addition-form {}
 
 .modification__additions {}
+
+.modification__back {
+  font-size: 1.2rem;
+}
 
 .modification__byline {
   color: var(--color-neutral);
@@ -64,11 +67,9 @@
   margin-bottom: 0;
 }
 
-.modification__original-idea {
-  /* TODO use different color(name) */
-  background: var(--color-warning--lightest);
-  margin-bottom: 1.2em;
-  padding: 0.6em 1em;
+.modification__reactions {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .modification__reasoning {}

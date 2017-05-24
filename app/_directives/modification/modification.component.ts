@@ -4,6 +4,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { Addition, Idea, Modification, Reaction } from '../../_models/index';
 import { AuthenticationService, IdeaService } from '../../_services/index';
+import { formatDate } from '../../_helpers/index';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -43,12 +44,20 @@ export class ModificationComponent implements OnInit {
     }
   }
 
+  getAbsoluteDate(date: number): string {
+    return formatDate.absolute(date);
+  }
+
   getDislikes(): number {
     return this.modification.reactions ? this.modification.reactions.filter((reaction: Reaction) => reaction.type === 'dislike').length : 0;
   }
 
   getLikes(): number {
     return this.modification.reactions ? this.modification.reactions.filter((reaction: Reaction) => reaction.type === 'like').length : 0;
+  }
+
+  getRelativeDate(date: number): string {
+    return formatDate.relative(date);
   }
 
   getType(): string {

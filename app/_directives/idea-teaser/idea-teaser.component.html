@@ -27,12 +27,12 @@
     </h4>
 
     <footer class="idea-teaser__footer">
-      <p class="idea-teaser__phase">
+      <p class="idea-teaser__version">
         version {{idea.version}}
       </p>
 
-      <p class="idea-teaser__countdown">
-        COUNTDOWN
+      <p class="idea-teaser__countdown" *ngIf="hasLoadedStates">
+        phase {{currentPhase.number}} ends {{timeToPhaseEnd}}
       </p>
     </footer>
   </main>

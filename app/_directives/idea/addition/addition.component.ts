@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { Addition, Idea, Modification, Reaction } from '../../../_models/index';
 import { AuthenticationService, IdeaService } from '../../../_services/index';
+import { formatDate } from '../../../_helpers/index';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -15,12 +16,14 @@ export class AdditionComponent implements OnInit {
   @Input() idea: Idea;
   @Input() modification: Modification;
 
-  createdAt: string;
-
   constructor(
     private authenticationService: AuthenticationService,
     private ideaService: IdeaService
   ) {}
+
+  getAbsoluteDate(date: number): string {
+    return formatDate.absolute(date);
+  }
 
   getDislikes(): number {
     return this.addition.reactions ? this.addition.reactions.filter((reaction: Reaction) => reaction.type === 'dislike').length : 0;
@@ -28,6 +31,10 @@ export class AdditionComponent implements OnInit {
 
   getLikes(): number {
     return this.addition.reactions ? this.addition.reactions.filter((reaction: Reaction) => reaction.type === 'like').length : 0;
+  }
+
+  getRelativeDate(date: number): string {
+    return formatDate.relative(date);
   }
 
   dislike(): void {
@@ -77,9 +84,6 @@ export class AdditionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createdAt = (new Date(this.addition.createdAt)).toLocaleString();
-
-
     this.ideaService.getReactionsForAddition(this.idea, this.modification, this.addition).then((reactions: Reaction[]) => {
       this.addition.reactions = reactions;
     });

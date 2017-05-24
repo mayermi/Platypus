@@ -4,7 +4,7 @@ import { Idea } from '../../_models/index';
 import { IdeaService } from '../../_services/index';
 
 const containsTerm = (haystack: string, needle: string) =>
-  haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+  haystack && haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
 
 @Component({
   moduleId: module.id,
@@ -19,6 +19,8 @@ export class IdeasComponent implements OnInit {
   constructor(private ideaService: IdeaService) {}
 
   search(): void {
+    console.log('searching with query', this.query.trim());
+
     if (this.query.trim() === '') {
       this.filteredIdeas = this.ideas;
     } else {
@@ -39,7 +41,7 @@ export class IdeasComponent implements OnInit {
 
   ngOnInit(): void {
     this.ideaService.getIdeas().then((ideas: Idea[]) => {
-      this.ideas = this.filteredIdeas = ideas;
+      this.ideas = this.filteredIdeas = ideas.reverse();
     });
   }
 }

@@ -31,6 +31,7 @@
 
 .ideas__search__label {
   font-size: 1.6rem;
+  margin-bottom: 0;
   margin-right: 0.3125em; /* 5px */
 }
 

@@ -1,18 +1,20 @@
-import { History, Modification, User } from './index';
+import { History, Modification, State, User } from './index';
 
 export class Idea {
   id: string;
-  title: string;
-  description: string;
-  reasoning: string;
-  location: string;
+
   categories: string[];
+  description: string;
+  location: string;
+  reasoning: string;
+  title: string;
   version: number;
 
   // objects
   histories: History[];
-  user: User;
   modifications: Modification[];
+  states: State[];
+  user: User;
 
   // timestamps
   createdAt: number;

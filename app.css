@@ -206,7 +206,7 @@ input[type="text"] {
   line-height: 1.5;
   margin: 0;
   padding: 0.3125em 0.5625em; /* 5px 9px */
-  width: 49%;
+  width: 100%;
 }
 
 input[type="checkbox"] {
@@ -280,6 +280,11 @@ textarea {
   margin: 0;
   padding: 0.3125em 0.5625em; /* 5px 9px */
   width: 100%;
+}
+
+time[title] {
+  border-bottom: 1px dashed var(--color-neutral--lighter);
+  cursor: help;
 }
 
 ul {

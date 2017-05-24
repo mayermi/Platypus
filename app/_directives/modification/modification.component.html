@@ -1,6 +1,6 @@
 <div class="modification" *ngIf="idea && modification">
   <nav>
-    <a [routerLink]="'/ideas/' + idea.id">
+    <a class="modification__back" [routerLink]="'/ideas/' + idea.id">
       &larr; {{idea.title}}
     </a>
   </nav>
@@ -34,31 +34,29 @@
   </div>
 
   <p class="modification__byline">
-    by <strong>{{modification.user.username}}</strong> on {{modification.createdAt}}
+    created by {{modification.user.username}},
+
+    <time [title]="getAbsoluteDate(modification.createdAt)">
+      {{getRelativeDate(modification.createdAt)}}
+    </time>
   </p>
 
-  <div class="modification__original-idea">
-    <h2>
-      {{idea.title}}
-    </h2>
-
-    <markdown [content]="idea.description"></markdown>
-
-    <h3 class="modification__original-idea__subtitle">
-      Reasoning
-    </h3>
-
-    <markdown [content]="idea.reasoning"></markdown>
+  <div class="modification__reactions">
+    <reactions [reactions]="modification.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
   </div>
 
-  <div class="modification__actions">
-    <div>
-      <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
-        Add to this
-      </custom-button>
-    </div>
+  <h2>
+    Additions
+  </h2>
 
-    <reactions [reactions]="modification.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
+  <p>
+    TODO: description
+  </p>
+
+  <div class="modification__action">
+    <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
+      Add to this
+    </custom-button>
   </div>
 
   <div class="modification__additions" *ngIf="hasLoadedAdditions">

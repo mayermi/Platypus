@@ -2,16 +2,26 @@
   flex-grow: 1;
 }
 
+.idea__aside {
+  flex-basis: 66%;
+  flex-shrink: 0;
+}
+
+.idea__aside__title {
+  font-size: 1.6rem;
+  margin-bottom: 0;
+}
+
 .idea__body {
   display: flex;
   justify-content: space-between;
 }
 
-.idea__deadline {
-  display: block;
-}
-
 .idea__description {}
+
+.idea__history-link {
+  display: inline-block;
+}
 
 .idea__main {
   flex-basis: 32%;
@@ -19,13 +29,13 @@
 }
 
 .idea__metadata {
-  flex-basis: 66%;
-  flex-shrink: 0;
+  margin-bottom: 1.2em;
 }
 
-.idea__metadata__title {
-  font-size: 1.6rem;
-  margin-bottom: 0;
+.idea__metadata__entry {
+  color: var(--color-neutral--darker);
+  font-size: 1.2rem;
+  margin-bottom: 0.25em; /* 3px */
 }
 
 .idea__modifications {
