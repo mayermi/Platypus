@@ -17,7 +17,7 @@ export class APIService {
 
   // private url = 'https://cityidea.herokuapp.com/app';
   // private url = 'http://localhost:8000';
-  private url = 'https://platypus-api.herokuapp.com/';
+  private url = 'https://platypus-api.herokuapp.com';
 
   constructor(private http: Http) {}
 
