@@ -1,0 +1,28 @@
+<div class="idea-row">
+  <h3>
+    <a [routerLink]="'/ideas/' + idea.id">
+      {{idea.title}}
+    </a>
+  </h3>
+
+  <p *ngIf="hasLoadedStates">
+    Phase {{currentState.phase.number}} ends
+    <time [title]="getAbsoluteDate(currentState.endsAt)">
+      {{getRelativeDate(currentState.endsAt)}}
+    </time>
+
+    <custom-button type="secondary" (click)="forwardToNextPhase()" *ngIf="currentState.phase.number < 3">
+      forward to phase {{currentState.phase.number + 1}}
+    </custom-button>
+  </p>
+
+  <section *ngIf="idea.modifications && idea.modifications.length > 0">
+    <h4>
+      Modifications
+    </h4>
+
+    <div class="idea-row__modifications">
+      <modification-row [idea]="idea" [modification]="modification" *ngFor="let modification of idea.modifications"></modification-row>
+    </div>
+  </section>
+</div>

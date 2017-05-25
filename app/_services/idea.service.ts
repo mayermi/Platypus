@@ -49,6 +49,11 @@ export class IdeaService {
       .then((states: State[]) => states);
   }
 
+  setPhaseForIdea(idea: Idea, phase: number): Promise<State> {
+    return this.apiService.post(`/ideas/${idea.id}/states`, { phase })
+      .then((state: State) => state);
+  }
+
   /* modifications */
 
   getModification(ideaId: String, modificationId: String): Promise<Modification> {
@@ -68,6 +73,11 @@ export class IdeaService {
 
         return modification;
       });
+  }
+
+  setModificationMergeable(idea: Idea, modification: Modification): Promise<Modification> {
+    return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/setMergeable`)
+      .then((modification: Modification) => modification);
   }
 
   /* additions */

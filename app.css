@@ -190,6 +190,12 @@ h4 {
   margin-bottom: 0.375em; /* 6px */
 }
 
+h5 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.375em; /* 6px */
+}
+
 html {
   background: var(--color-neutral--lightest);
   box-sizing: border-box;
@@ -270,6 +276,19 @@ p {
   margin: 0 0 0.75em;
 }
 
+table {
+  margin-bottom: 1.2em;
+}
+
+tbody tr:nth-of-type(odd) {
+  background: green;
+}
+
+td {
+  font-size: 1.6rem;
+  padding: 0.1875em 0.3125em; /* 3px 5px */
+}
+
 textarea {
   border: 0.0625em solid var(--color-neutral); /* 1px */
   border-radius: 0.125em; /* 2px */
@@ -282,9 +301,16 @@ textarea {
   width: 100%;
 }
 
+th {
+  font-size: 1.6rem;
+  text-align: left;
+  padding: 0.3125em 0.5625em; /* 5px 9px */
+}
+
 time[title] {
   border-bottom: 1px dashed var(--color-neutral--lighter);
   cursor: help;
+  display: inline-block;
 }
 
 ul {

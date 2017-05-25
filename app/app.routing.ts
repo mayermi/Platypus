@@ -2,16 +2,17 @@
 import { NgModule } from '@angular/core';
 
 import {
+  AdminComponent,
   HistoryComponent,
   HomeComponent,
+  HowItWorksComponent,
   IdeaComponent,
   IdeasComponent,
+  LoginComponent,
   MergeComponent,
   ModificationComponent,
-  LoginComponent,
   NewIdeaComponent,
-  SignupComponent,
-  RulesAndEtiquetteComponent
+  SignupComponent
 } from './_directives/index';
 
 import {
@@ -24,6 +25,10 @@ export const routing = RouterModule.forRoot([
     path: '',
     component: HomeComponent,
     pathMatch: 'full'
+  }, {
+    path: 'admin',
+    component: AdminComponent
+//    canActivate: [AdminGuard]
   }, {
     path: 'ideas/new',
     component: NewIdeaComponent,
@@ -48,8 +53,8 @@ export const routing = RouterModule.forRoot([
     path: 'login',
     component: LoginComponent
   }, {
-    path: 'rules-and-etiquette',
-    component: RulesAndEtiquetteComponent
+    path: 'how-it-works',
+    component: HowItWorksComponent
   }, {
     path: 'signup',
     component: SignupComponent

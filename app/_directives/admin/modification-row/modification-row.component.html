@@ -1,0 +1,9 @@
+<p class="modification-row">
+  <a class="modification-row__link" [routerLink]="'/ideas/' + idea.id + '/modifications/' + modification.id">
+    {{modification.title}}
+  </a>
+
+  <custom-button type="secondary" (click)="setMergeable()" *ngIf="!modification.isMergeable && !modification.isMerged">
+    set mergeable
+  </custom-button>
+</p>

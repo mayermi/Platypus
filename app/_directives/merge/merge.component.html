@@ -32,6 +32,14 @@
           <div class="merge__markdown">
             <markdown [content]="modification.text"></markdown>
           </div>
+
+          <section *ngIf="hasLoadedAdditions">
+            <h4>
+              Additions
+            </h4>
+
+            <markdown [content]="addition.text" *ngFor="let addition of modification.additions"></markdown>
+          </section>
         </div>
       </div>
 
@@ -66,6 +74,14 @@
           <div class="merge__markdown">
             <markdown [content]="modification.reasoning"></markdown>
           </div>
+
+          <section *ngIf="hasLoadedAdditions">
+            <h4>
+              Additions
+            </h4>
+
+            <markdown [content]="addition.reasoning" *ngFor="let addition of modification.additions"></markdown>
+          </section>
         </div>
       </div>
 

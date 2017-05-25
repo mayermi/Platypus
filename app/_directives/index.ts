@@ -1,3 +1,6 @@
+export * from './admin/admin.component';
+export * from './admin/idea-row/idea-row.component';
+export * from './admin/modification-row/modification-row.component';
 export * from './custom-button/custom-button.component';
 export * from './history/history.component';
 ﻿export * from './home/home.component';
@@ -16,7 +19,6 @@ export * from './modification/modification.component';
 export * from './navigation/navigation.component';
 export * from './new-idea/new-idea.component';
 export * from './reactions/reactions.component';
-export * from './rules-and-etiquette/rules-and-etiquette.component';
 export * from './signup/signup.component';
 
 export * from './idea/arguments/arguments.component';

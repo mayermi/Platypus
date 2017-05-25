@@ -50,17 +50,13 @@
   </h2>
 
   <p>
-    TODO: description
+    Still missing something with this modification and its additions? Is it still too vague? Add it now!
   </p>
 
   <div class="modification__action">
     <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
       Add to this
     </custom-button>
-  </div>
-
-  <div class="modification__additions" *ngIf="hasLoadedAdditions">
-    <addition [addition]="addition" [idea]="idea" [modification]="modification" *ngFor="let addition of modification.additions"></addition>
   </div>
 
   <div class="modification__addition-form" *ngIf="isAdditionFormVisible">
@@ -85,5 +81,9 @@
     </input-block>
 
     <add-block-controls (onCancel)="hideAdditionForm()" (onSave)="saveAddition()"></add-block-controls>
+  </div>
+
+  <div class="modification__additions" *ngIf="hasLoadedAdditions">
+    <addition [addition]="addition" [idea]="idea" [modification]="modification" *ngFor="let addition of modification.additions"></addition>
   </div>
 </div>

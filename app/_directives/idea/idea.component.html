@@ -5,13 +5,19 @@
 
   <div class="idea__body">
     <aside class="idea__aside">
-      <p *ngIf="currentState">
-        Phase {{currentState.phase.number}} ends
+      <div *ngIf="currentState">
+        <p>
+          Phase {{currentState.phase.number}} ({{currentState.phase.title}}) ends
 
-        <time [title]="getAbsoluteDate(currentState.endsAt)">
-          {{getRelativeDate(currentState.endsAt)}}
-        </time>
-      </p>
+          <time [title]="getAbsoluteDate(currentState.endsAt)">
+            {{getRelativeDate(currentState.endsAt)}}
+          </time>
+        </p>
+
+        <p>
+          {{currentState.phase.description}}
+        </p>
+      </div>
 
       <h2 class="idea__metadata__title">
         Description
@@ -54,8 +60,6 @@
           <time [title]="getAbsoluteDate(idea.updatedAt)">{{getRelativeDate(idea.updatedAt)}}</time></span>
         </p>
       </div>
-
-      <how-it-works></how-it-works>
     </aside>
 
     <main class="idea__main">
