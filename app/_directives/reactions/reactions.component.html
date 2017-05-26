@@ -1,6 +1,8 @@
 <div class="reactions" *ngIf="reactions">
   <div class="reactions__reaction">
-    <button class="reactions__action reactions__action--like" [ngClass]="{ 'is-active': wasLikedByCurrentUser() }" (click)="like()" type="secondary">
+    <button class="reactions__action reactions__action--like" [disabled]="isViewOnly" [ngClass]="{
+      'is-active': wasLikedByCurrentUser()
+    }" (click)="like()" type="secondary">
       Like
     </button>
 
@@ -10,7 +12,9 @@
   </div>
 
   <div class="reactions__reaction">
-    <button class="reactions__action reactions__action--dislike" [ngClass]="{ 'is-active': wasDislikedByCurrentUser() }" (click)="dislike()" type="secondary">
+    <button class="reactions__action reactions__action--dislike" [disabled]="isViewOnly" [ngClass]="{
+      'is-active': wasDislikedByCurrentUser()
+    }" (click)="dislike()" type="secondary">
       Dislike
     </button>
 

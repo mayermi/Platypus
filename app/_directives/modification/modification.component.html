@@ -42,18 +42,18 @@
   </p>
 
   <div class="modification__reactions">
-    <reactions [reactions]="modification.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
+    <reactions [isViewOnly]="modification.isMerged" [reactions]="modification.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
   </div>
 
-  <h2>
+  <h2 *ngIf="!modification.isMerged || (modification.isMerged && modification.additions > 0)">
     Additions
   </h2>
 
-  <p>
+  <p *ngIf="!modification.isMerged">
     Still missing something with this modification and its additions? Is it still too vague? Add it now!
   </p>
 
-  <div class="modification__action">
+  <div class="modification__action" *ngIf="!modification.isMerged">
     <custom-button type="secondary" (click)="showAdditionForm()" *ngIf="!isAdditionFormVisible">
       Add to this
     </custom-button>

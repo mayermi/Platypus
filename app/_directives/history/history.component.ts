@@ -4,7 +4,7 @@ import 'rxjs/add/operator/switchMap';
 
 import * as diff from 'diff';
 
-import { History, Idea } from '../../_models/index';
+import { History, Idea, State } from '../../_models/index';
 import { IdeaService } from '../../_services/index';
 import { formatDate } from '../../_helpers/index';
 
@@ -14,8 +14,10 @@ import { formatDate } from '../../_helpers/index';
   styleUrls: ['history.component.css']
 })
 export class HistoryComponent implements OnInit {
-  histories: History[];
+  events: any[] = [];
+  hasLoadedEvents: boolean = false;
   idea: Idea;
+  sortedEvents: any[] = [];
 
   constructor(
     private ideaService: IdeaService,
@@ -24,7 +26,7 @@ export class HistoryComponent implements OnInit {
 
   getDiffForHistory(history: History): string {
     const version = history.version;
-    const nextHistory = this.histories.find((history: History) => history.version === version + 1) || this.idea;
+    const nextHistory = this.idea.histories.find((history: History) => history.version === version + 1) || this.idea;
 
     return diff.diffWords(history.description, nextHistory.description).map((entry) => {
       if (entry.removed) {
@@ -53,8 +55,24 @@ export class HistoryComponent implements OnInit {
       .subscribe((idea: Idea) => {
         this.idea = idea;
 
-        this.ideaService.getHistoriesForIdea(idea).then(histories => {
-          this.idea.histories = this.histories = histories.reverse();
+        this.ideaService.getHistoriesForIdea(idea).then((histories: History[]) => {
+          this.idea.histories = histories.reverse();
+
+          this.events = this.events.concat(histories).sort((eventA, eventB) => {
+            return (new Date(eventB.createdAt)).valueOf() - (new Date(eventA.createdAt)).valueOf();
+          });
+
+          this.hasLoadedEvents = true;
+        });
+
+        this.ideaService.getStatesForIdea(idea).then((states: State[]) => {
+          this.idea.states = states;
+
+          this.events = this.events.concat(states).sort((eventA, eventB) => {
+            return (new Date(eventB.createdAt)).valueOf() - (new Date(eventA.createdAt)).valueOf();
+          });
+
+          this.hasLoadedEvents = true;
         });
     });
   }

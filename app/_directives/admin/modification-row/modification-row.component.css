@@ -3,3 +3,12 @@
 .modification-row__link {
   display: inline-block;
 }
+
+.modification-row__mergeable {
+  background: var(--color-success);
+  color: var(--color-neutral--lightest);
+  display: inline-block;
+  font-size: 1.2rem;
+  font-style: italic;
+  padding: 0 0.25em; /* 0 3px */
+}

@@ -22,6 +22,6 @@
   </p>
 
   <div class="addition__reactions">
-    <reactions [reactions]="addition.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
+    <reactions [isViewOnly]="modification.isMerged" [reactions]="addition.reactions" (onDislike)="dislike()" (onLike)="like()"></reactions>
   </div>
 </div>

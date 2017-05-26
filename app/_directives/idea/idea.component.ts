@@ -47,6 +47,7 @@ export class IdeaComponent implements OnInit {
       .then((modification) => {
         this.closeModificationForm();
         this.hasLoadedModifications = this.hasOpenModifications = true;
+        this.idea.modifications.unshift(modification);
         this.openModifications.unshift(modification);
       });
   }

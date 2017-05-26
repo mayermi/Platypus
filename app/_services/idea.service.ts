@@ -68,11 +68,7 @@ export class IdeaService {
 
   createModificationForIdea(idea: Idea, modification: Modification): Promise<Modification> {
     return this.apiService.post(`/ideas/${idea.id}/modifications`, modification)
-      .then((modification: Modification) => {
-        idea.modifications.push(modification);
-
-        return modification;
-      });
+      .then((modification: Modification) => modification);
   }
 
   setModificationMergeable(idea: Idea, modification: Modification): Promise<Modification> {
@@ -89,11 +85,7 @@ export class IdeaService {
 
   createAdditionForModification(idea: Idea, modification: Modification, addition: Addition): Promise<Addition> {
     return this.apiService.post(`/ideas/${idea.id}/modifications/${modification.id}/additions`, addition)
-      .then((addition: Addition) => {
-        modification.additions.push(addition);
-
-        return addition;
-      });
+      .then((addition: Addition) => addition);
   }
 
   /* reactions */

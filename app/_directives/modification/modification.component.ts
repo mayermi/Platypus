@@ -95,7 +95,8 @@ export class ModificationComponent implements OnInit {
 
   saveAddition(): void {
     this.ideaService.createAdditionForModification(this.idea, this.modification, this.addition)
-      .then(() => {
+      .then((addition: Addition) => {
+        this.modification.additions.unshift(addition);
         this.hasLoadedAdditions = true;
         this.hideAdditionForm();
       });
@@ -115,7 +116,7 @@ export class ModificationComponent implements OnInit {
         this.isMergeable = !modification.isMerged && modification.isMergeable && modification.user.id === this.authenticationService.getLoggedInUser().id;
 
         this.ideaService.getAdditionsForModification(this.idea, this.modification).then((additions: Addition[]) => {
-          this.modification.additions = additions;
+          this.modification.additions = additions.reverse();
           this.hasLoadedAdditions = true;
         });
 

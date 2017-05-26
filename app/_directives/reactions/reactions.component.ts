@@ -10,6 +10,7 @@ import { AuthenticationService } from '../../_services/index';
   templateUrl: 'reactions.component.html'
 })
 export class ReactionsComponent {
+  @Input() isViewOnly: boolean;
   @Input() reactions: Reaction[];
   @Output() onDislike = new EventEmitter<void>();
   @Output() onLike = new EventEmitter<void>();

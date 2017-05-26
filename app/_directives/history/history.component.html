@@ -1,23 +1,47 @@
-<main class="history" *ngIf="histories">
+<main class="history" *ngIf="idea">
+  <nav>
+    <a class="history__back" [routerLink]="'/ideas/' + idea.id">
+      &larr; {{idea.title}}
+    </a>
+  </nav>
+
   <h1>
     History for &ldquo;{{idea.title}}&rdquo;
   </h1>
 
-  <div>
-    <div *ngFor="let history of histories">
-      <h2 class="history__version">
-        <span>
-          Version {{history.version}}
-        </span>
+  <div *ngIf="hasLoadedEvents">
+    <div *ngFor="let event of events">
+      <div class="history__event history__event--state" *ngIf="event.phase">
+        <h2 class="history__phase">
+          Start of phase {{event.phase.number}}
 
-        <span class="history__timestamp" [title]="getFormattedDate(history.createdAt)">
-          ({{getRelativeDate(history.createdAt)}})
-        </span>
-      </h2>
+          <time [title]="getFormattedDate(event.createdAt)">
+            ({{getRelativeDate(event.createdAt)}})
+          </time>
+        </h2>
+      </div>
 
-      <p>
-        <markdown [content]="getDiffForHistory(history)"></markdown>
-      </p>
+      <div class="history__event history__event--version" *ngIf="event.modification">
+        <h2 class="history__version">
+          <span>
+            Version {{event.version}}
+          </span>
+
+          <time class="history__timestamp" [title]="getFormattedDate(event.createdAt)">
+            ({{getRelativeDate(event.createdAt)}})
+          </time>
+        </h2>
+
+        <p>
+          <markdown [content]="getDiffForHistory(event)"></markdown>
+        </p>
+
+        <p class="history__modification">
+          included modification <a [routerLink]="'/ideas/' + idea.id + '/modifications/' + event.modification.id">
+            {{event.modification.title}}
+          </a>
+        </p>
+      </div>
     </div>
   </div>
 </main>

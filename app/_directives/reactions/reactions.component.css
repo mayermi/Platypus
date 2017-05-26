@@ -83,3 +83,13 @@
 .reactions__reaction + .reactions__reaction {
   margin-left: 1.5em;
 }
+
+.reactions__action.reactions__action:disabled,
+.reactions__action.reactions__action:hover:disabled,
+.reactions__action.reactions__action.is-active:disabled,
+.reactions__action.reactions__action.is-active:hover:disabled {
+  background: var(--color-neutral--lighter);
+  border-color: var(--color-neutral--lighter);
+  color: var(--color-neutral--darker);
+  cursor: default;
+}

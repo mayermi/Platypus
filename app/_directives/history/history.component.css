@@ -1,5 +1,48 @@
 .history {}
 
+.history__back {
+  font-size: 1.2rem;
+}
+
+.history__event {}
+
+.history__event.history__event--state {
+  margin-bottom: 3.6em;
+  position: relative;
+  text-align: center;
+}
+
+.history__event.history__event--state::before {
+  background: var(--color-neutral);
+  content: '';
+  display: block;
+  height: 0.1em;
+  left: 0;
+  position: absolute;
+  top: 0.8em;
+  width: 100%;
+}
+
+.history__event.history__event--version {
+  margin-bottom: 3.6em;
+}
+
+.history__modification {
+  color: var(--color-neutral--darker);
+  font-style: italic;
+}
+
+.history__phase {
+  background: var(--color-neutral--lightest);
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  padding: 0 0.5em; /* 0 6px */
+}
+
 .history__timestamp {
   color: var(--color-neutral--darker);
   display: inline-block;

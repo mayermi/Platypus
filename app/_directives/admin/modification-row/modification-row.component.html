@@ -6,4 +6,8 @@
   <custom-button type="secondary" (click)="setMergeable()" *ngIf="!modification.isMergeable && !modification.isMerged">
     set mergeable
   </custom-button>
+
+  <span class="modification-row__mergeable" *ngIf="modification.isMergeable && !modification.isMerged">
+    is mergeable
+  </span>
 </p>

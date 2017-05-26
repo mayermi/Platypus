@@ -6,10 +6,10 @@
 .navigation__control {}
 
 .navigation__go-to-create {
-  background: var(--color-action);
+  background: var(--color-warning--lightest);
   border: 0;
   border-radius: 0.25em; /* 4px */
-  color: var(--color-neutral--lightest);
+  color: var(--color-neutral--darker);
   display: inline-block;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -20,7 +20,7 @@
 }
 
 .navigation__go-to-create:hover {
-  background: var(--color-action--darker);
+  background: var(--color-warning--lighter);
 }
 
 .navigation__go-to-create::before {
@@ -36,7 +36,7 @@
 }
 
 .navigation__link {
-  color: var(--color-action--darker);
+  color: var(--color-action--lightest);
   font-size: 1.6rem;
   white-space: nowrap;
 }
@@ -54,7 +54,7 @@
 .navigation__logout {
   background: none;
   border: 0;
-  color: var(--color-action--darker);
+  color: var(--color-action--lightest);
   cursor: pointer;
   font-family: inherit;
   font-size: 1.6rem;
