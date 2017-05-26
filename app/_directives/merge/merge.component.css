@@ -1,5 +1,13 @@
 .merge {}
 
+.merge__additions {
+  border-top: 0.1em solid var(--color-neutral--lighter);
+}
+
+.merge__back {
+  font-size: 1.2rem;
+}
+
 .merge__bases {
   display: flex;
   justify-content: space-between;
@@ -10,8 +18,16 @@
   flex-basis: 49%;
 }
 
+.merge__markdown {
+  margin-bottom: 0.6em;
+}
+
 .merge__markdown p {
   color: var(--color-neutral--darker);
   font-size: 1.2rem;
   margin-bottom: 0.5em; /* 6px */
+}
+
+.merge__markdown p:last-of-type {
+  margin-bottom: 0;
 }

@@ -13,6 +13,7 @@ import { routing } from './app.routing';
 import {
   AddBlockControlsComponent,
   AdditionComponent,
+  AdditionTeaserComponent,
   AdminComponent,
   CustomButtonComponent,
   HistoryComponent,
@@ -62,6 +63,7 @@ import {
   declarations: [
     AddBlockControlsComponent,
     AdditionComponent,
+    AdditionTeaserComponent,
     AdminComponent,
     CustomButtonComponent,
     HistoryComponent,

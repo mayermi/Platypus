@@ -7,17 +7,8 @@ import { User } from '../_models/user';
 
 @Injectable()
 export class APIService {
-  private headers = new Headers({
-    'Content-Type': 'application/json'
-  });
-
-  private options = new RequestOptions({
-    headers: this.headers
-  });
-
-  // private url = 'https://cityidea.herokuapp.com/app';
-  // private url = 'http://localhost:8000';
-  private url = 'https://platypus-api.herokuapp.com';
+  private url = 'http://localhost:8000';
+  // private url = 'https://platypus-api.herokuapp.com';
 
   constructor(private http: Http) {}
 
@@ -45,19 +36,15 @@ export class APIService {
   }
 
   private jwt() {
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
     if (window.sessionStorage.token) {
-      let headers = new Headers({
-        'Content-Type': 'application/json'
-      });
-
       headers.append('Authorization', `Bearer ${window.sessionStorage.token}`);
-
-      return new RequestOptions({
-        headers: headers
-      });
-    } else {
-      return this.options;
     }
+
+    return new RequestOptions({ headers });
   }
 
   private handleError(error: any): Promise<any> {

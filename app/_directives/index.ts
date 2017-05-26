@@ -15,6 +15,7 @@ export * from './input-block/input-block.component';
 export * from './login/login.component';
 export * from './markdown/markdown.component';
 export * from './merge/merge.component';
+export * from './merge/addition-teaser/addition-teaser.component';
 export * from './modification/modification.component';
 export * from './navigation/navigation.component';
 export * from './new-idea/new-idea.component';

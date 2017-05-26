@@ -1,4 +1,10 @@
 <div class="merge" *ngIf="idea && modification">
+  <nav>
+    <a class="merge__back" [routerLink]="'/ideas/' + idea.id + '/modifications/' + modification.id">
+      &larr; {{modification.title}}
+    </a>
+  </nav>
+
   <h1>
     Merge
   </h1>
@@ -6,6 +12,16 @@
   <p>
     TODO: how to merge
   </p>
+
+  <div *ngIf="hasState">
+    <p *ngIf="currentState.phase.number !== 3">
+      In phase {{currentState.phase.number}}, all additions that have been voted for unanimously are considered when merging a modification.
+    </p>
+
+    <p *ngIf="currentState.phase.number === 3">
+      In phase 3, additions that have been accepted using a majority vote are to be taken into account when merging your modification with the idea. We have put the additions relevant for you with the respective sections for you.
+    </p>
+  </div>
 
   <form (ngSubmit)="save()" #ideaForm="ngForm" novalidate>
     <input-block>
@@ -33,12 +49,8 @@
             <markdown [content]="modification.text"></markdown>
           </div>
 
-          <section *ngIf="hasLoadedAdditions">
-            <h4>
-              Additions
-            </h4>
-
-            <markdown [content]="addition.text" *ngFor="let addition of modification.additions"></markdown>
+          <section class="merge__additions" *ngIf="hasAdditions">
+            <addition-teaser [addition]="addition" [content]="addition.text" [currentPhase]="currentState.phase.number" [idea]="idea" [modification]="modification" *ngFor="let addition of modification.additions"></addition-teaser>
           </section>
         </div>
       </div>
@@ -75,12 +87,9 @@
             <markdown [content]="modification.reasoning"></markdown>
           </div>
 
-          <section *ngIf="hasLoadedAdditions">
-            <h4>
-              Additions
-            </h4>
 
-            <markdown [content]="addition.reasoning" *ngFor="let addition of modification.additions"></markdown>
+          <section class="merge__additions" *ngIf="hasAdditions">
+            <addition-teaser [addition]="addition" [content]="addition.reasoning" [currentPhase]="currentState.phase.number" [idea]="idea" [modification]="modification" *ngFor="let addition of modification.additions"></addition-teaser>
           </section>
         </div>
       </div>
