@@ -7,8 +7,8 @@ import { User } from '../_models/user';
 
 @Injectable()
 export class APIService {
-  private url = 'http://localhost:8000';
-  // private url = 'https://platypus-api.herokuapp.com';
+  // private url = 'http://localhost:8000';
+  private url = 'https://platypus-api.herokuapp.com';
 
   constructor(private http: Http) {}
 
