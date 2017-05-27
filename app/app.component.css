@@ -13,7 +13,7 @@
 }
 
 .app__navigation {
-  background: var(--color-action--darker);
+  background: var(--color-navigation--darkest);
   margin-bottom: 1.2em;
   padding: 1.2em var(--app__horizontal-padding);
 }

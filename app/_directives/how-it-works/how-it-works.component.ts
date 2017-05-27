@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: 'how-it-works.component.html'
 })
 export class HowItWorksComponent {
-  isContentVisible: boolean = false;
-
   constructor() {}
-
-  toggle(): void {
-    this.isContentVisible = !this.isContentVisible;
-  }
 }

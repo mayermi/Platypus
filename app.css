@@ -65,17 +65,23 @@
   --color-brand--darker: #63b9b9;
   --color-brand--darkest: #459a9a;
 
-  --color-category--economical: #69f;
-  --color-category--environmental: #8ccd6c;
-  --color-category--political: #8dcccc;
-  --color-category--social: #ffa65f;
-  --color-category--technological: #ff5f61;
+  --color-category--economical: #77a2fa;
+  --color-category--environmental: #98d079;
+  --color-category--political: #98cfcd;
+  --color-category--social: #fdae6d;
+  --color-category--technological: #fd6f6f;
 
   --color-error: #ff5f61; /* red */
   --color-error--lighter: #ff9c9d;
   --color-error--lightest: #ffd9da;
   --color-error--darker: #ff2225;
   --color-error--darkest: #e40003;
+
+  --color-navigation: #aaa; /* gray */
+  --color-navigation--lighter: #lightgray;
+  --color-navigation--lightest: #fcfcfc;
+  --color-navigation--darker: #636363;
+  --color-navigation--darkest: #1b1b1b;
 
   --color-neutral: #aaa; /* gray */
   --color-neutral--lighter: lightgray;
@@ -94,7 +100,6 @@
   --color-warning--lightest: #ffead9;
   --color-warning--darker: #ff8422;
   --color-warning--darkest: #e46500;
-
 }
 
 *,
@@ -272,7 +277,7 @@ ol {
 
 p {
   font-size: 1.6rem;
-  margin: 0 0 0.75em;
+  margin: 0 0 0.75em; /* 0 0 12px */
 }
 
 table {
@@ -314,5 +319,5 @@ time[title] {
 
 ul {
   list-style: disc;
-  margin: 0;
+  margin: 0 0 1.2em;
 }

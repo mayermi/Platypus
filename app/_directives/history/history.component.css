@@ -43,6 +43,10 @@
   padding: 0 0.5em; /* 0 6px */
 }
 
+.history__reasoning-diff p {
+  font-size: 1.2rem;
+}
+
 .history__timestamp {
   color: var(--color-neutral--darker);
   display: inline-block;

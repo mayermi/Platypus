@@ -6,10 +6,10 @@
 .navigation__control {}
 
 .navigation__go-to-create {
-  background: var(--color-warning--lightest);
+  background: var(--color-action);
   border: 0;
   border-radius: 0.25em; /* 4px */
-  color: var(--color-neutral--darker);
+  color: var(--color-neutral--lightest);
   display: inline-block;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -20,7 +20,7 @@
 }
 
 .navigation__go-to-create:hover {
-  background: var(--color-warning--lighter);
+  background: var(--color-action--darker);
 }
 
 .navigation__go-to-create::before {
@@ -36,9 +36,14 @@
 }
 
 .navigation__link {
-  color: var(--color-action--lightest);
+  color: var(--color-neutral--lightest);
   font-size: 1.6rem;
+  text-decoration: none;
   white-space: nowrap;
+}
+
+.navigation__link:hover {
+  text-decoration: underline;
 }
 
 .navigation__link.is-active {}
@@ -54,11 +59,15 @@
 .navigation__logout {
   background: none;
   border: 0;
-  color: var(--color-action--lightest);
+  color: var(--color-neutral--lightest);
   cursor: pointer;
   font-family: inherit;
   font-size: 1.6rem;
   line-height: 1.5;
   padding: 0;
+  text-decoration: none;
+}
+
+.navigation__logout:hover {
   text-decoration: underline;
 }

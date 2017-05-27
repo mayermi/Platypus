@@ -32,12 +32,20 @@
           </time>
         </h2>
 
-        <p>
+        <div>
           <markdown [content]="getDiffForHistory(event)"></markdown>
-        </p>
+        </div>
+
+        <h3>
+          Reasoning
+        </h3>
+
+        <div class="history__reasoning-diff">
+          <markdown [content]="getDiffForHistory(event, 'reasoning')"></markdown>
+        </div>
 
         <p class="history__modification">
-          included modification <a [routerLink]="'/ideas/' + idea.id + '/modifications/' + event.modification.id">
+          Included modification: <a [routerLink]="'/ideas/' + idea.id + '/modifications/' + event.modification.id">
             {{event.modification.title}}
           </a>
         </p>

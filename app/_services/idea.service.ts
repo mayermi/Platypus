@@ -19,7 +19,7 @@ export class IdeaService {
 
   getTopIdeas(): Promise<Idea[]> {
     return this.apiService.get('/ideas')
-      .then((ideas: Idea[]) => ideas.slice(0, 3));
+      .then((ideas: Idea[]) => ideas.reverse().slice(0, 3));
   }
 
   delete(idea: Idea): Promise<any> {

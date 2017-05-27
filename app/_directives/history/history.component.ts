@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
@@ -9,6 +9,7 @@ import { IdeaService } from '../../_services/index';
 import { formatDate } from '../../_helpers/index';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   moduleId: module.id,
   templateUrl: 'history.component.html',
   styleUrls: ['history.component.css']
@@ -24,11 +25,11 @@ export class HistoryComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  getDiffForHistory(history: History): string {
+  getDiffForHistory(history: History, attribute: string = 'description'): string {
     const version = history.version;
     const nextHistory = this.idea.histories.find((history: History) => history.version === version + 1) || this.idea;
 
-    return diff.diffWords(history.description, nextHistory.description).map((entry) => {
+    return diff.diffWords(history[attribute], nextHistory[attribute]).map((entry) => {
       if (entry.removed) {
         return `~~${entry.value.trim()}~~`;
       }
