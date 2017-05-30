@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
-    "postinstall": "tsc",
+    "postinstall": "tsc -p .",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },
