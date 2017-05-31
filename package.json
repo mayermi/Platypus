@@ -9,6 +9,7 @@
     "dev": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "postinstall": "tsc -p .",
+    "start": "\"npm run lite\"",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },
