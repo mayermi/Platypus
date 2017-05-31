@@ -25,12 +25,15 @@
     "@angular/platform-browser-dynamic": "4.0.0",
     "@angular/router": "4.0.0",
     "@angular/upgrade": "4.0.0",
+    "concurrently": "^3.1.0",
     "diff": "^3.2.0",
+    "lite-server": "^2.2.2",
     "marked": "^0.3.6",
     "normalize.css": "^7.0.0",
     "reflect-metadata": "0.1.10",
     "rxjs": "5.0.1",
     "systemjs": "0.19.40",
+    "typescript": "^2.0.10",
     "zone.js": "0.8.4"
   },
   "devDependencies": {
@@ -38,9 +41,6 @@
     "@types/diff": "^3.2.0",
     "@types/jasmine": "^2.5.36",
     "@types/marked": "0.0.28",
-    "@types/node": "^6.0.46",
-    "concurrently": "^3.1.0",
-    "lite-server": "^2.2.2",
-    "typescript": "^2.0.10"
+    "@types/node": "^6.0.46"
   }
 }
