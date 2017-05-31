@@ -19,7 +19,6 @@ var IdeasComponent = (function () {
         this.ideaService = ideaService;
     }
     IdeasComponent.prototype.search = function () {
-        console.log('searching with query', this.query.trim());
         if (this.query.trim() === '') {
             this.filteredIdeas = this.ideas;
         }

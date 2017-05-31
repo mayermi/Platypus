@@ -4,3 +4,7 @@
 .how-it-works__block {
   margin-bottom: 2.4em;
 }
+
+.how-it-works__go-to-admin {
+  color: var(--color-neutral--lightest);
+}

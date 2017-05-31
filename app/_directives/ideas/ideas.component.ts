@@ -19,8 +19,6 @@ export class IdeasComponent implements OnInit {
   constructor(private ideaService: IdeaService) {}
 
   search(): void {
-    console.log('searching with query', this.query.trim());
-
     if (this.query.trim() === '') {
       this.filteredIdeas = this.ideas;
     } else {
