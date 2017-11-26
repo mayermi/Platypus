@@ -11,6 +11,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var index_1 = require("./_directives/index");
@@ -27,6 +29,7 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
             http_1.HttpModule,
+            router_1.RouterModule,
             app_routing_1.routing
         ],
         declarations: [
@@ -64,7 +67,11 @@ AppModule = __decorate([
             index_3.AuthenticationService,
             index_3.UserService,
             index_3.IdeaService,
-            index_3.APIService
+            index_3.APIService,
+            {
+                provide: common_1.LocationStrategy,
+                useClass: common_1.HashLocationStrategy
+            }
         ],
         bootstrap: [
             app_component_1.AppComponent
