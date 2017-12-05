@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var index_1 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var index_1 = require('../../_services/index');
 var AdminComponent = (function () {
     function AdminComponent(ideaService) {
         this.ideaService = ideaService;
@@ -21,15 +20,15 @@ var AdminComponent = (function () {
             _this.ideas = ideas;
         });
     };
+    AdminComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            styleUrls: ['admin.component.css'],
+            templateUrl: 'admin.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_1.IdeaService])
+    ], AdminComponent);
     return AdminComponent;
 }());
-AdminComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        styleUrls: ['admin.component.css'],
-        templateUrl: 'admin.component.html'
-    }),
-    __metadata("design:paramtypes", [index_1.IdeaService])
-], AdminComponent);
 exports.AdminComponent = AdminComponent;
 //# sourceMappingURL=admin.component.js.map

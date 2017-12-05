@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var index_1 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var index_1 = require('../../_services/index');
 var ReactionsComponent = (function () {
     function ReactionsComponent(authenticationService) {
         this.authenticationService = authenticationService;
@@ -47,32 +46,32 @@ var ReactionsComponent = (function () {
         var reaction = this.reactions.find(function (reaction) { return reaction.user.id === user.id; });
         return reaction ? this.isLike(reaction) : false;
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], ReactionsComponent.prototype, "isViewOnly", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], ReactionsComponent.prototype, "reactions", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ReactionsComponent.prototype, "onDislike", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ReactionsComponent.prototype, "onLike", void 0);
+    ReactionsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'reactions',
+            styleUrls: ['reactions.component.css'],
+            templateUrl: 'reactions.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_1.AuthenticationService])
+    ], ReactionsComponent);
     return ReactionsComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ReactionsComponent.prototype, "isViewOnly", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], ReactionsComponent.prototype, "reactions", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ReactionsComponent.prototype, "onDislike", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ReactionsComponent.prototype, "onLike", void 0);
-ReactionsComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'reactions',
-        styleUrls: ['reactions.component.css'],
-        templateUrl: 'reactions.component.html'
-    }),
-    __metadata("design:paramtypes", [index_1.AuthenticationService])
-], ReactionsComponent);
 exports.ReactionsComponent = ReactionsComponent;
 //# sourceMappingURL=reactions.component.js.map

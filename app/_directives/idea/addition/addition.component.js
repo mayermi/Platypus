@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var index_1 = require("../../../_models/index");
-var index_2 = require("../../../_services/index");
-var index_3 = require("../../../_helpers/index");
+var core_1 = require('@angular/core');
+var index_1 = require('../../../_models/index');
+var index_2 = require('../../../_services/index');
+var index_3 = require('../../../_helpers/index');
 var AdditionComponent = (function () {
     function AdditionComponent(authenticationService, ideaService) {
         this.authenticationService = authenticationService;
@@ -74,30 +73,29 @@ var AdditionComponent = (function () {
             _this.addition.reactions = reactions;
         });
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', index_1.Addition)
+    ], AdditionComponent.prototype, "addition", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', index_1.Idea)
+    ], AdditionComponent.prototype, "idea", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', index_1.Modification)
+    ], AdditionComponent.prototype, "modification", void 0);
+    AdditionComponent = __decorate([
+        core_1.Component({
+            encapsulation: core_1.ViewEncapsulation.None,
+            moduleId: module.id,
+            selector: 'addition',
+            styleUrls: ['addition.component.css'],
+            templateUrl: 'addition.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_2.AuthenticationService, index_2.IdeaService])
+    ], AdditionComponent);
     return AdditionComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", index_1.Addition)
-], AdditionComponent.prototype, "addition", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", index_1.Idea)
-], AdditionComponent.prototype, "idea", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", index_1.Modification)
-], AdditionComponent.prototype, "modification", void 0);
-AdditionComponent = __decorate([
-    core_1.Component({
-        encapsulation: core_1.ViewEncapsulation.None,
-        moduleId: module.id,
-        selector: 'addition',
-        styleUrls: ['addition.component.css'],
-        templateUrl: 'addition.component.html'
-    }),
-    __metadata("design:paramtypes", [index_2.AuthenticationService,
-        index_2.IdeaService])
-], AdditionComponent);
 exports.AdditionComponent = AdditionComponent;
 //# sourceMappingURL=addition.component.js.map

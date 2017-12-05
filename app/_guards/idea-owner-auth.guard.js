@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var IdeaOwnerAuthGuard = (function () {
     function IdeaOwnerAuthGuard(router) {
         this.router = router;
@@ -31,11 +30,11 @@ var IdeaOwnerAuthGuard = (function () {
         //
         // return false;
     };
+    IdeaOwnerAuthGuard = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [router_1.Router])
+    ], IdeaOwnerAuthGuard);
     return IdeaOwnerAuthGuard;
 }());
-IdeaOwnerAuthGuard = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [router_1.Router])
-], IdeaOwnerAuthGuard);
 exports.IdeaOwnerAuthGuard = IdeaOwnerAuthGuard;
 //# sourceMappingURL=idea-owner-auth.guard.js.map

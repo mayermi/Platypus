@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var index_1 = require("../../_models/index");
-var index_2 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../_models/index');
+var index_2 = require('../../_services/index');
 var NewIdeaComponent = (function () {
     function NewIdeaComponent(ideaService, router) {
         this.ideaService = ideaService;
@@ -51,16 +50,15 @@ var NewIdeaComponent = (function () {
             _this.router.navigateByUrl("/ideas/" + idea.id);
         });
     };
+    NewIdeaComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            styleUrls: ['new-idea.component.css'],
+            templateUrl: 'new-idea.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_2.IdeaService, router_1.Router])
+    ], NewIdeaComponent);
     return NewIdeaComponent;
 }());
-NewIdeaComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        styleUrls: ['new-idea.component.css'],
-        templateUrl: 'new-idea.component.html'
-    }),
-    __metadata("design:paramtypes", [index_2.IdeaService,
-        router_1.Router])
-], NewIdeaComponent);
 exports.NewIdeaComponent = NewIdeaComponent;
 //# sourceMappingURL=new-idea.component.js.map

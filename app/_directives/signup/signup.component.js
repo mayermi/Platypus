@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var index_1 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../_services/index');
 var SignupComponent = (function () {
     function SignupComponent(router, authenticationService) {
         this.router = router;
@@ -30,16 +29,15 @@ var SignupComponent = (function () {
             _this.isLoading = false;
         });
     };
+    SignupComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            styleUrls: ['signup.component.css'],
+            templateUrl: 'signup.component.html'
+        }), 
+        __metadata('design:paramtypes', [router_1.Router, index_1.AuthenticationService])
+    ], SignupComponent);
     return SignupComponent;
 }());
-SignupComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        styleUrls: ['signup.component.css'],
-        templateUrl: 'signup.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.Router,
-        index_1.AuthenticationService])
-], SignupComponent);
 exports.SignupComponent = SignupComponent;
 //# sourceMappingURL=signup.component.js.map

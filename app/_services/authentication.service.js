@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var index_1 = require("./index");
+var core_1 = require('@angular/core');
+var index_1 = require('./index');
 var AuthenticationService = (function () {
     function AuthenticationService(apiService) {
         this.apiService = apiService;
@@ -66,11 +65,11 @@ var AuthenticationService = (function () {
         delete window.sessionStorage.token;
         localStorage.removeItem('user');
     };
+    AuthenticationService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [index_1.APIService])
+    ], AuthenticationService);
     return AuthenticationService;
 }());
-AuthenticationService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [index_1.APIService])
-], AuthenticationService);
 exports.AuthenticationService = AuthenticationService;
 //# sourceMappingURL=authentication.service.js.map

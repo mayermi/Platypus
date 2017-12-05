@@ -8,12 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-require("rxjs/add/operator/switchMap");
-var index_1 = require("../../_models/index");
-var index_2 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+require('rxjs/add/operator/switchMap');
+var index_1 = require('../../_models/index');
+var index_2 = require('../../_services/index');
 var MergeComponent = (function () {
     function MergeComponent(ideaService, route, router) {
         this.ideaService = ideaService;
@@ -47,18 +46,16 @@ var MergeComponent = (function () {
             });
         });
     };
+    MergeComponent = __decorate([
+        core_1.Component({
+            encapsulation: core_1.ViewEncapsulation.None,
+            moduleId: module.id,
+            styleUrls: ['merge.component.css'],
+            templateUrl: 'merge.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_2.IdeaService, router_1.ActivatedRoute, router_1.Router])
+    ], MergeComponent);
     return MergeComponent;
 }());
-MergeComponent = __decorate([
-    core_1.Component({
-        encapsulation: core_1.ViewEncapsulation.None,
-        moduleId: module.id,
-        styleUrls: ['merge.component.css'],
-        templateUrl: 'merge.component.html'
-    }),
-    __metadata("design:paramtypes", [index_2.IdeaService,
-        router_1.ActivatedRoute,
-        router_1.Router])
-], MergeComponent);
 exports.MergeComponent = MergeComponent;
 //# sourceMappingURL=merge.component.js.map

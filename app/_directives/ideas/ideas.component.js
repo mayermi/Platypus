@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var index_1 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var index_1 = require('../../_services/index');
 var containsTerm = function (haystack, needle) {
     return haystack && haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
 };
@@ -43,15 +42,15 @@ var IdeasComponent = (function () {
             _this.ideas = _this.filteredIdeas = ideas.reverse();
         });
     };
+    IdeasComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            styleUrls: ['ideas.component.css'],
+            templateUrl: 'ideas.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_1.IdeaService])
+    ], IdeasComponent);
     return IdeasComponent;
 }());
-IdeasComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        styleUrls: ['ideas.component.css'],
-        templateUrl: 'ideas.component.html'
-    }),
-    __metadata("design:paramtypes", [index_1.IdeaService])
-], IdeasComponent);
 exports.IdeasComponent = IdeasComponent;
 //# sourceMappingURL=ideas.component.js.map

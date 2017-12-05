@@ -8,20 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var HowItWorksComponent = (function () {
     function HowItWorksComponent() {
     }
+    HowItWorksComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            styleUrls: ['how-it-works.component.css'],
+            templateUrl: 'how-it-works.component.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], HowItWorksComponent);
     return HowItWorksComponent;
 }());
-HowItWorksComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        styleUrls: ['how-it-works.component.css'],
-        templateUrl: 'how-it-works.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], HowItWorksComponent);
 exports.HowItWorksComponent = HowItWorksComponent;
 //# sourceMappingURL=how-it-works.component.js.map

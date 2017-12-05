@@ -8,8 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var AddBlockControlsComponent = (function () {
     function AddBlockControlsComponent() {
         this.onCancel = new core_1.EventEmitter();
@@ -23,24 +22,24 @@ var AddBlockControlsComponent = (function () {
         this.isSaving = true;
         this.onSave.emit();
     };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], AddBlockControlsComponent.prototype, "onCancel", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], AddBlockControlsComponent.prototype, "onSave", void 0);
+    AddBlockControlsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'add-block-controls',
+            styleUrls: ['add-block-controls.component.css'],
+            templateUrl: 'add-block-controls.component.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AddBlockControlsComponent);
     return AddBlockControlsComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AddBlockControlsComponent.prototype, "onCancel", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AddBlockControlsComponent.prototype, "onSave", void 0);
-AddBlockControlsComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'add-block-controls',
-        styleUrls: ['add-block-controls.component.css'],
-        templateUrl: 'add-block-controls.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], AddBlockControlsComponent);
 exports.AddBlockControlsComponent = AddBlockControlsComponent;
 //# sourceMappingURL=add-block-controls.component.js.map

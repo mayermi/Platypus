@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var index_1 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../_services/index');
 var NavigationComponent = (function () {
     function NavigationComponent(authenticationService, router) {
         this.authenticationService = authenticationService;
@@ -25,17 +24,16 @@ var NavigationComponent = (function () {
         this.authenticationService.logout()
             .then(function (response) { return _this.router.navigateByUrl('/'); });
     };
+    NavigationComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'navigation',
+            styleUrls: ['navigation.component.css'],
+            templateUrl: 'navigation.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_1.AuthenticationService, router_1.Router])
+    ], NavigationComponent);
     return NavigationComponent;
 }());
-NavigationComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'navigation',
-        styleUrls: ['navigation.component.css'],
-        templateUrl: 'navigation.component.html'
-    }),
-    __metadata("design:paramtypes", [index_1.AuthenticationService,
-        router_1.Router])
-], NavigationComponent);
 exports.NavigationComponent = NavigationComponent;
 //# sourceMappingURL=navigation.component.js.map

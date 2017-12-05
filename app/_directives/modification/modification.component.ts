@@ -110,6 +110,7 @@ export class ModificationComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => this.ideaService.getModification(params.ideaId, params.modificationId))
       .subscribe((modification: Modification) => {
+        console.log({ modification });
         this.modification = modification;
         this.idea = modification.idea as Idea;
 

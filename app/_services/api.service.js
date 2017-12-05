@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/toPromise");
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
 var APIService = (function () {
     function APIService(http) {
         this.http = http;
@@ -51,15 +50,14 @@ var APIService = (function () {
     APIService.prototype.handleError = function (error) {
         if (error.status === 401) {
             console.log('I WAS going to delete your session, but I won’t just yet.');
-            // this.deleteSession();
         }
         return Promise.reject(error.message || error);
     };
+    APIService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], APIService);
     return APIService;
 }());
-APIService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], APIService);
 exports.APIService = APIService;
 //# sourceMappingURL=api.service.js.map

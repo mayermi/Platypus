@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var index_1 = require("../../../_models/index");
-var index_2 = require("../../../_services/index");
-var index_3 = require("../../../_helpers/index");
+var core_1 = require('@angular/core');
+var index_1 = require('../../../_models/index');
+var index_2 = require('../../../_services/index');
+var index_3 = require('../../../_helpers/index');
 var ModificationTeaserComponent = (function () {
     function ModificationTeaserComponent(ideaService) {
         this.ideaService = ideaService;
@@ -33,24 +32,24 @@ var ModificationTeaserComponent = (function () {
             _this.hasAdditions = additions.length > 0;
         });
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', index_1.Idea)
+    ], ModificationTeaserComponent.prototype, "idea", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', index_1.Modification)
+    ], ModificationTeaserComponent.prototype, "modification", void 0);
+    ModificationTeaserComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'modification-teaser',
+            styleUrls: ['modification-teaser.component.css'],
+            templateUrl: 'modification-teaser.component.html'
+        }), 
+        __metadata('design:paramtypes', [index_2.IdeaService])
+    ], ModificationTeaserComponent);
     return ModificationTeaserComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", index_1.Idea)
-], ModificationTeaserComponent.prototype, "idea", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", index_1.Modification)
-], ModificationTeaserComponent.prototype, "modification", void 0);
-ModificationTeaserComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'modification-teaser',
-        styleUrls: ['modification-teaser.component.css'],
-        templateUrl: 'modification-teaser.component.html'
-    }),
-    __metadata("design:paramtypes", [index_2.IdeaService])
-], ModificationTeaserComponent);
 exports.ModificationTeaserComponent = ModificationTeaserComponent;
 //# sourceMappingURL=modification-teaser.component.js.map

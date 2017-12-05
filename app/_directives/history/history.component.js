@@ -8,13 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-require("rxjs/add/operator/switchMap");
-var diff = require("diff");
-var index_1 = require("../../_services/index");
-var index_2 = require("../../_helpers/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+require('rxjs/add/operator/switchMap');
+var diff = require('diff');
+var index_1 = require('../../_services/index');
+var index_2 = require('../../_helpers/index');
 var HistoryComponent = (function () {
     function HistoryComponent(ideaService, route) {
         this.ideaService = ideaService;
@@ -65,17 +64,16 @@ var HistoryComponent = (function () {
             });
         });
     };
+    HistoryComponent = __decorate([
+        core_1.Component({
+            encapsulation: core_1.ViewEncapsulation.None,
+            moduleId: module.id,
+            templateUrl: 'history.component.html',
+            styleUrls: ['history.component.css']
+        }), 
+        __metadata('design:paramtypes', [index_1.IdeaService, router_1.ActivatedRoute])
+    ], HistoryComponent);
     return HistoryComponent;
 }());
-HistoryComponent = __decorate([
-    core_1.Component({
-        encapsulation: core_1.ViewEncapsulation.None,
-        moduleId: module.id,
-        templateUrl: 'history.component.html',
-        styleUrls: ['history.component.css']
-    }),
-    __metadata("design:paramtypes", [index_1.IdeaService,
-        router_1.ActivatedRoute])
-], HistoryComponent);
 exports.HistoryComponent = HistoryComponent;
 //# sourceMappingURL=history.component.js.map

@@ -1,8 +1,7 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = require("@angular/router");
-var index_1 = require("./_directives/index");
-var index_2 = require("./_guards/index");
+var router_1 = require('@angular/router');
+var index_1 = require('./_directives/index');
+var index_2 = require('./_guards/index');
 exports.routing = router_1.RouterModule.forRoot([
     {
         path: '',
@@ -11,7 +10,6 @@ exports.routing = router_1.RouterModule.forRoot([
     }, {
         path: 'admin',
         component: index_1.AdminComponent
-        //    canActivate: [AdminGuard]
     }, {
         path: 'ideas/new',
         component: index_1.NewIdeaComponent,
@@ -28,7 +26,6 @@ exports.routing = router_1.RouterModule.forRoot([
     }, {
         path: 'ideas/:ideaId/modifications/:modificationId/merge',
         component: index_1.MergeComponent
-        //   canActivate: [IdeaOwnerAuthGuard]
     }, {
         path: 'ideas',
         component: index_1.IdeasComponent

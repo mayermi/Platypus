@@ -8,13 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-require("rxjs/add/operator/switchMap");
-var index_1 = require("../../_models/index");
-var index_2 = require("../../_services/index");
-var index_3 = require("../../_helpers/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+require('rxjs/add/operator/switchMap');
+var index_1 = require('../../_models/index');
+var index_2 = require('../../_services/index');
+var index_3 = require('../../_helpers/index');
 var IdeaComponent = (function () {
     function IdeaComponent(ideaService, modificationService, route) {
         this.ideaService = ideaService;
@@ -65,17 +64,15 @@ var IdeaComponent = (function () {
             });
         });
     };
+    IdeaComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: 'idea.component.html',
+            styleUrls: ['idea.component.css']
+        }), 
+        __metadata('design:paramtypes', [index_2.IdeaService, index_2.ModificationService, router_1.ActivatedRoute])
+    ], IdeaComponent);
     return IdeaComponent;
 }());
-IdeaComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        templateUrl: 'idea.component.html',
-        styleUrls: ['idea.component.css']
-    }),
-    __metadata("design:paramtypes", [index_2.IdeaService,
-        index_2.ModificationService,
-        router_1.ActivatedRoute])
-], IdeaComponent);
 exports.IdeaComponent = IdeaComponent;
 //# sourceMappingURL=idea.component.js.map

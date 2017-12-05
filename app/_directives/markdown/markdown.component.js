@@ -8,30 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var marked = require("marked");
+var core_1 = require('@angular/core');
+var marked = require('marked');
 var MarkdownComponent = (function () {
     function MarkdownComponent() {
     }
     MarkdownComponent.prototype.ngOnInit = function () {
         this.parsedContent = marked(this.content);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], MarkdownComponent.prototype, "content", void 0);
+    MarkdownComponent = __decorate([
+        core_1.Component({
+            encapsulation: core_1.ViewEncapsulation.None,
+            moduleId: module.id,
+            selector: 'markdown',
+            styleUrls: ['markdown.component.css'],
+            templateUrl: 'markdown.component.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], MarkdownComponent);
     return MarkdownComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], MarkdownComponent.prototype, "content", void 0);
-MarkdownComponent = __decorate([
-    core_1.Component({
-        encapsulation: core_1.ViewEncapsulation.None,
-        moduleId: module.id,
-        selector: 'markdown',
-        styleUrls: ['markdown.component.css'],
-        templateUrl: 'markdown.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], MarkdownComponent);
 exports.MarkdownComponent = MarkdownComponent;
 //# sourceMappingURL=markdown.component.js.map

@@ -8,12 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var moment = require("moment");
-var index_1 = require("../../_models/index");
-var index_2 = require("../../_services/index");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var moment = require('moment');
+var index_1 = require('../../_models/index');
+var index_2 = require('../../_services/index');
 var IdeaTeaserComponent = (function () {
     function IdeaTeaserComponent(ideaService, router) {
         this.ideaService = ideaService;
@@ -32,21 +31,20 @@ var IdeaTeaserComponent = (function () {
             _this.hasLoadedStates = true;
         });
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', index_1.Idea)
+    ], IdeaTeaserComponent.prototype, "idea", void 0);
+    IdeaTeaserComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'idea-teaser',
+            styleUrls: ['idea-teaser.component.css'],
+            templateUrl: 'idea-teaser.component.html',
+        }), 
+        __metadata('design:paramtypes', [index_2.IdeaService, router_1.Router])
+    ], IdeaTeaserComponent);
     return IdeaTeaserComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", index_1.Idea)
-], IdeaTeaserComponent.prototype, "idea", void 0);
-IdeaTeaserComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'idea-teaser',
-        styleUrls: ['idea-teaser.component.css'],
-        templateUrl: 'idea-teaser.component.html',
-    }),
-    __metadata("design:paramtypes", [index_2.IdeaService,
-        router_1.Router])
-], IdeaTeaserComponent);
 exports.IdeaTeaserComponent = IdeaTeaserComponent;
 //# sourceMappingURL=idea-teaser.component.js.map
