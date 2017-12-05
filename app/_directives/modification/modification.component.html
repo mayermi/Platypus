@@ -29,7 +29,7 @@
     </h2>
 
     <div class="modification__reasoning__content">
-      <markdown [content]="modification.reasoning"></markdown>
+      <markdown *ngIf="modification.reasoning" [content]="modification.reasoning"></markdown>
     </div>
   </div>
 
