@@ -69,7 +69,7 @@
         Text
       </label>
 
-      <textarea autofocus id="text" placeholder="Text" [(ngModel)]="addition.text"></textarea>
+      <textarea autofocus id="text" placeholder="Text" *ngIf="addition.text" [(ngModel)]="addition.text"></textarea>
     </input-block>
 
     <input-block>
@@ -77,7 +77,7 @@
         Reasoning
       </label>
 
-      <textarea id="reasoning" placeholder="Reasoning" [(ngModel)]="addition.reasoning"></textarea>
+      <textarea id="reasoning" placeholder="Reasoning" *ngIf="addition.reasoning" [(ngModel)]="addition.reasoning"></textarea>
     </input-block>
 
     <add-block-controls (onCancel)="hideAdditionForm()" (onSave)="saveAddition()"></add-block-controls>
