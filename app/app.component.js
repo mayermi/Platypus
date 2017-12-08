@@ -16,6 +16,7 @@ var AppComponent = (function () {
         this.router = router;
         this.router.events.subscribe(function (event) {
             if (event instanceof router_1.NavigationEnd) {
+                console.log({ window: window, gtag: gtag });
                 window.gtag('set', 'page', event.urlAfterRedirects);
                 window.gtag('send', 'pageview');
             }
