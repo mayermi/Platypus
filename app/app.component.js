@@ -10,8 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
+        this.router.events.subscribe(function (event) {
+            if (event instanceof router_1.NavigationEnd) {
+                window.gtag('set', 'page', event.urlAfterRedirects);
+                window.gtag('send', 'pageview');
+            }
+        });
     }
     return AppComponent;
 }());
@@ -22,7 +30,7 @@ AppComponent = __decorate([
         styleUrls: ['app.component.css'],
         templateUrl: 'app.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
