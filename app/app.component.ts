@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+//import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -8,7 +8,8 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  constructor(public router: Router) {
+  constructor(){}
+  /*constructor(public router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         gtag('set', 'page', event.urlAfterRedirects);
@@ -16,5 +17,5 @@ export class AppComponent {
         console.log('sent pageview of', event.urlAfterRedirects);
       }
     });
-  }
+  }*/
 }
